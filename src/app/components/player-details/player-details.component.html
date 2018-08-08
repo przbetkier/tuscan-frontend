@@ -1,0 +1,10 @@
+<div *ngIf="hasData">
+<p>
+  {{nickname}}
+</p>
+
+<p> Level: {{ player.gameDetails.level }}</p>
+<p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>
+
+<img src="{{player.avatarUrl}}">
+</div>
