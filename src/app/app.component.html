@@ -1,15 +1,1 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <section>
-    Nickname: <input #box (keyup.enter)="getPlayerDetails(box.value)">
-    <input type="submit" value="Search" (click)="getPlayerDetails(box.value)">
-  </section>
-</div>
-
-<section *ngIf="nickname" style="text-align:center">
-  <app-player-details [nickname]="nickname"></app-player-details>
-</section>
-
+<router-outlet></router-outlet>

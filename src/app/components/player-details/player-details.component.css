@@ -1,0 +1,13 @@
+.section-header {
+    background-color: #3498db;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.player {
+    text-align: center;
+}
+
+#matches {
+    margin-top: 10px;
+}

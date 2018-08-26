@@ -1,10 +1,40 @@
+<div class="container">
 <div *ngIf="hasData">
-<p>
-  {{nickname}}
-</p>
 
-<p> Level: {{ player.gameDetails.level }}</p>
-<p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>
+  <div class="row player">
+    <div class="col-12">
+      <h1>{{nickname}}</h1>
+    </div>
+  </div>
 
-<img src="{{player.avatarUrl}}">
+  <div class="row player-details">
+      <div class="section-header col-12"><h2>Player details</h2></div>
+    <div class="col-4"><img src="{{player.avatarUrl}}"></div>
+    <div class="col-8">
+      <section *ngIf="player.gameDetails">
+        <p> Level: <app-badge [level]="player.gameDetails.level"></app-badge></p>
+        <p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>  
+      </section>
+    </div>
+  </div>
+
+  <section id="matches">
+  <div class="row">
+    <div class="section-header col-12"><h2>Matches</h2></div>
+    <div *ngFor="let match of matches" class="col-12">
+      <app-match-cell [match]="match"></app-match-cell>
+    </div>
+  </div>
+  </section>
+
+<section *ngIf="!player.gameDetails">
+  This player has not any csgo matches.
+</section>
+</div>
+
+<div *ngIf="!hasData && !isLoading">
+  Sorry! We could not find player details for provided nickname. 
+</div>
+
+    <app-loader *ngIf="isLoading"></app-loader>
 </div>
