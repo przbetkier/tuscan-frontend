@@ -7,6 +7,8 @@ import { RouterModule } from '../../node_modules/@angular/router';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatchCellComponent } from './components/match-cell/match-cell.component';
 import { BadgeComponent } from './components/badge/badge.component';
+import { ProgressBarComponent } from './components/common/progress-bar/progress-bar.component';
+import { FlagComponent } from './components/common/flag/flag.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { BadgeComponent } from './components/badge/badge.component';
     PlayerDetailsComponent,
     LoaderComponent,
     MatchCellComponent,
-    BadgeComponent
+    BadgeComponent,
+    ProgressBarComponent,
+    FlagComponent
   ],
   imports: [
     BrowserModule,

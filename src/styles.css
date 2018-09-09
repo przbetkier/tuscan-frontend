@@ -1,4 +1,6 @@
 body {
-    background-color: gainsboro;
-    font-family: 'Roboto Slab', serif;
+    /*background-color: gainsboro;*/
+    background-image: url('https://csgo-tutorial.com/wp-content/uploads/2016/01/slider22.jpg');
+    font-family: 'Quantico', sans-serif;
+    color: white;
 }

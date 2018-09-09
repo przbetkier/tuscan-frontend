@@ -1,40 +1,58 @@
 <div class="container">
-<div *ngIf="hasData">
+  <div *ngIf="hasData">
 
-  <div class="row player">
-    <div class="col-12">
-      <h1>{{nickname}}</h1>
+    <div class="row player">
+      <div class="col-12">
+        <h1>{{nickname}} <app-flag [country]="player.country"></app-flag></h1>
+      </div>
     </div>
+
+    <h2 class="header2">Player details</h2>
+    <div class="row player-details">
+      <div class="col-4"><img src="{{player.avatarUrl}}" class="avatar"></div>
+      <div class="col-8">
+        <section *ngIf="player.gameDetails">
+          <p> Level:
+            <app-badge [level]="player.gameDetails.level"></app-badge>
+          </p>
+          <p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>
+          <app-progress-bar [elo]="player.gameDetails.faceitElo"></app-progress-bar>
+        </section>
+      </div>
+    </div>
+
+    <section id="matches">
+    <h2 class="header2">Matches</h2>
+      <div class="row matches-section">
+
+        <div class="col-1">
+          SCORE
+        </div>
+        <div class="col-5">
+          MAP
+        </div>
+        <div class="col-3" style="text-align: right">
+          STARTED AT
+        </div>
+        <div class="col-3" style="text-align: right">
+          FINISHED AT
+        </div>
+
+        <div *ngFor="let match of matches" class="col-12">
+          <app-match-cell [match]="match" [details]="getMatchResult(match.matchId)"></app-match-cell>
+        </div>
+      </div>
+      <button (click)="appendNextMatches()">Show more matches.</button>
+    </section>
+
+    <section *ngIf="!player.gameDetails">
+      This player has not any csgo matches.
+    </section>
   </div>
 
-  <div class="row player-details">
-      <div class="section-header col-12"><h2>Player details</h2></div>
-    <div class="col-4"><img src="{{player.avatarUrl}}"></div>
-    <div class="col-8">
-      <section *ngIf="player.gameDetails">
-        <p> Level: <app-badge [level]="player.gameDetails.level"></app-badge></p>
-        <p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>  
-      </section>
-    </div>
+  <div *ngIf="!hasData && !isLoading">
+    Sorry! We could not find player details for provided nickname.
   </div>
 
-  <section id="matches">
-  <div class="row">
-    <div class="section-header col-12"><h2>Matches</h2></div>
-    <div *ngFor="let match of matches" class="col-12">
-      <app-match-cell [match]="match"></app-match-cell>
-    </div>
-  </div>
-  </section>
-
-<section *ngIf="!player.gameDetails">
-  This player has not any csgo matches.
-</section>
-</div>
-
-<div *ngIf="!hasData && !isLoading">
-  Sorry! We could not find player details for provided nickname. 
-</div>
-
-    <app-loader *ngIf="isLoading"></app-loader>
+  <app-loader *ngIf="isLoading"></app-loader>
 </div>

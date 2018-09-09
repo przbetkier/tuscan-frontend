@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
   getPlayerDetails(nickname: string) {
     this.nickname = nickname;
         if (this.nickname) {
-          console.log(nickname);
           this.router.navigate([`player/${nickname}`]);
         }
   }

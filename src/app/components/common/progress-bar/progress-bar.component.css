@@ -1,0 +1,28 @@
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#tooltips {
+  width: 100%;
+}
+
+#level-1 {
+  width: 0%;
+}
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #ad5b09;
+}
+
+.baselvl-tooltip {
+}
+
+.nextlvl-tooltip {
+  margin-left: 9.2%;
+}
+
+/*#tooltips {*/
+  /*overflow: hidden*/
+/*}*/

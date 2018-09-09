@@ -1,0 +1,20 @@
+.win {
+  background-color: green;
+}
+
+.loss {
+  background-color: red;
+}
+
+.date {
+  text-align: right;
+}
+
+#score {
+  text-align: center;
+}
+
+.match-cell {
+  border-top: 1px ridge rgba(255, 255, 255, 0.2);
+
+}
