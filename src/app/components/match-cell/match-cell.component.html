@@ -1,5 +1,5 @@
-<div *ngIf="details" class="row match-cell">
-<div class="col-1" [ngClass]="{'win': win, 'loss': !win }" id="score">
+<div *ngIf="details" class="row match-cell" (click)="expand()">
+  <div class="col-1" [ngClass]="{'win': win, 'loss': !win }" id="score">
     {{details.score}}
   </div>
   <div class="col-5">
@@ -12,3 +12,4 @@
     {{match.finishedAt | date: 'short'}}
   </div>
 </div>
+<app-match-details *ngIf="expanded" [teams]="details.teams"></app-match-details>

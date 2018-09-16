@@ -16,5 +16,8 @@
 
 .match-cell {
   border-top: 1px ridge rgba(255, 255, 255, 0.2);
+}
 
+.match-cell:hover {
+  background-color: #ad5b09;
 }

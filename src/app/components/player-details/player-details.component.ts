@@ -3,6 +3,7 @@ import {TuscanService} from '../../services/tuscan.service';
 import {Player} from '../../model/player.model';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {SimpleMatch} from '../../model/simple-match.model';
+import {PlayerStats} from '../../model/player-stats.model';
 
 @Component({
   selector: 'app-player-details',
@@ -13,15 +14,14 @@ export class PlayerDetailsComponent implements OnInit {
 
   @Input() nickname: string;
 
-  private hasData: boolean;
-  private isLoading: boolean;
+  public hasData: boolean;
+  public isLoading: boolean;
   public matches: SimpleMatch[] = [];
   private offset = 0;
   private matchesMap = new Map();
-  private allMatchesLoaded = false;
-  private appendingMatches = false;
 
   public player: Player;
+  public playerStats: PlayerStats;
 
   constructor(private tuscanService: TuscanService, private route: ActivatedRoute) {
   }
@@ -41,6 +41,7 @@ export class PlayerDetailsComponent implements OnInit {
         this.hasData = true;
         this.isLoading = false;
         this.getPlayerMatches(this.player.playerId);
+        this.getPlayerOverallStats(this.player.playerId);
       }, error => {
         this.hasData = false;
         this.isLoading = false;
@@ -59,13 +60,15 @@ export class PlayerDetailsComponent implements OnInit {
     );
   }
 
-  private getMatchResult(matchId: string) {
-    return this.matchesMap.get(matchId);
+  private getPlayerOverallStats(playerId: string) {
+    this.tuscanService.getPlayerOverallStats(playerId).subscribe(data => {
+      this.playerStats = data;
+    }, error => {
+      console.log(error); // FIXME: Handle errors. Template?
+    });
   }
 
-  private appendNextMatches() {
-    this.appendingMatches = true;
-    this.offset = this.offset + 25;
-    this.getPlayerMatches(this.player.playerId);
+  private getMatchResult(matchId: string) {
+    return this.matchesMap.get(matchId);
   }
 }

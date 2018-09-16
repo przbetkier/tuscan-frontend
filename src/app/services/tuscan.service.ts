@@ -4,6 +4,7 @@ import {Player} from '../model/player.model';
 import {Matches} from '../model/matches.model';
 import {HttpClient} from '@angular/common/http';
 import {MatchDetails} from '../model/match-details/match-details.model';
+import {PlayerStats} from '../model/player-stats.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class TuscanService {
    public getPlayerDetails(nickname: string): Observable<Player> {
      return this.http.get<Player>('http://localhost:8080/faceit/players/details?nickname=' + nickname);
    }
+
+  public getPlayerOverallStats(playerId: string): Observable<PlayerStats> {
+    return this.http.get<PlayerStats>(`http://localhost:8080/faceit/players/details/csgo/${playerId}`);
+  }
 
    public getPlayerMatches(playerId: string, offset: number): Observable<Matches> {
     return this.http.get<Matches>(`http://localhost:8080/faceit/matches/simple?playerId=${playerId}&offset=${offset}`);

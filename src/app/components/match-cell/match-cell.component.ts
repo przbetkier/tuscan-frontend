@@ -14,14 +14,18 @@ export class MatchCellComponent implements OnChanges {
   @Input() details: MatchDetails;
 
   public win: boolean;
+  public expanded = false;
 
   constructor() {
   }
 
   ngOnChanges() {
     if (!isNullOrUndefined(this.details)) {
-    this.win = this.details.result === 'WIN';
+      this.win = this.details.result === 'WIN';
     }
   }
 
+  public expand() {
+    this.expanded = !this.expanded;
+  }
 }

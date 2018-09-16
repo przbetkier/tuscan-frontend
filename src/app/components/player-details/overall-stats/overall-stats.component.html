@@ -1,0 +1,11 @@
+<div *ngIf="hasData()" id="overallStats">
+  <ul class="">
+    <li>Matches: {{overallStats.matches}}</li>
+    <li>Win rate: {{overallStats.winPercentage}} %</li>
+    <li>Avg K/D: {{overallStats.kdRatio}}</li>
+    <li>Headshots: {{overallStats.headshotPercentage}} %</li>
+    <li>Best solo performance: {{overallStats.highestSoloPerformanceOn | lowercase}}</li>
+    <li>Best team performance: {{overallStats.highestTeamPerformanceOn | lowercase}}</li>
+  </ul>
+</div>
+

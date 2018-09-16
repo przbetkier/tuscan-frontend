@@ -1,0 +1,8 @@
+.team {
+  border-bottom: 1px ridge rgba(255, 255, 255, 0.2);
+  margin-top: 10px;
+}
+
+.table-head {
+  background-color: #404040;
+}

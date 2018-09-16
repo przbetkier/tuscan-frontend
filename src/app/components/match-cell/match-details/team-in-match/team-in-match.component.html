@@ -1,0 +1,29 @@
+<section class="team">
+  <section class="table-head">
+    <div class="row">
+      <div class="col-12">
+        {{team.teamStats.teamName | uppercase}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        Nickname:
+      </div>
+      <div class="col-2">
+        K/A/D:
+      </div>
+      <div class="col-1">
+        K/D:
+      </div>
+      <div class="col-2">
+        K/R:
+      </div>
+      <div class="col-2">
+        HS %:
+      </div>
+    </div>
+  </section>
+  <div *ngFor="let player of team.players">
+    <app-player-performance [player]="player"></app-player-performance>
+  </div>
+</section>

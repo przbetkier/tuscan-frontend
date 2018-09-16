@@ -1,0 +1,15 @@
+.player-performance {
+  border-bottom: 1px ridge rgba(255, 255, 255, 0.2);
+}
+
+.player-performance:hover {
+  background-color: rgba(173, 91, 9, 1);
+}
+
+.kdNegative {
+  background-color: red;
+}
+
+.kdPositive {
+  background-color: green;
+}

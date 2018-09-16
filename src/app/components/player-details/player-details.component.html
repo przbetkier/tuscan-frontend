@@ -9,8 +9,13 @@
 
     <h2 class="header2">Player details</h2>
     <div class="row player-details">
-      <div class="col-4"><img src="{{player.avatarUrl}}" class="avatar"></div>
-      <div class="col-8">
+      <div class="col-2">
+        <img src="{{player.avatarUrl}}" class="avatar">
+      </div>
+      <div class="col-4">
+        <app-overall-stats *ngIf="playerStats" [overallStats]="playerStats.overallStats"></app-overall-stats>
+      </div>
+      <div class="col-6">
         <section *ngIf="player.gameDetails">
           <p> Level:
             <app-badge [level]="player.gameDetails.level"></app-badge>
@@ -22,7 +27,7 @@
     </div>
 
     <section id="matches">
-    <h2 class="header2">Matches</h2>
+    <h2 class="header2">Recent matches</h2>
       <div class="row matches-section">
 
         <div class="col-1">
@@ -42,7 +47,6 @@
           <app-match-cell [match]="match" [details]="getMatchResult(match.matchId)"></app-match-cell>
         </div>
       </div>
-      <button (click)="appendNextMatches()">Show more matches.</button>
     </section>
 
     <section *ngIf="!player.gameDetails">
