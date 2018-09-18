@@ -33,3 +33,7 @@
 .elo {
   text-align: right;
 }
+
+.no-data {
+  color: darkgray;
+}
