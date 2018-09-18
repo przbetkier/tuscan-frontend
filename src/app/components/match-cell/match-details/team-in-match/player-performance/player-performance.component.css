@@ -15,6 +15,6 @@
 }
 
 .checkedPlayer {
-  border: solid 2px rgb(188, 107, 9);
-  background-color: rgba(188, 107, 9, 0.2);
+  color: rgb(243, 128, 30);
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.22);
 }
