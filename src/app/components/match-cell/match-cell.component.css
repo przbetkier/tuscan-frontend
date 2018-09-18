@@ -6,6 +6,14 @@
   background-color: red;
 }
 
+.positive {
+  color: #00a800;
+}
+
+.negative {
+  color: #ef574d;
+}
+
 .date {
   text-align: right;
 }
@@ -20,4 +28,8 @@
 
 .match-cell:hover {
   background-color: #ad5b09;
+}
+
+.elo {
+  text-align: right;
 }

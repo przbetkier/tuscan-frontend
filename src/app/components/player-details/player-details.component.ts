@@ -4,6 +4,8 @@ import {Player} from '../../model/player.model';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {SimpleMatch} from '../../model/simple-match.model';
 import {PlayerStats} from '../../model/player-stats.model';
+import {PlayerHistory} from '../../model/player-history.model';
+import {MatchHistory} from '../../model/match-history.model';
 
 @Component({
   selector: 'app-player-details',
@@ -22,6 +24,7 @@ export class PlayerDetailsComponent implements OnInit {
 
   public player: Player;
   public playerStats: PlayerStats;
+  public playerHistory: PlayerHistory;
 
   constructor(private tuscanService: TuscanService, private route: ActivatedRoute) {
   }
@@ -40,6 +43,7 @@ export class PlayerDetailsComponent implements OnInit {
         this.player = data;
         this.hasData = true;
         this.isLoading = false;
+        this.getPlayerHistory(this.player.playerId);
         this.getPlayerMatches(this.player.playerId);
         this.getPlayerOverallStats(this.player.playerId);
       }, error => {
@@ -70,5 +74,17 @@ export class PlayerDetailsComponent implements OnInit {
 
   private getMatchResult(matchId: string) {
     return this.matchesMap.get(matchId);
+  }
+
+  private getPlayerHistory(playerId: string) {
+    this.tuscanService.getPlayerHistory(playerId).subscribe(data => {
+      this.playerHistory = data;
+    }, error => {
+      console.log(error); // FIXME: Handle errors.
+    });
+  }
+
+  private getMatchHistory(matchId: string): MatchHistory {
+      return this.playerHistory.matchHistory.filter(match => match.matchId === matchId)[0];
   }
 }

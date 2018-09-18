@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {MatchDetails} from '../model/match-details/match-details.model';
 import {PlayerStats} from '../model/player-stats.model';
 import {AppSettings} from '../config/app-settings';
+import {PlayerHistory} from '../model/player-history.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,10 @@ export class TuscanService {
 
   public getMatchDetails(playerId: string, matchId: string): Observable<MatchDetails> {
     return this.http.get<MatchDetails>(`${AppSettings.API_ENDPOINT}/faceit/matches?playerId=${playerId}&matchId=${matchId}`);
+  }
+
+  public getPlayerHistory(playerId: string): Observable<PlayerHistory> {
+    return this.http.get<PlayerHistory>(`${AppSettings.API_ENDPOINT}/faceit/player-history/${playerId}`);
   }
 
 }

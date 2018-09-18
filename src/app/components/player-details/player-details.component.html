@@ -34,7 +34,7 @@
         <div class="col-1">
           SCORE
         </div>
-        <div class="col-5">
+        <div class="col-3">
           MAP
         </div>
         <div class="col-3" style="text-align: right">
@@ -43,9 +43,12 @@
         <div class="col-3" style="text-align: right">
           FINISHED AT
         </div>
+        <div class="col-2" style="text-align: right">
+          ELO DIFF
+        </div>
 
         <div *ngFor="let match of matches" class="col-12">
-          <app-match-cell [match]="match" [details]="getMatchResult(match.matchId)"></app-match-cell>
+          <app-match-cell [match]="match" [details]="getMatchResult(match.matchId)" [matchHistory]="getMatchHistory(match.matchId)"></app-match-cell>
         </div>
       </div>
     </section>

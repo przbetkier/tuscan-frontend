@@ -1,4 +1,4 @@
-import {GameDetails} from './game-details.model'
+import {GameDetails} from './game-details.model';
 
 export class Player {
   constructor(public playerId: string,

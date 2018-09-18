@@ -2,7 +2,7 @@
   <div class="col-1" [ngClass]="{'win': win, 'loss': !win }" id="score">
     {{details.score}}
   </div>
-  <div class="col-5">
+  <div class="col-3">
     {{details.map}}
   </div>
   <div class="col-3 date">
@@ -10,6 +10,9 @@
   </div>
   <div class="col-3 date">
     {{match.finishedAt | date: 'dd/MM/yy, hh:mm a'}}
+  </div>
+  <div class="col-2 elo">
+    <span [ngClass]="{'positive': isPositive(), 'negative': !isPositive() }"><span *ngIf="isPositive()">+</span>{{(matchHistory.eloGain)}}</span>
   </div>
 </div>
 <app-match-details *ngIf="expanded" [teams]="details.teams"></app-match-details>
