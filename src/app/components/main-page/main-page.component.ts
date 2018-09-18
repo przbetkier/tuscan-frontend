@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
 
-  private ESCAPE_KEY = 13;
+  private ENTER_KEY = 13;
   name = '';
 
   constructor(private router: Router) { }
@@ -18,7 +18,7 @@ export class MainPageComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   onEscapeKey(event: KeyboardEvent) {
-    if (event.keyCode === this.ESCAPE_KEY) {
+    if (event.keyCode === this.ENTER_KEY) {
       this.navigateToPlayerStats();
     }
   }

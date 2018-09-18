@@ -6,10 +6,10 @@
     {{details.map}}
   </div>
   <div class="col-3 date">
-    {{match.startedAt | date: 'short'}}
+    {{match.startedAt | date: 'dd/MM/yy, hh:mm a '}}
   </div>
   <div class="col-3 date">
-    {{match.finishedAt | date: 'short'}}
+    {{match.finishedAt | date: 'dd/MM/yy, hh:mm a'}}
   </div>
 </div>
 <app-match-details *ngIf="expanded" [teams]="details.teams"></app-match-details>

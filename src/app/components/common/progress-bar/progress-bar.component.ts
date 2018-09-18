@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {LevelInterval} from '../../../model/level-interval.model';
 
 @Component({
   selector: 'app-progress-bar',
@@ -8,28 +9,50 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ProgressBarComponent implements OnInit {
 
   @Input() elo: number;
+  @Input() level: number;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     const elem = document.getElementById('myBar');
-    const baseLvlPoints = 800;
-    const totalToEarn = 1200;
-    let percentage = 0;
 
-    if (this.elo > baseLvlPoints && this.elo <= 2000) {
-      const difference = this.elo - baseLvlPoints;
-      percentage = (difference / totalToEarn) * 100;
-    } else if (this.elo < baseLvlPoints) {
-      percentage = 1;
-    } else {
-      percentage = 100;
+    let totalProgress;
+    let intervals: LevelInterval[] = [];
+    intervals = intervals.concat(
+      new LevelInterval(1, 0, 800),
+      new LevelInterval(2, 801, 951),
+      new LevelInterval(3, 951, 1101),
+      new LevelInterval(4, 1101, 1251),
+      new LevelInterval(5, 1251, 1401),
+      new LevelInterval(6, 1401, 1551),
+      new LevelInterval(7, 1551, 1701),
+      new LevelInterval(8, 1701, 1851),
+      new LevelInterval(9, 1851, 2000),
+      new LevelInterval(10, 2000, 3000)
+    );
+
+    if (this.level > 1 && this.level < 10) {
+      const difference = this.elo - intervals[this.level - 1].base;
+      const progress = (difference / 150) * 10;
+      totalProgress = ((this.level - 1) * 10) + progress;
+    } else if (this.level === 1) {
+      const difference = this.elo - intervals[0].base;
+      const progress = (difference / 800) * 10;
+      totalProgress = ((this.level - 1) * 10) + progress;
+    } else if (this.level === 10 && this.elo < 3000) {
+      const difference = this.elo - intervals[this.level - 1].base;
+      const progress = (difference / 1000) * 10;
+      totalProgress = ((this.level - 1) * 10) + progress;
+    } else if (this.level === 10 && this.elo >= 3000) {
+      totalProgress = 100;
     }
     let width = 1;
 
     const id = setInterval(frame, 10);
+
     function frame() {
-      if (width >= percentage) {
+      if (width >= totalProgress) {
         clearInterval(id);
       } else {
         width++;

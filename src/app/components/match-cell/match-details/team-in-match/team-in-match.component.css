@@ -6,3 +6,11 @@
 .table-head {
   background-color: #404040;
 }
+
+.active {
+  color: #3498db;
+}
+
+span {
+  cursor: pointer;
+}

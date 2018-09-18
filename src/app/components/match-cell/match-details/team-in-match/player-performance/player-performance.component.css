@@ -13,3 +13,8 @@
 .kdPositive {
   background-color: green;
 }
+
+.checkedPlayer {
+  border: solid 2px rgb(188, 107, 9);
+  background-color: rgba(188, 107, 9, 0.2);
+}

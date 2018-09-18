@@ -10,20 +10,20 @@
         Nickname:
       </div>
       <div class="col-2">
-        K/A/D:
+        <span (click)="sortByKills()" [ngClass]="{'active': byKills}">K</span>/<span (click)="sortByAssists()" [ngClass]="{'active': byAssists}">A</span>/<span (click)="sortByDeaths()" [ngClass]="{'active': byDeaths}">D</span>:
       </div>
-      <div class="col-1">
-        K/D:
+      <div class="col-1" (click)="sortByKdRatio()" [ngClass]="{'active': byKdRatio}">
+        <span>K/D:</span>
       </div>
-      <div class="col-2">
-        K/R:
+      <div class="col-2" (click)="sortByKrRatio()" [ngClass]="{'active': byKrRatio}">
+        <span>K/R:</span>
       </div>
-      <div class="col-2">
-        HS %:
+      <div class="col-2" (click)="sortByHsPercentage()" [ngClass]="{'active': byHsPercentage}">
+        <span>HS %:</span>
       </div>
     </div>
   </section>
-  <div *ngFor="let player of team.players">
+  <div *ngFor="let player of players | orderBy: order: reversed">
     <app-player-performance [player]="player"></app-player-performance>
   </div>
 </section>

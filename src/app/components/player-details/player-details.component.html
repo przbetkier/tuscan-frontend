@@ -21,7 +21,8 @@
             <app-badge [level]="player.gameDetails.level"></app-badge>
           </p>
           <p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>
-          <app-progress-bar [elo]="player.gameDetails.faceitElo"></app-progress-bar>
+          <app-progress-bar [elo]="player.gameDetails.faceitElo" [level]="player.gameDetails.level"></app-progress-bar>
+          <app-level-hint [level]="player.gameDetails.level" [elo]="player.gameDetails.faceitElo"></app-level-hint>
         </section>
       </div>
     </div>
@@ -50,7 +51,7 @@
     </section>
 
     <section *ngIf="!player.gameDetails">
-      This player has not any csgo matches.
+      This player has not any CS:GO matches.
     </section>
   </div>
 

@@ -13,8 +13,10 @@ import {OverallStatsComponent} from './components/player-details/overall-stats/o
 import {MatchDetailsComponent} from './components/match-cell/match-details/match-details.component';
 import {TeamInMatchComponent} from './components/match-cell/match-details/team-in-match/team-in-match.component';
 import {PlayerPerformanceComponent} from './components/match-cell/match-details/team-in-match/player-performance/player-performance.component';
-import { MainPageComponent } from './components/main-page/main-page.component';
+import {MainPageComponent} from './components/main-page/main-page.component';
 import {FormsModule} from '@angular/forms';
+import {OrderModule} from 'ngx-order-pipe';
+import {LevelHintComponent} from './components/player-details/overall-stats/level-hint/level-hint.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,12 @@ import {FormsModule} from '@angular/forms';
     MatchDetailsComponent,
     TeamInMatchComponent,
     PlayerPerformanceComponent,
-    MainPageComponent
+    MainPageComponent,
+    LevelHintComponent
   ],
   imports: [
     BrowserModule,
+    OrderModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(
