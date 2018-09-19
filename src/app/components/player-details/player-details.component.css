@@ -16,15 +16,24 @@
 }
 
 .matches-section {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(175, 175, 175, 0.39);
+  border-radius: 6px;
 }
 
 .player-details {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(175, 175, 175, 0.39);
+  border-radius: 6px;
   padding: 10px;
 }
 
 .avatar {
   height: 180px;
   width: 180px;
+}
+
+@media screen and (max-width: 992px) {
+  .avatar {
+    height: 140px;
+    width: 140px;
+  }
 }

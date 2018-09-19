@@ -24,6 +24,13 @@
 
 .match-cell {
   border-top: 1px ridge rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+  .match-cell {
+    font-size: 12px;
+  }
 }
 
 .match-cell:hover {

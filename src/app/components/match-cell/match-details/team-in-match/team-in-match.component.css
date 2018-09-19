@@ -1,10 +1,18 @@
 .team {
-  border-bottom: 1px ridge rgba(255, 255, 255, 0.2);
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .table-head {
-  background-color: #404040;
+  background-color: #545454;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 992px) {
+  .table-head {
+    font-size: 12px;
+  }
 }
 
 .active {

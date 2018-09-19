@@ -1,7 +1,7 @@
 body {
-    background-image: url('https://csgo-tutorial.com/wp-content/uploads/2016/01/slider22.jpg');
-    font-family: 'Lato', sans-serif;
-    color: white;
+  background: url("assets/background/tuscan-bg.png");
+  font-family: 'Lato', sans-serif;
+  color: white;
 }
 
 h1, h2 {

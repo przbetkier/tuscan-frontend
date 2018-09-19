@@ -6,19 +6,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-4">
+      <div class="col-3 col-md-4">
         Nickname:
       </div>
-      <div class="col-2">
+      <div class="col-3 col-md-2">
         <span (click)="sortByKills()" [ngClass]="{'active': byKills}">K</span>/<span (click)="sortByAssists()" [ngClass]="{'active': byAssists}">A</span>/<span (click)="sortByDeaths()" [ngClass]="{'active': byDeaths}">D</span>:
       </div>
-      <div class="col-1" (click)="sortByKdRatio()" [ngClass]="{'active': byKdRatio}">
+      <div class="col-2 col-md-1" (click)="sortByKdRatio()" [ngClass]="{'active': byKdRatio}">
         <span>K/D:</span>
       </div>
       <div class="col-2" (click)="sortByKrRatio()" [ngClass]="{'active': byKrRatio}">
         <span>K/R:</span>
       </div>
-      <div class="col-2" (click)="sortByHsPercentage()" [ngClass]="{'active': byHsPercentage}">
+      <div class="col-1 col-md-2" (click)="sortByHsPercentage()" [ngClass]="{'active': byHsPercentage}">
         <span>HS %:</span>
       </div>
     </div>

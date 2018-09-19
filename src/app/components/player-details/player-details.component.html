@@ -8,14 +8,14 @@
     </div>
 
     <h2 class="header2">Player details</h2>
-    <div class="row player-details">
-      <div class="col-2">
+    <div class="row player-details justify-content-around">
+      <div class="col-4 col-md-2">
         <img src="{{player.avatarUrl}}" class="avatar">
       </div>
-      <div class="col-4">
+      <div class="col-8 col-md-4">
         <app-overall-stats *ngIf="playerStats" [overallStats]="playerStats.overallStats"></app-overall-stats>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <section *ngIf="player.gameDetails">
           <p> Level:
             <app-badge [level]="player.gameDetails.level"></app-badge>
@@ -31,10 +31,10 @@
     <h2 class="header2">Recent matches</h2>
       <div class="row matches-section">
 
-        <div class="col-1">
+        <div class="col-2 col-lg-1">
           SCORE
         </div>
-        <div class="col-3">
+        <div class="col-2 col-lg-3">
           MAP
         </div>
         <div class="col-3" style="text-align: right">

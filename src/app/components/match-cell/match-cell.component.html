@@ -1,12 +1,12 @@
 <div *ngIf="details" class="row match-cell" (click)="expand()">
-  <div class="col-1" [ngClass]="{'win': win, 'loss': !win }" id="score">
+  <div class="col-2 col-lg-1" [ngClass]="{'win': win, 'loss': !win }" id="score">
     {{details.score}}
   </div>
-  <div class="col-3">
+  <div class="col-2 col-lg-3">
     {{details.map}}
   </div>
   <div class="col-3 date">
-    {{match.startedAt | date: 'dd/MM/yy, hh:mm a '}}
+    {{match.startedAt | date: 'dd/MM/yy, hh:mm a'}}
   </div>
   <div class="col-3 date">
     {{match.finishedAt | date: 'dd/MM/yy, hh:mm a'}}
