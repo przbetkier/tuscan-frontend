@@ -17,6 +17,9 @@ import {MainPageComponent} from './components/main-page/main-page.component';
 import {FormsModule} from '@angular/forms';
 import {OrderModule} from 'ngx-order-pipe';
 import {LevelHintComponent} from './components/player-details/overall-stats/level-hint/level-hint.component';
+import {LastMatchesPerformanceComponent} from './components/last-matches-performance/last-matches-performance.component';
+import {EloHistoryChartComponent} from './components/elo-history-chart/elo-history-chart.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -32,13 +35,16 @@ import {LevelHintComponent} from './components/player-details/overall-stats/leve
     TeamInMatchComponent,
     PlayerPerformanceComponent,
     MainPageComponent,
-    LevelHintComponent
+    LevelHintComponent,
+    LastMatchesPerformanceComponent,
+    EloHistoryChartComponent
   ],
   imports: [
     BrowserModule,
     OrderModule,
     HttpClientModule,
     FormsModule,
+    MDBBootstrapModule,
     RouterModule.forRoot(
       [
         {path: '', component: MainPageComponent},

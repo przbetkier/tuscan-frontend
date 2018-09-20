@@ -6,6 +6,7 @@ import {SimpleMatch} from '../../model/simple-match.model';
 import {PlayerStats} from '../../model/player-stats.model';
 import {PlayerHistory} from '../../model/player-history.model';
 import {MatchHistory} from '../../model/match-history.model';
+import {MatchDetails} from '../../model/match-details/match-details.model';
 
 @Component({
   selector: 'app-player-details',
@@ -15,12 +16,15 @@ import {MatchHistory} from '../../model/match-history.model';
 export class PlayerDetailsComponent implements OnInit {
 
   @Input() nickname: string;
+  public detailedPlayers = [];
+
+  public allMatchesLoaded: boolean;
 
   public hasData: boolean;
   public isLoading: boolean;
   public matches: SimpleMatch[] = [];
   private offset = 0;
-  private matchesMap = new Map();
+  public matchesMap: MatchDetails[] = [];
 
   public player: Player;
   public playerStats: PlayerStats;
@@ -55,9 +59,24 @@ export class PlayerDetailsComponent implements OnInit {
   private getPlayerMatches(playerId: string) {
     this.tuscanService.getPlayerMatches(playerId, this.offset).subscribe(data => {
         this.matches = this.matches.concat(data.simpleMatchList);
-        this.matches.forEach(m => this.tuscanService.getMatchDetails(this.player.playerId, m.matchId).subscribe(data => {
-          this.matchesMap.set(data.matchId, data);
-        }));
+        this.matches.forEach(
+          m => this.tuscanService.getMatchDetails(this.player.playerId, m.matchId)
+            .subscribe(response => {
+              this.matchesMap.push(response);
+              if (this.matchesMap.length === this.matches.length) {
+                this.allMatchesLoaded = true;
+              }
+
+              response.teams.forEach(t => {
+                t.players.forEach(p => {
+                  if (p.nickname === this.nickname) {
+                    this.detailedPlayers.push(p);
+
+                  }
+                });
+              });
+            }));
+
       }, error => {
         console.log(error); // FIXME: Handle status code - 500 -> retries; 404 -> no matches to load!
       }
@@ -73,7 +92,7 @@ export class PlayerDetailsComponent implements OnInit {
   }
 
   private getMatchResult(matchId: string) {
-    return this.matchesMap.get(matchId);
+    return this.matchesMap.filter(m => m.matchId === matchId)[0];
   }
 
   private getPlayerHistory(playerId: string) {
@@ -85,6 +104,19 @@ export class PlayerDetailsComponent implements OnInit {
   }
 
   private getMatchHistory(matchId: string): MatchHistory {
-      return this.playerHistory.matchHistory.filter(match => match.matchId === matchId)[0];
+    return this.playerHistory.matchHistory.filter(match => match.matchId === matchId)[0];
+  }
+
+  private getWinsCount(): number {
+    return this.matchesMap.filter(m => m.result === 'WIN').length * 100;
+  }
+
+  private getEloGained(): number {
+    const oldestMatchElo = this.playerHistory.matchHistory[19].elo;
+    if (oldestMatchElo !== 0) {
+      return (this.player.gameDetails.faceitElo - oldestMatchElo);
+    } else {
+      return -9999; // TODO: Implement better mechanism...
+    }
   }
 }

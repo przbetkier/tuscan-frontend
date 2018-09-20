@@ -3,14 +3,17 @@
 
     <div class="row player">
       <div class="col-12">
-        <h1>{{nickname}} <app-flag [country]="player.country"></app-flag></h1>
+        <h1>{{nickname}}
+          <app-flag [country]="player.country"></app-flag>
+        </h1>
       </div>
     </div>
 
     <h2 class="header2">Player details</h2>
     <div class="row player-details justify-content-around">
       <div class="col-4 col-md-2">
-        <img src="{{player.avatarUrl}}" class="avatar">
+        <img *ngIf="player.avatarUrl !== ''" src="{{player.avatarUrl}}" class="avatar">
+        <img *ngIf="player.avatarUrl === ''" src="assets/common/empty-avatar.jpeg" class="avatar">
       </div>
       <div class="col-8 col-md-4">
         <app-overall-stats *ngIf="playerStats" [overallStats]="playerStats.overallStats"></app-overall-stats>
@@ -27,8 +30,37 @@
       </div>
     </div>
 
+    <section id="recent-performance">
+      <h2 class="header2">Recent performance</h2>
+      <div class="row justify-content-around player-details">
+        <!--FIXME: player-details css?-->
+        <div class="col-12 col-md-4">
+          <h4 class="header2">Last 20 matches:</h4>
+          <div class="row">
+            <div class="col-12">
+              <app-loader *ngIf="!allMatchesLoaded"></app-loader>
+              <app-last-matches-performance *ngIf="allMatchesLoaded && playerHistory"
+                                            [nickname]="nickname"
+                                            [playerModels]="detailedPlayers"
+                                            [wins]="getWinsCount()"
+                                            [eloGained]="getEloGained()">
+              </app-last-matches-performance>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <h4 class="header2">Elo progress:</h4>
+          <div class="row">
+            <div class="col-12">
+              <app-elo-history-chart *ngIf="playerHistory" [playerHistory]="playerHistory"></app-elo-history-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="matches">
-    <h2 class="header2">Recent matches</h2>
+      <h2 class="header2">Recent matches</h2>
       <div class="row matches-section">
 
         <div class="col-2 col-lg-1">
@@ -48,7 +80,10 @@
         </div>
 
         <div *ngFor="let match of matches" class="col-12">
-          <app-match-cell [match]="match" [details]="getMatchResult(match.matchId)" [matchHistory]="getMatchHistory(match.matchId)"></app-match-cell>
+          <app-match-cell [match]="match"
+                          [details]="getMatchResult(match.matchId)"
+                          [matchHistory]="getMatchHistory(match.matchId)">
+          </app-match-cell>
         </div>
       </div>
     </section>

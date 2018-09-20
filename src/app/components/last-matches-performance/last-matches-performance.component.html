@@ -1,0 +1,24 @@
+<table class="table">
+  <tbody>
+  <tr>
+    <td>Headshots</td>
+    <td>{{hsPercentageAvg / playerModels.length | number: '1.2-2'}} %</td>
+  </tr>
+  <tr>
+    <td>K/D</td>
+    <td>{{kdRatioAvg / playerModels.length | number: '1.2-2'}}</td>
+  </tr>
+  <tr>
+    <td>Kills per match</td>
+    <td>{{killsPerMatchAvg / playerModels.length | number: '1.2-2'}}</td>
+  </tr>
+  <tr>
+    <td>Win rate</td>
+    <td>{{wins / playerModels.length}} %</td>
+  </tr>
+  <tr>
+    <td>3K / 4K / Aces</td>
+    <td>{{tripleKills}} / {{quadroKills}} / {{pentaKills}}</td>
+  </tr>
+  </tbody>
+</table>

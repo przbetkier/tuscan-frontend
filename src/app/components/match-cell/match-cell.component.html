@@ -11,7 +11,7 @@
   <div class="col-3 date">
     {{match.finishedAt | date: 'dd/MM/yy, hh:mm a'}}
   </div>
-  <div class="col-2 elo">
+  <div *ngIf="matchHistory" class="col-2 elo">
     <span *ngIf="matchHistory.eloGain !== 0" [ngClass]="{'positive': isPositive(), 'negative': !isPositive() }"><span *ngIf="isPositive()">+</span>{{(matchHistory.eloGain)}}</span>
     <span class="no-data" *ngIf="matchHistory.eloGain === 0">no data</span>
   </div>
