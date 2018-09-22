@@ -4,8 +4,14 @@ const path = require('path');
 
 app.listen(process.env.PORT || 8080);
 
-app.use(express.static(__dirname + '/dist/tuscan-frontend'));
+app.use((function (req, res, next) {
+  if (req.secure) {
+    express.static(__dirname + '/dist/tuscan-frontend')
+  } else {
+    res.redirect('https://' + req.headers.host + req.url);
 
+  }
+}));
 
 // PathLocationStrategy
 
