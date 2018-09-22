@@ -35,7 +35,7 @@
       <div class="row justify-content-around player-details">
         <!--FIXME: player-details css?-->
         <div class="col-12 col-md-4">
-          <h4 class="header2">Last 20 matches:</h4>
+          <h4 class="header2">Last {{matchesMap.length}} matches:</h4>
           <div class="row">
             <div class="col-12">
               <app-loader *ngIf="!allMatchesLoaded"></app-loader>

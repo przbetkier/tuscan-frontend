@@ -26,6 +26,8 @@ export class PlayerDetailsComponent implements OnInit {
   private offset = 0;
   public matchesMap: MatchDetails[] = [];
 
+  public matchesFetched = 0;
+
   public player: Player;
   public playerStats: PlayerStats;
   public playerHistory: PlayerHistory;
@@ -63,9 +65,11 @@ export class PlayerDetailsComponent implements OnInit {
           m => this.tuscanService.getMatchDetails(this.player.playerId, m.matchId)
             .subscribe(response => {
               this.matchesMap.push(response);
-              if (this.matchesMap.length === this.matches.length) {
+              this.matchesFetched = this.matchesFetched + 1;
+              if (this.matches.length === this.matchesFetched) {
                 this.allMatchesLoaded = true;
               }
+
 
               response.teams.forEach(t => {
                 t.players.forEach(p => {
@@ -75,6 +79,9 @@ export class PlayerDetailsComponent implements OnInit {
                   }
                 });
               });
+
+            }, error => {
+              this.matchesFetched = this.matchesFetched + 1;
             }));
 
       }, error => {
