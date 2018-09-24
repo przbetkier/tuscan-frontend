@@ -20,6 +20,8 @@ import {LevelHintComponent} from './components/player-details/overall-stats/leve
 import {LastMatchesPerformanceComponent} from './components/last-matches-performance/last-matches-performance.component';
 import {EloHistoryChartComponent} from './components/elo-history-chart/elo-history-chart.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {MapPerformanceComponent} from './components/map-performance/map-performance.component';
+import {ThumbnailComponent} from './components/map-performance/thumbnail/thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
     MainPageComponent,
     LevelHintComponent,
     LastMatchesPerformanceComponent,
-    EloHistoryChartComponent
+    EloHistoryChartComponent,
+    MapPerformanceComponent,
+    ThumbnailComponent
   ],
   imports: [
     BrowserModule,

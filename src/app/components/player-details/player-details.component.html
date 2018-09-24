@@ -30,6 +30,15 @@
       </div>
     </div>
 
+    <section id="map-performance" *ngIf="playerStats">
+      <h2 class="header2">Map performance</h2>
+      <div class="row matches-section">
+        <div class="col-12">
+          <app-map-performance [performance]="playerStats.overallStats.performance"></app-map-performance>
+        </div>
+      </div>
+    </section>
+
     <section id="recent-performance">
       <h2 class="header2">Recent performance</h2>
       <div class="row justify-content-around player-details">

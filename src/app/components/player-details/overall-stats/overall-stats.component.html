@@ -1,11 +1,11 @@
 <div *ngIf="hasData()" id="overallStats">
-  <ul class="">
+  <ul>
     <li>Matches: {{overallStats.matches}}</li>
     <li>Win rate: {{overallStats.winPercentage}} %</li>
     <li>Avg K/D: {{overallStats.kdRatio}}</li>
     <li>Headshots: {{overallStats.headshotPercentage}} %</li>
-    <li>Best solo performance: {{overallStats.highestSoloPerformanceOn | lowercase}}</li>
-    <li>Best team performance: {{overallStats.highestTeamPerformanceOn | lowercase}}</li>
+    <li>Current win streak: {{overallStats.currentWinStreak}}</li>
+    <li>Longest win streak: {{overallStats.longestWinStreak}}</li>
   </ul>
 </div>
 

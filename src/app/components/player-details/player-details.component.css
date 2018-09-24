@@ -6,7 +6,7 @@
 }
 
 .player {
-    text-align: center;
+  text-align: center;
   margin-top: 16px;
 }
 
@@ -23,6 +23,16 @@
 #recent-performance {
   margin-top: 24px;
   margin-bottom: 24px;
+}
+
+#map-performance {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.map-performance-section {
+  background-color: rgba(175, 175, 175, 0.39);
+  border-radius: 6px;
 }
 
 .matches-section {
