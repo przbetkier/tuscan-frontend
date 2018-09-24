@@ -22,6 +22,7 @@ export class LastMatchesPerformanceComponent implements OnInit {
   public tripleKills = 0;
   public quadroKills = 0;
   public pentaKills = 0;
+  public assistsAvg = 0;
 
   constructor() {
   }
@@ -37,6 +38,7 @@ export class LastMatchesPerformanceComponent implements OnInit {
         this.tripleKills = this.tripleKills + this.playerModels[index].playerStats.tripleKills;
         this.quadroKills = this.quadroKills + this.playerModels[index].playerStats.quadroKills;
         this.pentaKills = this.pentaKills + this.playerModels[index].playerStats.pentaKills;
+        this.assistsAvg = this.assistsAvg + this.playerModels[index].playerStats.assists
       }
     }
     this.loading = false;
