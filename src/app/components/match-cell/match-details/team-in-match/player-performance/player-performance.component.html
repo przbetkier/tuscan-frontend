@@ -1,7 +1,7 @@
 <section class="player-performance" [ngClass]="{'checkedPlayer': isCheckedPlayer}">
   <div class="row">
     <div class="col-3 col-md-4">
-      <a href="/player/{{player.nickname}}">{{player.nickname}}</a>
+      <a [ngClass]="{'playerLinkChecked': isCheckedPlayer, 'playerLinkNormal': !isCheckedPlayer}" href="/player/{{player.nickname}}">{{player.nickname}}</a>
     </div>
     <div class="col-3 col-md-2">
       {{player.playerStats.kills}}/{{player.playerStats.assists}}/{{player.playerStats.deaths}}

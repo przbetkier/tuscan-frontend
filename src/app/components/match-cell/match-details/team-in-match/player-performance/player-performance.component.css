@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .player-performance {
   background-color: gray;
   padding: 4px;
@@ -25,12 +29,15 @@
   background-color: green;
 }
 
+.playerLinkChecked {
+  color: rgb(72, 203, 243);
+}
+
+.playerLinkNormal {
+  color: white;
+}
+
 .checkedPlayer {
   color: rgb(72, 203, 243);
   text-shadow: 2px 2px rgba(17, 17, 17, 0.37);
-}
-
-a {
-  color: white;
-  text-decoration: none;
 }
