@@ -25,6 +25,7 @@
 .match-cell {
   border-top: 1px ridge rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  transition: 0.65s;
 }
 
 @media screen and (max-width: 992px) {
@@ -35,6 +36,7 @@
 
 .match-cell:hover {
   background-color: #ad5b09;
+  transition: 0.3s;
 }
 
 .elo {
