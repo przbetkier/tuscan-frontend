@@ -18,6 +18,14 @@
   text-align: right;
 }
 
+.map {
+  margin-left: 8px;
+}
+
+.cell-with-padding {
+  padding: 5px;
+}
+
 #score {
   text-align: center;
 }
@@ -45,4 +53,12 @@
 
 .no-data {
   color: darkgray;
+}
+
+.divA {
+  height: 0;
+}
+
+.details-match {
+  padding: 15px 15px;
 }
