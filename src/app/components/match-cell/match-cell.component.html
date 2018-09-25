@@ -1,19 +1,33 @@
-<div *ngIf="details" class="row match-cell" (click)="expand()">
+<div *ngIf="details" class="row match-cell" (click)="expand('divA')">
   <div class="col-2 col-lg-1" [ngClass]="{'win': win, 'loss': !win }" id="score">
     {{details.score}}
   </div>
-  <div class="col-2 col-lg-3">
-    {{details.map}}
+  <div class="col-2 col-lg-3 cell-with-padding">
+    <span class="map">{{details.map}}</span>
   </div>
-  <div class="col-3 date">
+  <div class="col-3 date cell-with-padding">
     {{match.startedAt | date: 'dd/MM/yy, hh:mm a'}}
   </div>
-  <div class="col-3 date">
+  <div class="col-3 date cell-with-padding">
     {{match.finishedAt | date: 'dd/MM/yy, hh:mm a'}}
   </div>
-  <div *ngIf="matchHistory" class="col-2 elo">
-    <span *ngIf="matchHistory.eloGain !== 0" [ngClass]="{'positive': isPositive(), 'negative': !isPositive() }"><span *ngIf="isPositive()">+</span>{{(matchHistory.eloGain)}}</span>
+  <div *ngIf="matchHistory" class="col-2 elo cell-with-padding">
+    <span *ngIf="matchHistory.eloGain !== 0" [ngClass]="{'positive': isPositive(), 'negative': !isPositive() }"><span
+      *ngIf="isPositive()">+</span>{{(matchHistory.eloGain)}}</span>
     <span class="no-data" *ngIf="matchHistory.eloGain === 0">no data</span>
   </div>
 </div>
-<app-match-details *ngIf="expanded" [teams]="details.teams"></app-match-details>
+<div *ngIf="details" [@slideInOut]="animationState" [hidden]="!expanded">
+  <div class="row">
+    <div class="col-12">
+      <div class="row details-match">
+        <div class="col-12">
+          <app-team-in-match [team]="details.teams[0]"></app-team-in-match>
+        </div>
+        <div class="col-12">
+          <app-team-in-match [team]="details.teams[1]"></app-team-in-match>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

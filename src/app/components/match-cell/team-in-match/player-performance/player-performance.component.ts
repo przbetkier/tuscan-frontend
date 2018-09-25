@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PlayerMatchModel} from '../../../../../model/match-details/player-match.model';
+import {PlayerMatchModel} from '../../../../model/match-details/player-match.model';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
