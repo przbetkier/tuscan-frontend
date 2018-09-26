@@ -7,6 +7,7 @@ import {MatchDetails} from '../model/match-details/match-details.model';
 import {PlayerStats} from '../model/player-stats.model';
 import {AppSettings} from '../config/app-settings';
 import {PlayerHistory} from '../model/player-history.model';
+import {LatestProfiles} from '../model/latest-profiles.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +37,11 @@ export class TuscanService {
     return this.http.get<PlayerHistory>(`${AppSettings.API_ENDPOINT}/faceit/player-history/${playerId}`);
   }
 
+  public getLastProfiles(): Observable<LatestProfiles> {
+    return this.http.get<LatestProfiles>(`${AppSettings.API_ENDPOINT}/tuscan-api/latest-profiles`);
+  }
+
+  public postPlayerSearched(nickname: string) {
+    return this.http.post(`${AppSettings.API_ENDPOINT}/tuscan-api/latest-profiles`, nickname);
+  }
 }

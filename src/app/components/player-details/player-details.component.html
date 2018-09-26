@@ -68,7 +68,7 @@
       </div>
     </section>
 
-    <section id="matches">
+    <section id="matches" *ngIf="playerHistory">
       <h2 class="header2">Recent matches</h2>
       <div class="row matches-section">
 
@@ -106,5 +106,5 @@
     Sorry! We could not find player details for provided nickname.
   </div>
 
-  <app-loader *ngIf="isLoading"></app-loader>
+  <app-loader *ngIf="isLoading" class="main-loader"></app-loader>
 </div>

@@ -11,7 +11,7 @@ export class EloHistoryChartComponent implements OnInit {
 
   @Input() playerHistory: PlayerHistory;
 
-  public chartType: string = 'line';
+  public chartType = 'line';
 
   public chartDatasets: Array<any>;
 

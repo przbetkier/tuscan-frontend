@@ -1,0 +1,11 @@
+<section class="latest-players-section">
+  <app-loader *ngIf="!loaded"></app-loader>
+  <div *ngIf="loaded" class="row justify-content-around">
+    <div *ngFor="let profile of latestProfiles.latestProfiles | slice:0:4;" class="col-6 col-md-3 profile">
+      <app-profile [profile]="profile"></app-profile>
+    </div>
+    <div class="col-12" *ngIf="latestProfiles.latestProfiles.length === 0">
+      <span> Currently there are no recent searches.</span>
+    </div>
+  </div>
+</section>
