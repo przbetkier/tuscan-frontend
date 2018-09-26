@@ -1,13 +1,15 @@
+.main-loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .section-header {
     background: rgba(254, 82, 23, 0.55);
     margin-top: 8px;
     margin-bottom: 8px;
     padding: auto;
-}
-
-.player {
-  text-align: center;
-  margin-top: 16px;
 }
 
 #matches {
@@ -44,6 +46,11 @@
   background-color: rgba(175, 175, 175, 0.39);
   border-radius: 6px;
   padding: 10px;
+}
+
+.player {
+  text-align: center;
+  margin-top: 16px;
 }
 
 .avatar {

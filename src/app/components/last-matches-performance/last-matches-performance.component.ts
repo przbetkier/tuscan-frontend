@@ -24,9 +24,6 @@ export class LastMatchesPerformanceComponent implements OnInit {
   public pentaKills = 0;
   public assistsAvg = 0;
 
-  constructor() {
-  }
-
   ngOnInit() {
 
     if (!isNullOrUndefined(this.playerModels)) {
@@ -38,7 +35,7 @@ export class LastMatchesPerformanceComponent implements OnInit {
         this.tripleKills = this.tripleKills + this.playerModels[index].playerStats.tripleKills;
         this.quadroKills = this.quadroKills + this.playerModels[index].playerStats.quadroKills;
         this.pentaKills = this.pentaKills + this.playerModels[index].playerStats.pentaKills;
-        this.assistsAvg = this.assistsAvg + this.playerModels[index].playerStats.assists
+        this.assistsAvg = this.assistsAvg + this.playerModels[index].playerStats.assists;
       }
     }
     this.loading = false;

@@ -22,6 +22,8 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {MapPerformanceComponent} from './components/map-performance/map-performance.component';
 import {ThumbnailComponent} from './components/map-performance/thumbnail/thumbnail.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LatestProfilesComponent} from './components/latest-profiles/latest-profiles.component';
+import {ProfileComponent} from './components/latest-profiles/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LastMatchesPerformanceComponent,
     EloHistoryChartComponent,
     MapPerformanceComponent,
-    ThumbnailComponent
+    ThumbnailComponent,
+    LatestProfilesComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -52,6 +52,7 @@ export class PlayerDetailsComponent implements OnInit {
         this.getPlayerHistory(this.player.playerId);
         this.getPlayerMatches(this.player.playerId);
         this.getPlayerOverallStats(this.player.playerId);
+        this.tuscanService.postPlayerSearched(this.nickname).subscribe();
       }, error => {
         this.hasData = false;
         this.isLoading = false;

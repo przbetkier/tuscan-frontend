@@ -1,0 +1,34 @@
+ul {
+  list-style-type: none;
+}
+
+img {
+  width: 32px;
+  height: 32px;
+}
+
+@media (min-width: 1366px) {
+  img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.profile {
+  font-size: 12px;
+  font-family: 'Quantico', sans-serif;
+}
+
+.badge {
+  width: 16px;
+  height: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(227, 135, 19);
+}
+
+.profile:hover {
+  cursor: pointer;
+}

@@ -1,18 +1,28 @@
-<div class="container">
-  <h1>Tuscan</h1>
-  <h3>Team Stats CS:GO Analyzer</h3>
+<div class="container" [ngClass]="{'hello-page': innerWidth >= 768}">
+  <section [ngClass]="{'header-small': innerWidth <= 768}">
+    <h1>Tuscan</h1>
+    <h3>Team Stats CS:GO Analyzer</h3>
+  </section>
 
-  <div class="row search-bar">
-    <div class="col-12">
-      Enter your nickname on Faceit:
+  <div class="row search-bar" [ngClass]="{'search-small': innerWidth < 768}">
+    <div class="col-12 search-hint">
+      <h4>Enter your nickname on Faceit:</h4>
     </div>
     <div class="col-12">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">@</span>
         </div>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Nickname" aria-describedby="basic-addon1" [(ngModel)]="name">
+        <input type="text" class="form-control" placeholder="Username" aria-label="Nickname"
+               aria-describedby="basic-addon1" [(ngModel)]="name">
       </div>
+    </div>
+  </div>
+
+  <div class="row latest-profiles" *ngIf="innerWidth >= 768">
+    <div class="col-12">
+      <h2>Latest profiles</h2>
+      <app-latest-profiles></app-latest-profiles>
     </div>
   </div>
 </div>
