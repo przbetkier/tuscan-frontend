@@ -22,6 +22,7 @@ export class MatchCellComponent implements OnChanges {
   public win: boolean;
   public expanded = false;
   animationState = 'out';
+  public loading = false;
 
   ngOnChanges() {
     if (!isNullOrUndefined(this.details)) {
@@ -30,7 +31,10 @@ export class MatchCellComponent implements OnChanges {
   }
 
   public expand(divName: string) {
-    this.toggleShowDiv(divName);
+    if (!this.loading) {
+      this.loading = true;
+      this.toggleShowDiv(divName);
+    }
   }
 
   public isPositive(): boolean {
@@ -44,6 +48,10 @@ export class MatchCellComponent implements OnChanges {
 
     if (divName === 'divA') {
       this.animationState = this.animationState === 'out' ? 'in' : 'out';
+
+      setTimeout(() => {
+        this.loading = false;
+      }, 800);
     }
   }
 }
