@@ -13,9 +13,12 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">@</span>
         </div>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Nickname"
+        <input type="text" class="form-control" placeholder="Nickname" aria-label="Nickname"
                aria-describedby="basic-addon1" [(ngModel)]="name">
       </div>
+    </div>
+    <div class="col-12 search-button">
+      <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="navigateToPlayerStats(name)" [ngClass]="{'disabled': name.length == 0}">Search</button>
     </div>
   </div>
 
