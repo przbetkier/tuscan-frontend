@@ -34,7 +34,7 @@ export class MainPageComponent implements OnInit {
     }
   }
 
-  private navigateToPlayerStats() {
+  navigateToPlayerStats() {
       this.router.navigateByUrl(`/player/${this.name}`);
   }
 
