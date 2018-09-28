@@ -35,7 +35,9 @@ export class MainPageComponent implements OnInit {
   }
 
   navigateToPlayerStats() {
+    if (this.name.length > 0) {
       this.router.navigateByUrl(`/player/${this.name}`);
+    }
   }
 
 }
