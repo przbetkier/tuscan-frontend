@@ -11,5 +11,4 @@ before_script:
 
 script:
   - ng build --prod --aot
-  - ng test
   - ng lint
