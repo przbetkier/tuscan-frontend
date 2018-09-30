@@ -36,7 +36,16 @@
         <div class="col-12">
           <app-map-performance [performance]="playerStats.overallStats.performance"></app-map-performance>
         </div>
+        <div class="col-12 col-lg-6 map-chart">
+          Maps played distribution:
+          <app-maps-pie-chart *ngIf="playerStats" [mapStats]="playerStats.mapStats"></app-maps-pie-chart>
+        </div>
+        <div class="col-12 col-lg-6 map-chart">
+          K/D on maps:
+          <app-kd-block-chart *ngIf="playerStats" [mapStats]="playerStats.mapStats"></app-kd-block-chart>
+        </div>
       </div>
+
     </section>
 
     <section id="recent-performance">
@@ -58,10 +67,11 @@
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <h4 class="header2">Elo progress:</h4>
+          <h4 class="header2">{{performanceLabel}} progress:</h4>
           <div class="row">
             <div class="col-12">
-              <app-elo-history-chart *ngIf="playerHistory" [playerHistory]="playerHistory"></app-elo-history-chart>
+              <app-elo-history-chart (whenLabelChanged)="whenLabelChanged($event)" *ngIf="playerHistory"
+                                     [playerHistory]="playerHistory"></app-elo-history-chart>
             </div>
           </div>
         </div>

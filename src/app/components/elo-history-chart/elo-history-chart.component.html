@@ -5,8 +5,20 @@
           [labels]="chartLabels"
           [colors]="chartColors"
           [options]="chartOptions"
-          [legend]="true"
+          [legend]="false"
           (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
   </canvas>
+  <div class="row">
+    <div class="col-12 col-lg-4">
+      <button class="btn btn-primary waves-light" mdbWavesEffect (click)="setEloAsDataset()">Show ELO history</button>
+    </div>
+    <div class="col-12 col-lg-4">
+      <button class="btn btn-primary waves-light" mdbWavesEffect (click)="setKdRatioAsDataset()">Show K/D history
+      </button>
+    </div>
+    <div class="col-12 col-lg-4">
+      <button class="btn btn-primary waves-light" mdbWavesEffect (click)="setHsAsDataset()">Show HS% history</button>
+    </div>
+  </div>
 </div>

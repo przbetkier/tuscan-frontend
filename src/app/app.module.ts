@@ -24,6 +24,8 @@ import {ThumbnailComponent} from './components/map-performance/thumbnail/thumbna
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LatestProfilesComponent} from './components/latest-profiles/latest-profiles.component';
 import {ProfileComponent} from './components/latest-profiles/profile/profile.component';
+import {MapsPieChartComponent} from './components/maps-pie-chart/maps-pie-chart.component';
+import {KdBlockChartComponent} from './components/kd-block-chart/kd-block-chart.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {ProfileComponent} from './components/latest-profiles/profile/profile.com
     MapPerformanceComponent,
     ThumbnailComponent,
     LatestProfilesComponent,
-    ProfileComponent
+    ProfileComponent,
+    MapsPieChartComponent,
+    KdBlockChartComponent
   ],
   imports: [
     BrowserModule,
