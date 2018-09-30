@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Chart} from 'chart.js';
 import {PlayerHistory} from '../../model/player-history.model';
 
@@ -10,6 +10,7 @@ import {PlayerHistory} from '../../model/player-history.model';
 export class EloHistoryChartComponent implements OnInit {
 
   @Input() playerHistory: PlayerHistory;
+  @Output() whenLabelChanged = new EventEmitter<any>();
 
   public chartType = 'line';
 
@@ -19,17 +20,36 @@ export class EloHistoryChartComponent implements OnInit {
 
   public chartColors: Array<any> = [
     {
-      backgroundColor: 'rgba(220,220,220,0.2)',
-      borderColor: 'rgba(153, 153, 153, 0.83)',
-      borderWidth: 2,
+      backgroundColor: 'rgba(220,220,220,0.11)',
+      borderColor: '#ec8a09',
+      borderWidth: 1,
       pointBackgroundColor: '#ad5b09',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(220,220,220,1)'
+      pointBorderColor: '#ad5b09',
+      pointHoverBackgroundColor: '#ad5b09',
+      pointHoverBorderColor: '#ad5b09'
     }
   ];
 
   public chartOptions: any = {
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display: false,
+        },
+        ticks: {
+          fontColor: '#fcfffa',
+        },
+      }],
+      yAxes: [{
+        display: true,
+        gridLines: {
+          display: true,
+        },
+        ticks: {
+          fontColor: '#fcfffa',
+        },
+      }],
+    },
     responsive: true
   };
 
@@ -40,10 +60,7 @@ export class EloHistoryChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    const data = this.playerHistory.matchHistory.map(m => m.elo).reverse();
-    this.chartDatasets = [
-      {data: data, label: 'Your ELO history'}
-    ];
+    this.setEloAsDataset();
     this.chartLabels = this.getLabels();
   }
 
@@ -54,7 +71,31 @@ export class EloHistoryChartComponent implements OnInit {
       const label = `${i + 1}`;
       labels.push(label);
     }
-    return labels;
+    return labels.reverse();
+  }
+
+  setKdRatioAsDataset() {
+    const data = this.playerHistory.matchHistory.map(m => m.kdRatio).reverse();
+    this.chartDatasets = [
+      {data: data}
+    ];
+    this.whenLabelChanged.emit('K/D');
+  }
+
+  setEloAsDataset() {
+    const data = this.playerHistory.matchHistory.map(m => m.elo).reverse();
+    this.chartDatasets = [
+      {data: data}
+    ];
+    this.whenLabelChanged.emit('ELO');
+  }
+
+  setHsAsDataset() {
+    const data = this.playerHistory.matchHistory.map(m => m.hsPercentage).reverse();
+    this.chartDatasets = [
+      {data: data}
+    ];
+    this.whenLabelChanged.emit('HS%');
   }
 }
 

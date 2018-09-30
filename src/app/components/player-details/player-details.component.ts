@@ -17,6 +17,7 @@ export class PlayerDetailsComponent implements OnInit {
 
   @Input() nickname: string;
   public detailedPlayers = [];
+  public performanceLabel = 'ELO';
 
   public allMatchesLoaded: boolean;
 
@@ -41,6 +42,10 @@ export class PlayerDetailsComponent implements OnInit {
       this.nickname = params.get('nickname');
     });
     this.getPlayerDetails();
+  }
+
+  whenLabelChanged(event: any) {
+    this.performanceLabel = event;
   }
 
   private getPlayerDetails() {
