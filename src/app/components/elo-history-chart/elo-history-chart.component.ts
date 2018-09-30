@@ -15,7 +15,7 @@ export class EloHistoryChartComponent implements OnInit {
 
   public chartDatasets: Array<any>;
 
-  public chartLabels: Array<any> = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'].reverse();
+  public chartLabels: Array<any>;
 
   public chartColors: Array<any> = [
     {
@@ -44,6 +44,17 @@ export class EloHistoryChartComponent implements OnInit {
     this.chartDatasets = [
       {data: data, label: 'Your ELO history'}
     ];
+    this.chartLabels = this.getLabels();
+  }
+
+  getLabels() {
+    const historySize = this.playerHistory.matchHistory.length;
+    const labels = [];
+    for (let i = 0; i < historySize; i++) {
+      const label = `${i + 1}`;
+      labels.push(label);
+    }
+    return labels;
   }
 }
 

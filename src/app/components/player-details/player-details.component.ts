@@ -53,7 +53,7 @@ export class PlayerDetailsComponent implements OnInit {
         this.getPlayerMatches(this.player.playerId);
         this.getPlayerOverallStats(this.player.playerId);
         this.tuscanService.postPlayerSearched(this.nickname).subscribe();
-      }, error => {
+      }, () => {
         this.hasData = false;
         this.isLoading = false;
       });
@@ -71,7 +71,6 @@ export class PlayerDetailsComponent implements OnInit {
                 this.allMatchesLoaded = true;
               }
 
-
               response.teams.forEach(t => {
                 t.players.forEach(p => {
                   if (p.nickname === this.nickname) {
@@ -81,7 +80,7 @@ export class PlayerDetailsComponent implements OnInit {
                 });
               });
 
-            }, error => {
+            }, () => {
               this.matchesFetched = this.matchesFetched + 1;
             }));
 
@@ -120,7 +119,8 @@ export class PlayerDetailsComponent implements OnInit {
   }
 
   private getEloGained(): number {
-    const oldestMatchElo = this.playerHistory.matchHistory[19].elo;
+    const historySize = this.playerHistory.matchHistory.length;
+    const oldestMatchElo = this.playerHistory.matchHistory[historySize - 1].elo;
     if (oldestMatchElo !== 0) {
       return (this.player.gameDetails.faceitElo - oldestMatchElo);
     } else {
