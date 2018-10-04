@@ -26,6 +26,8 @@ import {LatestProfilesComponent} from './components/latest-profiles/latest-profi
 import {ProfileComponent} from './components/latest-profiles/profile/profile.component';
 import {MapsPieChartComponent} from './components/maps-pie-chart/maps-pie-chart.component';
 import {KdBlockChartComponent} from './components/kd-block-chart/kd-block-chart.component';
+import {PositionComponent} from './components/player-details/position/position.component';
+import {RollerComponent} from './components/roller/roller.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {KdBlockChartComponent} from './components/kd-block-chart/kd-block-chart.
     LatestProfilesComponent,
     ProfileComponent,
     MapsPieChartComponent,
-    KdBlockChartComponent
+    KdBlockChartComponent,
+    PositionComponent,
+    RollerComponent
   ],
   imports: [
     BrowserModule,
