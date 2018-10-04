@@ -8,11 +8,12 @@ import {Component, Input, OnInit} from '@angular/core';
 export class FlagComponent implements OnInit {
 
   @Input() country: string;
+  @Input() size: number;
 
   public url: string;
 
   ngOnInit() {
-    this.url = `https://www.countryflags.io/${this.country}/flat/64.png`;
+    this.url = `https://www.countryflags.io/${this.country}/flat/${this.size}.png`;
   }
 
 }

@@ -1,0 +1,12 @@
+<span *ngIf="loaded">
+    <span class="section-flag">
+      <app-flag [country]="country" [size]="32"></app-flag>
+    <span class="position-value"><span> {{country | uppercase}}: &nbsp;</span>{{positionInCountry | number: '1.'}}</span>
+  </span>
+  <span class="section-flag">
+   <app-flag [country]="region" [size]="32"></app-flag>
+    <span class="position-value"><span> {{region | uppercase}}: &nbsp;</span>{{positionInRegion | number: '1.'}}</span>
+  </span>
+</span>
+
+<span><app-roller *ngIf="!loaded"></app-roller></span>

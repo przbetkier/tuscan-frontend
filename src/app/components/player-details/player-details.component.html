@@ -4,7 +4,7 @@
     <div class="row player">
       <div class="col-12">
         <h1>{{nickname}}
-          <app-flag [country]="player.country"></app-flag>
+          <app-flag [country]="player.country" [size]="64"></app-flag>
         </h1>
       </div>
     </div>
@@ -22,6 +22,7 @@
         <section *ngIf="player.gameDetails">
           <p> Level:
             <app-badge [level]="player.gameDetails.level"></app-badge>
+            <app-position [playerId]="player.playerId" [country]="player.country" [region]="player.gameDetails.region"></app-position>
           </p>
           <p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>
           <app-progress-bar [elo]="player.gameDetails.faceitElo" [level]="player.gameDetails.level"></app-progress-bar>
