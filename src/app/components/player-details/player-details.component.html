@@ -6,6 +6,7 @@
         <h1>{{nickname}}
           <app-flag [country]="player.country" [size]="64"></app-flag>
         </h1>
+        <app-player-profiles [nickname]="player.nickname" [steamId]="player.gameDetails.steamId"></app-player-profiles>
       </div>
     </div>
 
@@ -22,7 +23,8 @@
         <section *ngIf="player.gameDetails">
           <p> Level:
             <app-badge [level]="player.gameDetails.level"></app-badge>
-            <app-position [playerId]="player.playerId" [country]="player.country" [region]="player.gameDetails.region"></app-position>
+            <app-position [playerId]="player.playerId" [country]="player.country"
+                          [region]="player.gameDetails.region"></app-position>
           </p>
           <p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>
           <app-progress-bar [elo]="player.gameDetails.faceitElo" [level]="player.gameDetails.level"></app-progress-bar>
@@ -113,8 +115,8 @@
     </section>
   </div>
 
-  <div *ngIf="!hasData && !isLoading">
-    Sorry! We could not find player details for provided nickname.
+  <div *ngIf="!hasData && !isLoading" id="error">
+    <app-player-not-found></app-player-not-found>
   </div>
 
   <app-loader *ngIf="isLoading" class="main-loader"></app-loader>

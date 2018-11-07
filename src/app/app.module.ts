@@ -28,6 +28,8 @@ import {MapsPieChartComponent} from './components/maps-pie-chart/maps-pie-chart.
 import {KdBlockChartComponent} from './components/kd-block-chart/kd-block-chart.component';
 import {PositionComponent} from './components/player-details/position/position.component';
 import {RollerComponent} from './components/roller/roller.component';
+import {PlayerNotFoundComponent} from './components/player-not-found/player-not-found.component';
+import {PlayerProfilesComponent} from './components/player-profiles/player-profiles.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import {RollerComponent} from './components/roller/roller.component';
     MapsPieChartComponent,
     KdBlockChartComponent,
     PositionComponent,
-    RollerComponent
+    RollerComponent,
+    PlayerNotFoundComponent,
+    PlayerProfilesComponent
   ],
   imports: [
     BrowserModule,
