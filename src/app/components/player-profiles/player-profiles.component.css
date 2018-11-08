@@ -1,0 +1,14 @@
+.row {
+  margin-bottom: 12px;
+}
+
+span {
+  margin-left: 8px;
+  font-family: 'Quantico', sans-serif;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+span:hover {
+  color: #ad5b09;
+}

@@ -1,7 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {TuscanService} from '../../services/tuscan.service';
-import {LatestProfiles} from '../../model/latest-profiles.model';
 
 @Component({
   selector: 'app-main-page',
@@ -28,7 +26,7 @@ export class MainPageComponent implements OnInit {
   }
 
   @HostListener('document:keydown', ['$event'])
-  onEscapeKey(event: KeyboardEvent) {
+  onEnterKey(event: KeyboardEvent) {
     if (event.keyCode === this.ENTER_KEY) {
       this.navigateToPlayerStats();
     }
