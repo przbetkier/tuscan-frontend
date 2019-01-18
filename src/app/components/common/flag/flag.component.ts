@@ -2,8 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-flag',
-  templateUrl: './flag.component.html',
-  styleUrls: ['./flag.component.css']
+  templateUrl: './flag.component.html'
 })
 export class FlagComponent implements OnInit {
 

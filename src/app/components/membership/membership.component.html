@@ -1,0 +1,12 @@
+<div class="row justify-content-center" *ngIf="membership != 'FREE'">
+  <div class="col-12 col-img vcenter">
+    <div>
+      <img *ngIf="membership == 'PREMIUM'" src="../../../assets/badges/memberships/premium.png">
+      <img *ngIf="membership == 'UNLIMITED'" src="../../../assets/badges/memberships/unlimited.png">
+    </div>
+    <div class="main">
+      <span class="primary-text">FACEIT </span>
+      <span>{{membership}}</span>
+    </div>
+  </div>
+</div>

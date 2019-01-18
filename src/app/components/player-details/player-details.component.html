@@ -5,6 +5,7 @@
       <div class="col-12">
         <h1>{{nickname}}
           <app-flag [country]="player.country" [size]="64"></app-flag>
+          <app-membership [membership]="player.membership"></app-membership>
         </h1>
         <app-player-profiles [nickname]="player.nickname" [steamId]="player.gameDetails.steamId"></app-player-profiles>
       </div>
