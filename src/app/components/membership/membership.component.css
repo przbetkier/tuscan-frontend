@@ -1,0 +1,28 @@
+img {
+  height: 52px;
+}
+
+.main {
+  border: 1px solid #f50;
+  padding: 3px 6px;
+  background-color: black;
+  font-size: 12px;
+  font-family: 'Play', sans-serif;
+  font-weight: 700;
+}
+
+.primary-text {
+  color: #f50;
+}
+
+.col-12 {
+  padding: 0;
+  max-width: 50%;
+}
+
+.vcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

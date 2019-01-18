@@ -30,6 +30,7 @@ import {PositionComponent} from './components/player-details/position/position.c
 import {RollerComponent} from './components/roller/roller.component';
 import {PlayerNotFoundComponent} from './components/player-not-found/player-not-found.component';
 import {PlayerProfilesComponent} from './components/player-profiles/player-profiles.component';
+import {MembershipComponent} from './components/membership/membership.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {PlayerProfilesComponent} from './components/player-profiles/player-profi
     PositionComponent,
     RollerComponent,
     PlayerNotFoundComponent,
-    PlayerProfilesComponent
+    PlayerProfilesComponent,
+    MembershipComponent
   ],
   imports: [
     BrowserModule,

@@ -5,5 +5,6 @@ export class Player {
               public nickname: string,
               public gameDetails: GameDetails,
               public avatarUrl: string,
-              public country: string) {}
+              public country: string,
+              public membership: string) {}
 }

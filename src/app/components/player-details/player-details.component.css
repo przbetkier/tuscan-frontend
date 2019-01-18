@@ -68,6 +68,10 @@
   width: 180px;
 }
 
+app-membership {
+  margin-bottom: 12px;
+}
+
 @media screen and (max-width: 992px) {
   .avatar {
     height: 140px;
