@@ -23,15 +23,16 @@ export class PlayerDetailsComponent implements OnInit {
 
   public hasData: boolean;
   public isLoading: boolean;
-  public matches: SimpleMatch[] = [];
-  private offset = 0;
-  public matchesMap: MatchDetails[] = [];
 
+  public matches: SimpleMatch[] = [];
+  public matchesMap: MatchDetails[] = [];
   public matchesFetched = 0;
 
   public player: Player;
   public playerStats: PlayerStats;
   public playerHistory: PlayerHistory;
+
+  private offset = 0;
 
   constructor(private tuscanService: TuscanService, private route: ActivatedRoute) {
   }

@@ -1,4 +1,4 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LatestProfiles} from '../../model/latest-profiles.model';
 import {TuscanService} from '../../services/tuscan.service';
 
@@ -16,7 +16,6 @@ export class LatestProfilesComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.tuscanService.getLastProfiles().subscribe(data => {
       this.latestProfiles = data;
       this.loaded = true;
