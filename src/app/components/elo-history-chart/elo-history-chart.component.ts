@@ -13,11 +13,8 @@ export class EloHistoryChartComponent implements OnInit {
   @Output() whenLabelChanged = new EventEmitter<any>();
 
   public chartType = 'line';
-
   public chartDatasets: Array<any>;
-
   public chartLabels: Array<any>;
-
   public chartColors: Array<any> = [
     {
       backgroundColor: 'rgba(220,220,220,0.11)',

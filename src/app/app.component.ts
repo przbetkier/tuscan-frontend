@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {PlayerDetailsComponent} from './components/player-details/player-details.component';
 import {NavigationEnd, Router} from '@angular/router';
 
@@ -7,7 +7,7 @@ import {NavigationEnd, Router} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   @ViewChild(PlayerDetailsComponent) private playerDetailsComponent: PlayerDetailsComponent;
 
@@ -20,15 +20,5 @@ export class AppComponent implements OnInit {
         (<any>window).ga('send', 'pageview');
       }
     });
-  }
-
-  ngOnInit() {
-  }
-
-  getPlayerDetails(nickname: string) {
-    this.nickname = nickname;
-        if (this.nickname) {
-          this.router.navigate([`player/${nickname}`]);
-        }
   }
 }

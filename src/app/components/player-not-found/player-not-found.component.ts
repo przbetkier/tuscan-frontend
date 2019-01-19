@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,12 +6,9 @@ import {Router} from '@angular/router';
   templateUrl: './player-not-found.component.html',
   styleUrls: ['./player-not-found.component.css']
 })
-export class PlayerNotFoundComponent implements OnInit {
+export class PlayerNotFoundComponent {
 
   constructor(private router: Router) {
-  }
-
-  ngOnInit() {
   }
 
   returnToHomePage() {
