@@ -18,12 +18,12 @@ export class EloHistoryChartComponent implements OnInit {
   public chartColors: Array<any> = [
     {
       backgroundColor: 'rgba(220,220,220,0.11)',
-      borderColor: '#ec8a09',
+      borderColor: '#e64a19',
       borderWidth: 1,
-      pointBackgroundColor: '#ad5b09',
-      pointBorderColor: '#ad5b09',
-      pointHoverBackgroundColor: '#ad5b09',
-      pointHoverBorderColor: '#ad5b09'
+      pointBackgroundColor: '#e64a19',
+      pointBorderColor: '#e64a19',
+      pointHoverBackgroundColor: '#e64a19',
+      pointHoverBorderColor: '#e64a19'
     }
   ];
 

@@ -17,7 +17,7 @@ a {
 }
 
 .player-performance:hover {
-  background-color: rgba(173, 91, 9, 1);
+  background-color: #e64a19;
   transition: 0.8s;
 }
 

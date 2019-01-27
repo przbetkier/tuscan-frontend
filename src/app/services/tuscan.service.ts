@@ -9,6 +9,7 @@ import {AppSettings} from '../config/app-settings';
 import {PlayerHistory} from '../model/player-history.model';
 import {LatestProfiles} from '../model/latest-profiles.model';
 import {PlayerPosition} from '../model/player-position.model';
+import {PlayersSearched} from '../model/players-searched.model';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,9 @@ export class TuscanService {
 
   public postPlayerSearched(nickname: string) {
     return this.http.post(`${AppSettings.API_ENDPOINT}/tuscan-api/latest-profiles`, nickname);
+  }
+
+  public getPlayersSearchedPrompt(nicknameQuery: string): Observable<PlayersSearched> {
+    return this.http.get<PlayersSearched>(`${AppSettings.API_ENDPOINT}/faceit/search/players?nickname=${nicknameQuery}`);
   }
 }

@@ -20,7 +20,7 @@ export class MapsPieChartComponent implements OnInit {
     {
       borderColor: 'rgba(220,220,220,1)',
       borderWidth: 1,
-      pointBackgroundColor: '#ad5b09',
+      pointBackgroundColor: '#e64a19',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(220,220,220,1)',

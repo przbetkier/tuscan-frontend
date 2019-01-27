@@ -22,11 +22,15 @@ h3 {
   margin-top: 48px;
 }
 
-.hello-page {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.section-bg {
+  background-color: rgba(175, 175, 175, 0.39);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
 }
 
 .search-small {
@@ -38,14 +42,42 @@ h3 {
 }
 
 .latest-profiles {
-  margin-top: 20px;
+  margin-top: 32px;
 }
 
-.header-small {
-  margin-top: 15%;
+.hello-page {
+  margin-top: 3rem;
 }
 
-.btn {
-  background-color: rgba(173, 91, 9, 1);
+button {
+  width: 100%;
 }
 
+mat-form-field {
+  display: inline;
+}
+
+.searching {
+  text-align: center;
+}
+
+app-roller {
+  display: inline-block;
+}
+
+.mat-input-wrapper {
+  background: gray;
+}
+
+.small-avatar {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+app-flag {
+  margin-left: 10px;
+}
+mat-option {
+  background-color: rgba(255, 255, 255, 0.39);
+}

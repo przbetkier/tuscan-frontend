@@ -3,15 +3,8 @@ ul {
 }
 
 img {
-  width: 32px;
-  height: 32px;
-}
-
-@media (min-width: 1366px) {
-  img {
-    width: 64px;
-    height: 64px;
-  }
+  width: 64px;
+  height: 64px;
 }
 
 .profile {

@@ -1,17 +1,17 @@
 .win {
-  background-color: green;
+  background-color: #1b5e20;
 }
 
 .loss {
-  background-color: red;
+  background-color: #d50000;
 }
 
 .positive {
-  color: #00a800;
+  color: #9ccc65;
 }
 
 .negative {
-  color: #ef574d;
+  color: #ef9a9a;
 }
 
 .date {
@@ -43,7 +43,7 @@
 }
 
 .match-cell:hover {
-  background-color: #ad5b09;
+  background-color: #e64a19;
   transition: 0.3s;
 }
 

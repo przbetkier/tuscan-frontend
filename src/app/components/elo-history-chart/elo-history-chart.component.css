@@ -3,10 +3,11 @@
   color: white;
 }
 
-@media (max-width: 991px ) {
-  .btn-primary {
-    width: 100%;
-    margin-top: 6px;
-    margin-bottom: 6px;
-  }
+button {
+  width: 100%;
+  margin: 4px;
+}
+
+.button-group {
+  margin-top: 12px;
 }
