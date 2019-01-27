@@ -1,32 +1,42 @@
-<div class="container" [ngClass]="{'hello-page': innerWidth >= 768}">
-  <section [ngClass]="{'header-small': innerWidth <= 768}">
+<div class="container hello-page">
+  <section>
     <h1>Tuscan</h1>
     <h3>Team Stats CS:GO Analyzer</h3>
   </section>
 
-  <div class="row search-bar" [ngClass]="{'search-small': innerWidth < 768}">
-    <div class="col-12 search-hint">
-      <h4>Enter your nickname on Faceit:</h4>
+  <div class="row search-bar section-bg">
+    <div class="col-12 col-md-7">
+      <form class="example-form" [formGroup]='usersForm'>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Search for a player" [matAutocomplete]="auto" formControlName='userInput'
+                 [(ngModel)]="nickname">
+        </mat-form-field>
+
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngIf="isSearching" class="searching">
+            <app-roller></app-roller>
+          </mat-option>
+          <mat-option *ngFor="let user of (filteredUsers | async)?.players" [value]="user.nickname">
+            <img *ngIf="user.avatarUrl" src="{{user.avatarUrl}}" class="small-avatar">
+            <img *ngIf="!user.avatarUrl" src="assets/common/empty-avatar.jpeg" class="small-avatar">
+            <span>{{ user.nickname }}</span>
+            <app-flag [country]="user.country | lowercase" [size]="16"></app-flag>
+            <app-badge [level]="user.lvl"></app-badge>
+          </mat-option>
+        </mat-autocomplete>
+      </form>
     </div>
-    <div class="col-12">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">@</span>
-        </div>
-        <input type="text" class="form-control" placeholder="Nickname" aria-label="Nickname"
-               aria-describedby="basic-addon1" [(ngModel)]="name">
-      </div>
-    </div>
-    <div class="col-12 search-button">
-      <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="navigateToPlayerStats()" [ngClass]="{'disabled': name.length == 0}">Search</button>
+    <div class="col-12 col-md-5 search-button">
+      <button mat-raised-button color="primary" (click)="navigateToPlayerStats()"
+              [disabled]="!hasInput()">Search
+      </button>
     </div>
   </div>
 
-  <div class="row latest-profiles" *ngIf="innerWidth >= 768">
+  <div class="row latest-profiles section-bg">
     <div class="col-12">
       <h2>Latest profiles</h2>
       <app-latest-profiles></app-latest-profiles>
     </div>
   </div>
 </div>
-

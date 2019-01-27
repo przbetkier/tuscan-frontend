@@ -16,7 +16,7 @@ export class KdBlockChartComponent implements OnInit {
   public chartLabels: Array<any>;
   public chartColors: Array<any> = [
     {
-      backgroundColor: ['#F44336', '#9C27B0', '#3F51B5', '#03A9F4', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#602147'],
+      backgroundColor: ['#e64a19', '#9C27B0', '#3F51B5', '#03A9F4', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#602147'],
       borderColor: 'rgba(220,220,220,1)',
       borderWidth: 1,
       pointBackgroundColor: 'rgba(220,220,220,1)',

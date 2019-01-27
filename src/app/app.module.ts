@@ -13,7 +13,7 @@ import {OverallStatsComponent} from './components/player-details/overall-stats/o
 import {TeamInMatchComponent} from './components/match-cell/team-in-match/team-in-match.component';
 import {PlayerPerformanceComponent} from './components/match-cell/team-in-match/player-performance/player-performance.component';
 import {MainPageComponent} from './components/main-page/main-page.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {OrderModule} from 'ngx-order-pipe';
 import {LevelHintComponent} from './components/player-details/overall-stats/level-hint/level-hint.component';
 import {LastMatchesPerformanceComponent} from './components/last-matches-performance/last-matches-performance.component';
@@ -31,6 +31,7 @@ import {RollerComponent} from './components/roller/roller.component';
 import {PlayerNotFoundComponent} from './components/player-not-found/player-not-found.component';
 import {PlayerProfilesComponent} from './components/player-profiles/player-profiles.component';
 import {MembershipComponent} from './components/membership/membership.component';
+import {MatAutocompleteModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatOptionModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,11 @@ import {MembershipComponent} from './components/membership/membership.component'
     FormsModule,
     MDBBootstrapModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatButtonModule,
     RouterModule.forRoot(
       [
         {path: '', component: MainPageComponent},

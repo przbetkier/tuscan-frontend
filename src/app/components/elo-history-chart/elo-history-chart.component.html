@@ -9,16 +9,16 @@
           (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
   </canvas>
-  <div class="row">
+  <div class="row button-group">
     <div class="col-12 col-lg-4">
-      <button class="btn btn-primary waves-light" mdbWavesEffect (click)="setEloAsDataset()">Show ELO history</button>
+      <button mat-raised-button color="primary" (click)="setEloAsDataset()">Show ELO</button>
     </div>
     <div class="col-12 col-lg-4">
-      <button class="btn btn-primary waves-light" mdbWavesEffect (click)="setKdRatioAsDataset()">Show K/D history
+      <button mat-raised-button color="primary" (click)="setKdRatioAsDataset()">Show K/D
       </button>
     </div>
     <div class="col-12 col-lg-4">
-      <button class="btn btn-primary waves-light" mdbWavesEffect (click)="setHsAsDataset()">Show HS% history</button>
+      <button mat-raised-button color="primary" mdbWavesEffect (click)="setHsAsDataset()">Show HS%</button>
     </div>
   </div>
 </div>
