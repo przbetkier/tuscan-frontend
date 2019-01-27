@@ -22,10 +22,8 @@ h3 {
   margin-top: 48px;
 }
 
-.section-bg {
-  background-color: rgba(175, 175, 175, 0.39);
-  border-radius: 6px;
-  padding: 10px;
+mat-placeholder {
+  color: white;
 }
 
 .search-button {
@@ -41,8 +39,11 @@ h3 {
   margin-bottom: 8px;
 }
 
-.latest-profiles {
+mat-card {
   margin-top: 32px;
+  background-color: #263238;
+  color: white;
+  border-radius: 6px;
 }
 
 .hello-page {

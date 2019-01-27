@@ -4,7 +4,8 @@ import {TuscanService} from '../../services/tuscan.service';
 
 @Component({
   selector: 'app-latest-profiles',
-  templateUrl: './latest-profiles.component.html'
+  templateUrl: './latest-profiles.component.html',
+  styleUrls: ['./latest-profiles.component.css']
 })
 export class LatestProfilesComponent implements OnInit {
 

@@ -31,7 +31,14 @@ import {RollerComponent} from './components/roller/roller.component';
 import {PlayerNotFoundComponent} from './components/player-not-found/player-not-found.component';
 import {PlayerProfilesComponent} from './components/player-profiles/player-profiles.component';
 import {MembershipComponent} from './components/membership/membership.component';
-import {MatAutocompleteModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatOptionModule} from '@angular/material';
+import {
+  MatAutocompleteModule,
+  MatButtonModule, MatCardModule, MatExpansionModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatOptionModule,
+  MatTabsModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -59,8 +66,7 @@ import {MatAutocompleteModule, MatButtonModule, MatFormFieldModule, MatInputModu
     RollerComponent,
     PlayerNotFoundComponent,
     PlayerProfilesComponent,
-    MembershipComponent
-  ],
+    MembershipComponent],
   imports: [
     BrowserModule,
     OrderModule,
@@ -73,6 +79,9 @@ import {MatAutocompleteModule, MatButtonModule, MatFormFieldModule, MatInputModu
     MatAutocompleteModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatTabsModule,
+    MatCardModule,
+    MatExpansionModule,
     RouterModule.forRoot(
       [
         {path: '', component: MainPageComponent},

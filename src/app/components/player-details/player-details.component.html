@@ -11,32 +11,36 @@
       </div>
     </div>
 
+    <mat-card>
     <h2 class="header2">Player details</h2>
-    <div class="row player-details justify-content-around">
-      <div class="col-4 col-md-2">
-        <img *ngIf="player.avatarUrl !== ''" src="{{player.avatarUrl}}" class="avatar">
-        <img *ngIf="player.avatarUrl === ''" src="assets/common/empty-avatar.jpeg" class="avatar">
+      <div class="row player-details justify-content-around">
+        <div class="col-4 col-md-2">
+          <img *ngIf="player.avatarUrl !== ''" src="{{player.avatarUrl}}" class="avatar">
+          <img *ngIf="player.avatarUrl === ''" src="assets/common/empty-avatar.jpeg" class="avatar">
+        </div>
+        <div class="col-8 col-md-4">
+          <app-overall-stats *ngIf="playerStats" [overallStats]="playerStats.overallStats"></app-overall-stats>
+        </div>
+        <div class="col-12 col-md-6">
+          <section *ngIf="player.gameDetails">
+            <p> Level:
+              <app-badge [level]="player.gameDetails.level"></app-badge>
+              <app-position [playerId]="player.playerId" [country]="player.country"
+                            [region]="player.gameDetails.region"></app-position>
+            </p>
+            <p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>
+            <app-progress-bar [elo]="player.gameDetails.faceitElo"
+                              [level]="player.gameDetails.level"></app-progress-bar>
+            <app-level-hint [level]="player.gameDetails.level" [elo]="player.gameDetails.faceitElo"></app-level-hint>
+          </section>
+        </div>
       </div>
-      <div class="col-8 col-md-4">
-        <app-overall-stats *ngIf="playerStats" [overallStats]="playerStats.overallStats"></app-overall-stats>
-      </div>
-      <div class="col-12 col-md-6">
-        <section *ngIf="player.gameDetails">
-          <p> Level:
-            <app-badge [level]="player.gameDetails.level"></app-badge>
-            <app-position [playerId]="player.playerId" [country]="player.country"
-                          [region]="player.gameDetails.region"></app-position>
-          </p>
-          <p> Faceit Elo: {{ player.gameDetails.faceitElo }}</p>
-          <app-progress-bar [elo]="player.gameDetails.faceitElo" [level]="player.gameDetails.level"></app-progress-bar>
-          <app-level-hint [level]="player.gameDetails.level" [elo]="player.gameDetails.faceitElo"></app-level-hint>
-        </section>
-      </div>
-    </div>
+    </mat-card>
 
     <section id="map-performance" *ngIf="playerStats">
+      <mat-card>
       <h2 class="header2">Map performance</h2>
-      <div class="row matches-section">
+      <div class="row">
         <div class="col-12">
           <app-map-performance [performance]="playerStats.overallStats.performance"></app-map-performance>
         </div>
@@ -49,10 +53,11 @@
           <app-kd-block-chart *ngIf="playerStats" [mapStats]="playerStats.mapStats"></app-kd-block-chart>
         </div>
       </div>
-
+      </mat-card>
     </section>
 
     <section id="recent-performance">
+      <mat-card>
       <h2 class="header2">Recent performance</h2>
       <div class="row justify-content-around player-details">
         <!--FIXME: player-details css?-->
@@ -80,9 +85,11 @@
           </div>
         </div>
       </div>
+      </mat-card>
     </section>
 
     <section id="matches" *ngIf="playerHistory">
+      <mat-card>
       <h2 class="header2">Recent matches</h2>
       <div class="row matches-section">
 
@@ -109,6 +116,7 @@
           </app-match-cell>
         </div>
       </div>
+      </mat-card>
     </section>
 
     <section *ngIf="!player.gameDetails">

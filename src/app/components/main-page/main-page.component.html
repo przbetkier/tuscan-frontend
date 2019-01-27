@@ -4,39 +4,42 @@
     <h3>Team Stats CS:GO Analyzer</h3>
   </section>
 
-  <div class="row search-bar section-bg">
-    <div class="col-12 col-md-7">
-      <form class="example-form" [formGroup]='usersForm'>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Search for a player" [matAutocomplete]="auto" formControlName='userInput'
-                 [(ngModel)]="nickname">
-        </mat-form-field>
+  <mat-card>
+    <div class="row search-bar">
+      <div class="col-12 col-md-7">
+        <form class="example-form" [formGroup]='usersForm'>
+          <mat-form-field class="example-full-width">
+            <input matInput [matAutocomplete]="auto" formControlName='userInput'
+                   [(ngModel)]="nickname">
+            <mat-placeholder>Search for a player</mat-placeholder>
+          </mat-form-field>
 
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngIf="isSearching" class="searching">
-            <app-roller></app-roller>
-          </mat-option>
-          <mat-option *ngFor="let user of (filteredUsers | async)?.players" [value]="user.nickname">
-            <img *ngIf="user.avatarUrl" src="{{user.avatarUrl}}" class="small-avatar">
-            <img *ngIf="!user.avatarUrl" src="assets/common/empty-avatar.jpeg" class="small-avatar">
-            <span>{{ user.nickname }}</span>
-            <app-flag [country]="user.country | lowercase" [size]="16"></app-flag>
-            <app-badge [level]="user.lvl"></app-badge>
-          </mat-option>
-        </mat-autocomplete>
-      </form>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngIf="isSearching" class="searching">
+              <app-roller></app-roller>
+            </mat-option>
+            <mat-option *ngFor="let user of (filteredUsers | async)?.players" [value]="user.nickname">
+              <img *ngIf="user.avatarUrl" src="{{user.avatarUrl}}" class="small-avatar">
+              <img *ngIf="!user.avatarUrl" src="assets/common/empty-avatar.jpeg" class="small-avatar">
+              <span>{{ user.nickname }}</span>
+              <app-flag [country]="user.country | lowercase" [size]="16"></app-flag>
+              <app-badge [level]="user.lvl"></app-badge>
+            </mat-option>
+          </mat-autocomplete>
+        </form>
+      </div>
+      <div class="col-12 col-md-5 search-button">
+        <button mat-raised-button color="primary" (click)="navigateToPlayerStats()"
+                [disabled]="!hasInput()">Search
+        </button>
+      </div>
     </div>
-    <div class="col-12 col-md-5 search-button">
-      <button mat-raised-button color="primary" (click)="navigateToPlayerStats()"
-              [disabled]="!hasInput()">Search
-      </button>
-    </div>
-  </div>
+  </mat-card>
 
-  <div class="row latest-profiles section-bg">
-    <div class="col-12">
-      <h2>Latest profiles</h2>
+  <mat-card class="latest-profiles">
+    <h2>Latest profiles</h2>
+    <mat-card-content>
       <app-latest-profiles></app-latest-profiles>
-    </div>
-  </div>
+    </mat-card-content>
+  </mat-card>
 </div>

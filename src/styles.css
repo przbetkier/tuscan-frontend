@@ -1,5 +1,5 @@
 body {
-  background: url("assets/background/tuscan-bg.png");
+  background: url("assets/background/congruent_outline.png");
   font-family: 'Lato', sans-serif;
   color: white;
 }
@@ -8,3 +8,4 @@ body {
 h1, h2, h3, h4 {
   font-family: 'Quantico', sans-serif;
 }
+

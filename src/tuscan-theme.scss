@@ -4,7 +4,7 @@
 
 // Define the default theme (same as the example above).
 $tuscan-theme-primary: mat-palette($mat-deep-orange, 700);
-$tuscan-theme-accent:  mat-palette($mat-blue-gray);
+$tuscan-theme-accent:  mat-palette($mat-blue-gray, 900);
 $tuscan-theme-warn:    mat-palette($mat-red);
 $tuscan-theme-theme:   mat-light-theme($tuscan-theme-primary, $tuscan-theme-accent, $tuscan-theme-warn);
 

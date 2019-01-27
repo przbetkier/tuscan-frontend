@@ -1,3 +1,9 @@
+mat-card {
+  margin-top: 32px;
+  background-color: #263238;
+  color: white;
+}
+
 .main-loader {
   position: fixed;
   top: 50%;
@@ -47,14 +53,7 @@
   border-radius: 6px;
 }
 
-.matches-section {
-  background-color: rgba(175, 175, 175, 0.39);
-  border-radius: 6px;
-}
-
 .player-details {
-  background-color: rgba(175, 175, 175, 0.39);
-  border-radius: 6px;
   padding: 10px;
 }
 
@@ -70,6 +69,10 @@
 
 app-membership {
   margin-bottom: 12px;
+}
+
+mat-expansion-panel {
+  width: 100%;
 }
 
 @media screen and (max-width: 992px) {
