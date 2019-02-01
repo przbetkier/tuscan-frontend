@@ -7,7 +7,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod",
+    "postinstall": "ng build --aot --prod && gulp copy-cname",
     "deploy": "ngh --dir dist/tuscan-frontend"
   },
   "private": true,
@@ -43,6 +43,7 @@
     "@types/node": "8.9.4",
     "codelyzer": "4.5.0",
     "gh-pages": "2.0.1",
+    "gulp": "4.0.0",
     "jasmine-core": "2.99.1",
     "jasmine-spec-reporter": "4.2.1",
     "karma": "3.0.0",
