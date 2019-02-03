@@ -34,9 +34,7 @@ import {MembershipComponent} from './components/membership/membership.component'
 import {
   MatAutocompleteModule,
   MatButtonModule, MatCardModule, MatExpansionModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatOptionModule,
+  MatFormFieldModule, MatIconModule, MatInputModule,
   MatTabsModule
 } from '@angular/material';
 
@@ -82,6 +80,7 @@ import {
     MatTabsModule,
     MatCardModule,
     MatExpansionModule,
+    MatIconModule,
     RouterModule.forRoot(
       [
         {path: '', component: MainPageComponent},

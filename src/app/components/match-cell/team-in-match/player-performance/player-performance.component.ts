@@ -27,5 +27,4 @@ export class PlayerPerformanceComponent implements OnInit {
   public checkPlayer() {
     this.isCheckedPlayer = this.player.nickname === this.nickname;
   }
-
 }
