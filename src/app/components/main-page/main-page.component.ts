@@ -5,6 +5,7 @@ import {TuscanService} from '../../services/tuscan.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, finalize, switchMap, tap} from 'rxjs/operators';
+import {Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-main-page',
@@ -19,7 +20,12 @@ export class MainPageComponent implements OnInit {
   isSearching: boolean;
   private ENTER_KEY = 13;
 
-  constructor(private router: Router, private tuscanService: TuscanService, private fb: FormBuilder) {
+  constructor(private router: Router, private tuscanService: TuscanService, private fb: FormBuilder, meta: Meta) {
+    meta.addTags([
+      { name: 'author',   content: 'tuscan.pro'},
+      { name: 'keywords', content: 'faceit stats, faceit, statistics, stats, tuscan, csgo, faceit elo, elo, ranking, faceitstats'},
+      { name: 'description', content: 'Completely free site for checking your Faceit level, ELO progress, match statistics and much more!' }
+    ]);
   }
 
   ngOnInit() {

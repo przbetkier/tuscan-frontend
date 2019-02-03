@@ -1,4 +1,5 @@
-<div class="row profile" (click)="navigateToPlayerStats(profile.nickname)">
+<a routerLink="player/{{profile.nickname}}">
+<div class="row profile">
   <div class="col-2">
     <img *ngIf="profile.avatarUrl !== ''" src="{{profile.avatarUrl}}" class="avatar">
     <img *ngIf="profile.avatarUrl === ''" src="assets/common/empty-avatar.jpeg" class="avatar">
@@ -12,4 +13,4 @@
     </ul>
   </div>
 </div>
-
+</a>

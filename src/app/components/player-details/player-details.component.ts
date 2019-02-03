@@ -7,6 +7,7 @@ import {PlayerStats} from '../../model/player-stats.model';
 import {PlayerHistory} from '../../model/player-history.model';
 import {MatchHistory} from '../../model/match-history.model';
 import {MatchDetails} from '../../model/match-details/match-details.model';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-player-details',
@@ -34,7 +35,7 @@ export class PlayerDetailsComponent implements OnInit {
 
   private offset = 0;
 
-  constructor(private tuscanService: TuscanService, private route: ActivatedRoute) {
+  constructor(private tuscanService: TuscanService, private route: ActivatedRoute, private title: Title) {
   }
 
   ngOnInit() {
@@ -42,6 +43,9 @@ export class PlayerDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.nickname = params.get('nickname');
     });
+
+    this.title.setTitle(`Tuscan - ${this.nickname}'s Faceit stats`);
+
     this.getPlayerDetails();
   }
 
