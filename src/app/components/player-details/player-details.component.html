@@ -51,6 +51,9 @@
           K/D on maps:
           <app-kd-block-chart *ngIf="playerStats" [mapStats]="playerStats.mapStats"></app-kd-block-chart>
         </div>
+        <div class="col-12">
+          <app-maps-overall-performance [mapStats]="playerStats.mapStats"></app-maps-overall-performance>
+        </div>
       </div>
       </mat-card>
     </section>
