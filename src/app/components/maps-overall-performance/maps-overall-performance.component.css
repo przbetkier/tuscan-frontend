@@ -18,3 +18,8 @@
   background-color: #e64a19;
   transition: 0.8s;
 }
+
+.map-stat div {
+  margin-top: auto;
+  margin-bottom: auto;
+}
