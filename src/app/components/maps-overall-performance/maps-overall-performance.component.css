@@ -1,0 +1,20 @@
+.table-head {
+  background-color: rgba(141, 139, 139, 0.05);
+  padding: 4px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.table-body {
+  text-align: center;
+  border-top: 1px ridge rgba(255, 255, 255, 0.2);
+}
+
+.table-body img {
+  height: 55px;
+}
+
+.map-stat:hover {
+  background-color: #e64a19;
+  transition: 0.8s;
+}

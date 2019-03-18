@@ -33,10 +33,17 @@ import {PlayerProfilesComponent} from './components/player-profiles/player-profi
 import {MembershipComponent} from './components/membership/membership.component';
 import {
   MatAutocompleteModule,
-  MatButtonModule, MatCardModule, MatExpansionModule,
-  MatFormFieldModule, MatIconModule, MatInputModule,
-  MatTabsModule
+  MatButtonModule,
+  MatCardModule,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatTabsModule,
+  MatTooltipModule
 } from '@angular/material';
+import {MapsOverallPerformanceComponent} from './components/maps-overall-performance/maps-overall-performance.component';
+import { SkullComponent } from './components/common/skull/skull.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +71,9 @@ import {
     RollerComponent,
     PlayerNotFoundComponent,
     PlayerProfilesComponent,
-    MembershipComponent],
+    MembershipComponent,
+    MapsOverallPerformanceComponent,
+    SkullComponent],
   imports: [
     BrowserModule,
     OrderModule,
@@ -79,6 +88,7 @@ import {
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
+    MatTooltipModule,
     MatExpansionModule,
     MatIconModule,
     RouterModule.forRoot(

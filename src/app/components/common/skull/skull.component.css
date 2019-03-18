@@ -1,0 +1,11 @@
+svg {
+  width: 15px;
+  height: 15px;
+}
+
+@media (max-width: 444px) {
+  svg {
+    width: 8px;
+    height: 8px;
+  }
+}
