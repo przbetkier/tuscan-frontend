@@ -1,0 +1,50 @@
+<div class="container">
+  <mat-card *ngIf="!sent">
+    <h2>Contact</h2>
+    <mat-card-content>
+      <div class="form-guide">
+        <p>If you encountered any issue using Tuscan - feel free to contact with us via e-mail: contact@tuscan.pro</p>
+        <p>You can also use form below to report any problem or simply leave your feedback. </p>
+        <p>We will be glad if you mention in your bug report necessary information useful to reproduce a bug (for
+          example:
+          <strong>player nickname).</strong> Thanks!</p>
+      </div>
+      <div class="feedback-form">
+        <form [formGroup]="formGroup" (ngSubmit)="sendMessage()">
+          <div class="form-container">
+            <mat-form-field>
+              <input matInput formControlName="name" required>
+              <mat-placeholder>Name</mat-placeholder>
+            </mat-form-field>
+            <div *ngIf="name.invalid && submitted" class="validation-error">
+              Name is required.
+            </div>
+            <mat-form-field>
+              <input matInput formControlName="email" email>
+              <mat-placeholder>Contact</mat-placeholder>
+            </mat-form-field>
+            <div *ngIf="email.value.toString().length > 0 && email.invalid && submitted" class="validation-error">
+              Invalid e-mail format.
+            </div>
+            <mat-form-field>
+              <textarea matInput formControlName="message" required></textarea>
+              <mat-placeholder>Your message</mat-placeholder>
+            </mat-form-field>
+            <div *ngIf="message.invalid && submitted" class="validation-error">
+              Message can not be empty.
+            </div>
+            <button mat-raised-button color="primary" type="submit" [disabled]="submitted && processing">Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card @sent *ngIf="sent">
+    <h2>Message sent</h2>
+    <img mat-card-image src="/assets/art/thankuimg.jpg" alt="CSGO artwork">
+    <mat-card-content>Thank you for any feedback or report.</mat-card-content>
+  </mat-card>
+
+</div>

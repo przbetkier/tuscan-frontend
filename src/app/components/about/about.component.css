@@ -1,0 +1,40 @@
+mat-card {
+  margin-top: 32px;
+  background-color: #263238;
+  color: white;
+  padding: 2rem;
+}
+
+.donateImg {
+  margin-bottom: 1rem;
+}
+
+.donateImg:hover {
+  cursor: pointer;
+}
+
+.icons {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.tile {
+  padding: 1rem;
+}
+
+.donate {
+  margin-top: 2rem;
+}
+
+.tile:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.tile:hover > i {
+  color: teal;
+}
+
+.label {
+  margin-top: 16px;
+}

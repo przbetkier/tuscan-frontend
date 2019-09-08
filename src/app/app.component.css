@@ -1,0 +1,57 @@
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.small-banner {
+  height: 26px;
+  margin-right: 16px;
+}
+
+.ultra-small-banner {
+  height: 16px;
+  margin-right: 8px;
+}
+
+mat-toolbar {
+  font-family: 'Quantico', sans-serif!important;
+}
+
+.mat-menu-item {
+  font-family: 'Quantico', sans-serif;
+  color: white!important;
+}
+
+.mat-menu-content {
+  background-color: #e64a19!important;
+}
+
+span.menu-link {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+
+  display: inline-block;
+  padding: 10px 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+span.menu-link:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+span.menu-link:hover:after {
+  width: 100%;
+  left: 0;
+}

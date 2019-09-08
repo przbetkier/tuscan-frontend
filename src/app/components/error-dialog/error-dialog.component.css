@@ -1,0 +1,11 @@
+#icon-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+mat-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+

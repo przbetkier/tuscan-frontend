@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {TuscanService} from '../../services/tuscan.service';
 import {Player} from '../../model/player.model';
 import {ActivatedRoute, ParamMap} from '@angular/router';
@@ -8,6 +8,8 @@ import {PlayerHistory} from '../../model/player-history.model';
 import {MatchHistory} from '../../model/match-history.model';
 import {MatchDetails} from '../../model/match-details/match-details.model';
 import {Title} from '@angular/platform-browser';
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-player-details',
@@ -33,9 +35,11 @@ export class PlayerDetailsComponent implements OnInit {
   public playerStats: PlayerStats;
   public playerHistory: PlayerHistory;
 
+  hasErrors = false;
+
   private offset = 0;
 
-  constructor(private tuscanService: TuscanService, private route: ActivatedRoute, private title: Title) {
+  constructor(private tuscanService: TuscanService, private route: ActivatedRoute, private title: Title, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -63,9 +67,12 @@ export class PlayerDetailsComponent implements OnInit {
         this.getPlayerMatches(this.player.playerId);
         this.getPlayerOverallStats(this.player.playerId);
         this.tuscanService.postPlayerSearched(this.nickname).subscribe();
-      }, () => {
+      }, error => {
         this.hasData = false;
         this.isLoading = false;
+        if (error.status === 500) {
+          this.openErrorDialog();
+        }
       });
   }
 
@@ -95,7 +102,9 @@ export class PlayerDetailsComponent implements OnInit {
             }));
 
       }, error => {
-        console.log(error); // FIXME: Handle status code - 500 -> retries; 404 -> no matches to load!
+        if (error.status === 500) {
+          this.openErrorDialog();
+        }
       }
     );
   }
@@ -104,7 +113,9 @@ export class PlayerDetailsComponent implements OnInit {
     this.tuscanService.getPlayerOverallStats(playerId).subscribe(data => {
       this.playerStats = data;
     }, error => {
-      console.log(error); // FIXME: Handle errors. Template?
+      if (error.status === 500) {
+        this.openErrorDialog();
+      }
     });
   }
 
@@ -116,7 +127,9 @@ export class PlayerDetailsComponent implements OnInit {
     this.tuscanService.getPlayerHistory(playerId).subscribe(data => {
       this.playerHistory = data;
     }, error => {
-      console.log(error); // FIXME: Handle errors.
+      if (error.status === 500) {
+        this.openErrorDialog();
+      }
     });
   }
 
@@ -136,5 +149,14 @@ export class PlayerDetailsComponent implements OnInit {
     } else {
       return -9999; // TODO: Implement better mechanism...
     }
+  }
+
+  openErrorDialog() {
+    this.hasErrors = true;
+    this.dialog.open(ErrorDialogComponent, {
+      width: '1000px',
+      data: {name: 'xd', animal: 's'},
+      panelClass: 'custom-modalbox'
+    });
   }
 }
