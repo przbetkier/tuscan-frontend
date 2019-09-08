@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Chart} from 'chart.js';
 import {PlayerHistory} from '../../model/player-history.model';
 
 @Component({

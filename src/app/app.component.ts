@@ -9,7 +9,7 @@ import {NavigationEnd, Router} from '@angular/router';
 })
 export class AppComponent {
 
-  @ViewChild(PlayerDetailsComponent) private playerDetailsComponent: PlayerDetailsComponent;
+  @ViewChild(PlayerDetailsComponent, {static: false}) private playerDetailsComponent: PlayerDetailsComponent;
 
   nickname: string;
 
