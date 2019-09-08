@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-level-hint',
@@ -66,5 +65,4 @@ export class LevelHintComponent implements OnInit {
       }
     }
   }
-
 }
