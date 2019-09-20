@@ -1,0 +1,29 @@
+<div class="container">
+  <mat-card>
+    <h2>About</h2>
+    <mat-card-content>
+      <p>
+        Tuscan.pro is an open-source project using Faceit API for presentation and analysis of recent and overall CS:GO
+        players performance during Faceit matches.
+        This site was created to visualize your recent and overall skill progress using colorful and intuitive graphs
+        and charts. It was developed by players - for players.
+      </p>
+
+      <div class="row icons">
+        <div class="col-12 col-md-4 tile" (click)="navigateToFrontendSourceCode()">
+          <em class="fab fa-github fa-5x"></em>
+          <div class="label">Our code is open source</div>
+        </div>
+        <div class="col-12 col-md-4 tile" (click)="navigateToBackendSourceCode()">
+          <em class="fab fa-java fa-5x"></em>
+          <div class="label">Backend developed and maintained in Java</div>
+        </div>
+        <div class="col-12 col-md-4 tile" (click)="navigateToExtension()">
+          <em class="fab fa-chrome fa-5x"></em>
+          <div class="label">Check also our Faceit extension for Chrome</div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>

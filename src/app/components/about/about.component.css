@@ -1,0 +1,33 @@
+mat-card {
+  margin-top: 32px;
+  background-color: #263238;
+  color: white;
+  padding: 2rem;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.icons {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.tile {
+  padding: 1rem;
+}
+
+.tile:hover {
+  cursor: pointer;
+}
+
+.tile:hover {
+  background-color: #e64a19;
+  transition-duration: 0.7s;
+}
+
+.label {
+  margin-top: 16px;
+}

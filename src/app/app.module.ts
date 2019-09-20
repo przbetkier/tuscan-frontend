@@ -34,16 +34,22 @@ import {MembershipComponent} from './components/membership/membership.component'
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatMenuModule,
+  MatSelectModule,
+  MatStepperModule,
   MatTabsModule,
+  MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
 import {MapsOverallPerformanceComponent} from './components/maps-overall-performance/maps-overall-performance.component';
-import { SkullComponent } from './components/common/skull/skull.component';
+import {SkullComponent} from './components/common/skull/skull.component';
+import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
+import {AboutComponent} from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +79,9 @@ import { SkullComponent } from './components/common/skull/skull.component';
     PlayerProfilesComponent,
     MembershipComponent,
     MapsOverallPerformanceComponent,
-    SkullComponent],
+    SkullComponent,
+    ErrorDialogComponent,
+    AboutComponent],
   imports: [
     BrowserModule,
     OrderModule,
@@ -93,15 +101,22 @@ import { SkullComponent } from './components/common/skull/skull.component';
     MatTooltipModule,
     MatExpansionModule,
     MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatStepperModule,
+    MatDialogModule,
     RouterModule.forRoot(
       [
         {path: '', component: MainPageComponent},
-        {path: 'player/:nickname', component: PlayerDetailsComponent}
+        {path: 'player/:nickname', component: PlayerDetailsComponent},
+        {path: 'about', component: AboutComponent}
       ]
     )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorDialogComponent]
 })
 export class AppModule {
 }
