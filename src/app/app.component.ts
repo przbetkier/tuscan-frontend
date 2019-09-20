@@ -11,7 +11,7 @@ import {AppSettings} from './config/app-settings';
 })
 export class AppComponent {
 
-  @ViewChild(PlayerDetailsComponent) private playerDetailsComponent: PlayerDetailsComponent;
+  @ViewChild(PlayerDetailsComponent, {static: false}) private playerDetailsComponent: PlayerDetailsComponent;
 
   contactEnabled: boolean = AppSettings.CONTACT_ENABLED;
   nickname: string;

@@ -4,11 +4,12 @@ addons:
 
 language: node_js
 node_js:
-  - "10"
+  - "11"
 
 before_script:
   - npm install -g @angular/cli@6.2.3
 
 script:
+  - npm install
   - ng build --prod --aot
   - ng lint

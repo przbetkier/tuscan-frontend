@@ -18,7 +18,7 @@ import {OrderModule} from 'ngx-order-pipe';
 import {LevelHintComponent} from './components/player-details/overall-stats/level-hint/level-hint.component';
 import {LastMatchesPerformanceComponent} from './components/last-matches-performance/last-matches-performance.component';
 import {EloHistoryChartComponent} from './components/elo-history-chart/elo-history-chart.component';
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {ChartsModule, MDBBootstrapModule, WavesModule} from 'angular-bootstrap-md';
 import {MapPerformanceComponent} from './components/map-performance/map-performance.component';
 import {ThumbnailComponent} from './components/map-performance/thumbnail/thumbnail.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -90,6 +90,8 @@ import {AboutComponent} from './components/about/about.component';
     HttpClientModule,
     FormsModule,
     MDBBootstrapModule,
+    ChartsModule,
+    WavesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatInputModule,
