@@ -1,5 +1,11 @@
 body {
-  background: url("assets/background/congruent_outline.png");
+  background-image: url("assets/background/infbg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
   font-family: 'Lato', sans-serif;
   color: white;
 }
@@ -15,8 +21,5 @@ button:focus {
 
 span {
   outline: none;
-}
-
-.custom-modalbox >  mat-dialog-container {
 }
 

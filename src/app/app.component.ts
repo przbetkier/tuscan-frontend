@@ -1,7 +1,6 @@
 import {Component, HostListener, ViewChild, ViewEncapsulation} from '@angular/core';
 import {PlayerDetailsComponent} from './components/player-details/player-details.component';
 import {NavigationEnd, Router} from '@angular/router';
-import {AppSettings} from './config/app-settings';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +12,6 @@ export class AppComponent {
 
   @ViewChild(PlayerDetailsComponent, {static: false}) private playerDetailsComponent: PlayerDetailsComponent;
 
-  contactEnabled: boolean = AppSettings.CONTACT_ENABLED;
   nickname: string;
   public innerWidth: any;
 

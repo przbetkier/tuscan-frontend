@@ -5,12 +5,9 @@ mat-card {
   padding: 2rem;
 }
 
-.donateImg {
-  margin-bottom: 1rem;
-}
-
-.donateImg:hover {
-  cursor: pointer;
+p {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .icons {
@@ -22,17 +19,13 @@ mat-card {
   padding: 1rem;
 }
 
-.donate {
-  margin-top: 2rem;
+.tile:hover {
+  cursor: pointer;
 }
 
 .tile:hover {
-  background-color: rgb(255, 255, 255);
-  color: black;
-}
-
-.tile:hover > i {
-  color: teal;
+  background-color: #e64a19;
+  transition-duration: 0.7s;
 }
 
 .label {

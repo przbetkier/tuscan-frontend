@@ -20,8 +20,8 @@
               <app-roller></app-roller>
             </mat-option>
             <mat-option *ngFor="let user of (filteredUsers | async)?.players" [value]="user.nickname">
-              <img *ngIf="user.avatarUrl" src="{{user.avatarUrl}}" class="small-avatar">
-              <img *ngIf="!user.avatarUrl" src="assets/common/empty-avatar.jpeg" class="small-avatar">
+              <img *ngIf="user.avatarUrl" src="{{user.avatarUrl}}" class="small-avatar" onError="this.src = 'assets/common/empty-avatar.jpeg'" alt="avatar">
+              <img *ngIf="!user.avatarUrl" src="assets/common/empty-avatar.jpeg" class="small-avatar" alt="avatar">
               <span>{{ user.nickname }}</span>
               <app-flag [country]="user.country | lowercase" [size]="16"></app-flag>
               <app-badge [level]="user.lvl"></app-badge>

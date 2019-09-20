@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {LatestProfile} from '../../../model/latest-profile.model';
 
 @Component({
@@ -6,8 +6,18 @@ import {LatestProfile} from '../../../model/latest-profile.model';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
 
   @Input() profile: LatestProfile;
+
+  ngOnInit() {
+    if (this.profile.avatarUrl === '') {
+      this.profile.avatarUrl = null;
+    }
+  }
+
+  removeInvalidUrl() {
+    this.profile.avatarUrl = null;
+  }
 
 }

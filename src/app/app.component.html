@@ -1,23 +1,21 @@
 <nav>
   <mat-toolbar color="primary" *ngIf="innerWidth > 628">
-    <span class="menu-link" routerLink="/"><img src="assets/logos/banner.png" class="small-banner">TUSCAN.PRO</span>
+    <span class="menu-link" routerLink="/"><img src="assets/logos/banner.png" class="small-banner" alt="Tuscan small banner">TUSCAN.PRO</span>
 
     <span class="fill-remaining-space"></span>
     <span class="menu-link" routerLink="/about">About</span>
-    <span *ngIf="contactEnabled" class="menu-link" routerLink="/contact">Contact</span>
   </mat-toolbar>
   <mat-toolbar color="primary" *ngIf="innerWidth <= 628">
 
     <mat-menu #appMenu="matMenu">
       <button mat-menu-item routerLink="/about">About</button>
-      <button *ngIf="contactEnabled" mat-menu-item routerLink="/contact">Contact</button>
     </mat-menu>
 
     <button mat-icon-button [matMenuTriggerFor]="appMenu">
       <mat-icon>more_vert</mat-icon>
     </button>
     <button mat-button>
-      <span routerLink="/"><img src="assets/logos/banner.png" class="ultra-small-banner">TUSCAN.PRO</span>
+      <span routerLink="/"><img src="assets/logos/banner.png" class="ultra-small-banner" alt="Tuscan big banner">TUSCAN.PRO</span>
     </button>
   </mat-toolbar>
 </nav>

@@ -48,7 +48,6 @@ import {
 } from '@angular/material';
 import {MapsOverallPerformanceComponent} from './components/maps-overall-performance/maps-overall-performance.component';
 import {SkullComponent} from './components/common/skull/skull.component';
-import {ContactComponent} from './components/contact/contact.component';
 import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
 import {AboutComponent} from './components/about/about.component';
 
@@ -81,7 +80,6 @@ import {AboutComponent} from './components/about/about.component';
     MembershipComponent,
     MapsOverallPerformanceComponent,
     SkullComponent,
-    ContactComponent,
     ErrorDialogComponent,
     AboutComponent],
   imports: [
@@ -112,7 +110,6 @@ import {AboutComponent} from './components/about/about.component';
       [
         {path: '', component: MainPageComponent},
         {path: 'player/:nickname', component: PlayerDetailsComponent},
-        {path: 'contact', component: ContactComponent},
         {path: 'about', component: AboutComponent}
       ]
     )

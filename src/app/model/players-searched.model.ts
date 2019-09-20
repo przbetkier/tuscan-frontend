@@ -1,9 +1,9 @@
 export class SimplePlayer {
   constructor(public nickname: string,
-              lvl: number,
-              country: string,
-              avatarUrl: string,
-              verified: boolean) {
+              public lvl: number,
+              public country: string,
+              public avatarUrl: string,
+              public verified: boolean) {
   }
 }
 
