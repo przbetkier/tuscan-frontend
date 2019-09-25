@@ -34,7 +34,9 @@ import {MembershipComponent} from './components/membership/membership.component'
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule, MatDialogModule,
+  MatCardModule,
+  MatChipsModule,
+  MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
@@ -106,13 +108,14 @@ import {AboutComponent} from './components/about/about.component';
     MatSelectModule,
     MatStepperModule,
     MatDialogModule,
+    MatChipsModule,
     RouterModule.forRoot(
       [
         {path: '', component: MainPageComponent},
         {path: 'player/:nickname', component: PlayerDetailsComponent},
         {path: 'about', component: AboutComponent}
       ]
-    )
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent],
