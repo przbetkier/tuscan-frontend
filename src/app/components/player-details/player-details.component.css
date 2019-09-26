@@ -4,6 +4,10 @@ mat-card {
   color: white;
 }
 
+.ban-badge {
+  margin: auto !important;
+}
+
 .main-loader {
   position: fixed;
   top: 50%;

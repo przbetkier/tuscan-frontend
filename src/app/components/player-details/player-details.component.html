@@ -6,12 +6,14 @@
           <app-flag [country]="player.country" [size]="64"></app-flag>
           <app-membership [membership]="player.membership"></app-membership>
         </h1>
+        <mat-chip-list *ngIf="player.ban.active">
+          <mat-chip class="ban-badge" selected color="warn">Banned for cheating</mat-chip>
+        </mat-chip-list>
         <app-player-profiles [nickname]="player.nickname" [steamId]="player.gameDetails.steamId"></app-player-profiles>
       </div>
     </div>
-
     <mat-card>
-    <h2 class="header2">Player details</h2>
+      <h2 class="header2">Player details</h2>
       <div class="row player-details justify-content-around">
         <div class="col-4 col-md-2">
           <img *ngIf="player.avatarUrl !== ''" src="{{player.avatarUrl}}" class="avatar">
@@ -38,86 +40,86 @@
 
     <section id="map-performance" *ngIf="playerStats">
       <mat-card>
-      <h2 class="header2">Map performance</h2>
-      <div class="row">
-        <div class="col-12">
-          <app-map-performance [performance]="playerStats.overallStats.performance"></app-map-performance>
+        <h2 class="header2">Map performance</h2>
+        <div class="row">
+          <div class="col-12">
+            <app-map-performance [performance]="playerStats.overallStats.performance"></app-map-performance>
+          </div>
+          <div class="col-12 col-lg-6 map-chart">
+            Maps played distribution:
+            <app-maps-pie-chart *ngIf="playerStats" [mapStats]="playerStats.mapStats"></app-maps-pie-chart>
+          </div>
+          <div class="col-12 col-lg-6 map-chart">
+            K/D on maps:
+            <app-kd-block-chart *ngIf="playerStats" [mapStats]="playerStats.mapStats"></app-kd-block-chart>
+          </div>
+          <div class="col-12">
+            <app-maps-overall-performance [mapStats]="playerStats.mapStats"></app-maps-overall-performance>
+          </div>
         </div>
-        <div class="col-12 col-lg-6 map-chart">
-          Maps played distribution:
-          <app-maps-pie-chart *ngIf="playerStats" [mapStats]="playerStats.mapStats"></app-maps-pie-chart>
-        </div>
-        <div class="col-12 col-lg-6 map-chart">
-          K/D on maps:
-          <app-kd-block-chart *ngIf="playerStats" [mapStats]="playerStats.mapStats"></app-kd-block-chart>
-        </div>
-        <div class="col-12">
-          <app-maps-overall-performance [mapStats]="playerStats.mapStats"></app-maps-overall-performance>
-        </div>
-      </div>
       </mat-card>
     </section>
 
     <section id="recent-performance">
       <mat-card>
-      <h2 class="header2">Recent performance</h2>
-      <div class="row justify-content-around player-details">
-        <!--FIXME: player-details css?-->
-        <div class="col-12 col-lg-4">
-          <h4 class="header2">Last {{matchesMap.length}} matches:</h4>
-          <div class="row">
-            <div class="col-12">
-              <app-loader *ngIf="!allMatchesLoaded && !hasErrors"></app-loader>
-              <app-last-matches-performance *ngIf="allMatchesLoaded && playerHistory"
-                                            [nickname]="nickname"
-                                            [playerModels]="detailedPlayers"
-                                            [wins]="getWinsCount()"
-                                            [eloGained]="getEloGained()">
-              </app-last-matches-performance>
+        <h2 class="header2">Recent performance</h2>
+        <div class="row justify-content-around player-details">
+          <!--FIXME: player-details css?-->
+          <div class="col-12 col-lg-4">
+            <h4 class="header2">Last {{matchesMap.length}} matches:</h4>
+            <div class="row">
+              <div class="col-12">
+                <app-loader *ngIf="!allMatchesLoaded && !hasErrors"></app-loader>
+                <app-last-matches-performance *ngIf="allMatchesLoaded && playerHistory"
+                                              [nickname]="nickname"
+                                              [playerModels]="detailedPlayers"
+                                              [wins]="getWinsCount()"
+                                              [eloGained]="getEloGained()">
+                </app-last-matches-performance>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h4 class="header2">{{performanceLabel}} progress:</h4>
+            <div class="row">
+              <div class="col-12">
+                <app-elo-history-chart (whenLabelChanged)="whenLabelChanged($event)" *ngIf="playerHistory"
+                                       [playerHistory]="playerHistory"></app-elo-history-chart>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-6">
-          <h4 class="header2">{{performanceLabel}} progress:</h4>
-          <div class="row">
-            <div class="col-12">
-              <app-elo-history-chart (whenLabelChanged)="whenLabelChanged($event)" *ngIf="playerHistory"
-                                     [playerHistory]="playerHistory"></app-elo-history-chart>
-            </div>
-          </div>
-        </div>
-      </div>
       </mat-card>
     </section>
 
     <section id="matches" *ngIf="playerHistory">
       <mat-card>
-      <h2 class="header2">Recent matches</h2>
-      <div class="row matches-section">
+        <h2 class="header2">Recent matches</h2>
+        <div class="row matches-section">
 
-        <div class="col-2 col-lg-1">
-          SCORE
-        </div>
-        <div class="col-2 col-lg-3">
-          MAP
-        </div>
-        <div class="col-3" style="text-align: right">
-          STARTED AT
-        </div>
-        <div class="col-3" style="text-align: right">
-          FINISHED AT
-        </div>
-        <div class="col-2" style="text-align: right">
-          ELO DIFF
-        </div>
+          <div class="col-2 col-lg-1">
+            SCORE
+          </div>
+          <div class="col-2 col-lg-3">
+            MAP
+          </div>
+          <div class="col-3" style="text-align: right">
+            STARTED AT
+          </div>
+          <div class="col-3" style="text-align: right">
+            FINISHED AT
+          </div>
+          <div class="col-2" style="text-align: right">
+            ELO DIFF
+          </div>
 
-        <div *ngFor="let match of matches" class="col-12">
-          <app-match-cell [match]="match"
-                          [details]="getMatchResult(match.matchId)"
-                          [matchHistory]="getMatchHistory(match.matchId)">
-          </app-match-cell>
+          <div *ngFor="let match of matches" class="col-12">
+            <app-match-cell [match]="match"
+                            [details]="getMatchResult(match.matchId)"
+                            [matchHistory]="getMatchHistory(match.matchId)">
+            </app-match-cell>
+          </div>
         </div>
-      </div>
       </mat-card>
     </section>
 
