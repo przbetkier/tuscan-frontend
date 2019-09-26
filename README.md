@@ -29,4 +29,4 @@ All contributions are welcome.
 ### Related projects:
 
 - [tuscan](https://github.com/przbetkier/tuscan) - Java backend service providing player details using FACEIT API.
-- [faceit-lobby-extension-chrome](https://github.com/przbetkier/tuscan)- Google Chrome extension which helps during map picking on Faceit CS:GO matches.
+- [faceit-lobby-extension-chrome](https://github.com/przbetkier/faceit-lobby-extension-chrome)- Google Chrome extension which helps during map picking on Faceit CS:GO matches.
