@@ -23,3 +23,6 @@ span {
   outline: none;
 }
 
+mat-card {
+  background-color: rgba(38, 50, 56, 0.91)!important;
+}
