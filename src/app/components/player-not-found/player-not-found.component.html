@@ -1,17 +1,15 @@
 <mat-card class="not-found-section">
-  <mat-card-header>
-
-  </mat-card-header>
   <mat-card-content>
-    <div class="row not-found-section">
-      <div class="col-12">
-        <h4 class="alert-heading">No such player!</h4>
+    <h4>No such player!</h4>
+    <div class="row not-found-section justify-content-md-center">
+      <div class="col-12 message">
         <p>It seems that such a player does not exist on Faceit.</p>
-        <hr>
-        <p class="mb-0">Please make sure if provided nickname is correct. Notice that your input is case sensitive.</p>
+        <p>Please make sure if provided nickname is correct. Notice that your input is case sensitive.</p>
       </div>
-      <button mat-raised-button color="primary" (click)="returnToHomePage()"><span style="color: white">Return to home page</span>
-      </button>
+      <div class="col-8 homepage-button">
+        <button mat-raised-button color="primary" (click)="returnToHomePage()"><span style="color: white">Return to home page</span>
+        </button>
+      </div>
     </div>
   </mat-card-content>
 </mat-card>
