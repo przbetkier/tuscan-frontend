@@ -104,7 +104,5 @@ mat-expansion-panel {
 }
 
 mat-spinner.main-spinner {
-  position: fixed;
-  left: 50%;
-  top: 50%;
+  margin-top: 50%;
 }
