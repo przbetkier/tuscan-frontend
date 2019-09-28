@@ -1,8 +1,15 @@
 .not-found-section {
-  border-radius: 6px;
+  color: white;
 }
 
-.btn {
-  background-color: rgba(173, 91, 9, 1);
-  margin-top: 20px;
+button {
+  width: 100%;
+}
+
+.homepage-button {
+  margin-top: 2em;
+}
+
+.message {
+  margin-top: 2em;
 }

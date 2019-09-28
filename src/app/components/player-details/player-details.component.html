@@ -1,5 +1,7 @@
 <div class="container">
-  <div *ngIf="hasData">
+  <mat-spinner class="main-spinner" *ngIf="isLoading" color="primary" diameter="60"></mat-spinner>
+
+  <div *ngIf="hasData && !isLoading">
     <div class="row player">
       <div class="col-12">
         <h1>{{nickname}}
@@ -15,14 +17,15 @@
     <mat-card>
       <h2 class="header2">Player details</h2>
       <div class="row player-details justify-content-around">
-        <div class="col-4 col-md-2">
-          <img *ngIf="player.avatarUrl !== ''" src="{{player.avatarUrl}}" class="avatar">
-          <img *ngIf="player.avatarUrl === ''" src="assets/common/empty-avatar.jpeg" class="avatar">
+        <div class="col-12 col-md-6 col-lg-2">
+          <img *ngIf="player.avatarUrl !== ''" src="{{player.avatarUrl}}" class="avatar" alt="player avatar">
+          <img *ngIf="player.avatarUrl === ''" src="assets/common/empty-avatar.jpeg" class="avatar" alt="player avatar">
         </div>
-        <div class="col-8 col-md-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <app-overall-stats *ngIf="playerStats" [overallStats]="playerStats.overallStats"></app-overall-stats>
+          <mat-spinner *ngIf="!playerStats" color="primary" [diameter]="40"></mat-spinner>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-lg-6">
           <section *ngIf="player.gameDetails">
             <p> Level:
               <app-badge [level]="player.gameDetails.level"></app-badge>
@@ -63,18 +66,17 @@
     <section id="recent-performance">
       <mat-card>
         <h2 class="header2">Recent performance</h2>
-        <div class="row justify-content-around player-details">
+        <div class="row justify-content-around recent-performance">
           <!--FIXME: player-details css?-->
           <div class="col-12 col-lg-4">
             <h4 class="header2">Last {{matchesMap.length}} matches:</h4>
             <div class="row">
               <div class="col-12">
-                <app-loader *ngIf="!allMatchesLoaded && !hasErrors"></app-loader>
+                <mat-spinner *ngIf="!allMatchesLoaded && !hasErrors" color="primary" diameter="60"></mat-spinner>
                 <app-last-matches-performance *ngIf="allMatchesLoaded && playerHistory"
                                               [nickname]="nickname"
                                               [playerModels]="detailedPlayers"
-                                              [wins]="getWinsCount()"
-                                              [eloGained]="getEloGained()">
+                                              [wins]="getWinsCount()">
                 </app-last-matches-performance>
               </div>
             </div>
@@ -97,20 +99,20 @@
         <h2 class="header2">Recent matches</h2>
         <div class="row matches-section">
 
-          <div class="col-2 col-lg-1">
+          <div class="col-2 col-lg-1 cell-with-padding center">
             SCORE
           </div>
-          <div class="col-2 col-lg-3">
+          <div class="col-3 col-lg-4 cell-with-padding center">
             MAP
           </div>
-          <div class="col-3" style="text-align: right">
-            STARTED AT
+          <div class="col-3 cell-with-padding center">
+            DATE
           </div>
-          <div class="col-3" style="text-align: right">
-            FINISHED AT
+          <div class="col-2 cell-with-padding" style="text-align: right">
+            K/D
           </div>
-          <div class="col-2" style="text-align: right">
-            ELO DIFF
+          <div class="col-2 cell-with-padding" style="text-align: right">
+            ELO
           </div>
 
           <div *ngFor="let match of matches" class="col-12">
@@ -132,5 +134,4 @@
     <app-player-not-found></app-player-not-found>
   </div>
 
-  <app-loader *ngIf="isLoading" class="main-loader"></app-loader>
 </div>

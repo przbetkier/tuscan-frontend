@@ -18,7 +18,7 @@ export class AppComponent {
   constructor(private router: Router) {
     this.innerWidth = window.innerWidth;
     this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd && window.location.hostname !== 'localhost') {
         (<any>window).ga('set', 'page', event.urlAfterRedirects);
         (<any>window).ga('send', 'pageview');
       }

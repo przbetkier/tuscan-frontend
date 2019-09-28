@@ -2,6 +2,12 @@ img {
   width: 100%
 }
 
+@media (max-width: 768px) {
+  img {
+    width: 70%
+  }
+}
+
 img:hover {
   webkit-filter: blur(2px) grayscale(100%); /* Chrome, Safari, Opera */
   filter: blur(2px) grayscale(100%);

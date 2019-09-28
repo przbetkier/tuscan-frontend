@@ -5,7 +5,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
-
+  z-index: -1;
   font-family: 'Lato', sans-serif;
   color: white;
 }
@@ -25,4 +25,8 @@ span {
 
 mat-card {
   background-color: rgba(38, 50, 56, 0.91)!important;
+}
+
+mat-spinner {
+  margin: 0 auto;
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {MapStats} from '../../model/map-stats.model';
 
 @Component({
@@ -10,12 +10,11 @@ export class MapsPieChartComponent implements OnInit {
 
   @Input() mapStats: MapStats[];
 
+  public innerWidth: any;
+
   public chartType = 'pie';
-
   public chartDatasets: Array<any>;
-
   public chartLabels: Array<any>;
-
   public chartColors: Array<any> = [
     {
       borderColor: 'rgba(220,220,220,1)',
@@ -48,6 +47,7 @@ export class MapsPieChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
     this.mapStats = this.sortMapStats();
     const data = this.mapStats.map(m => m.matches);
     this.chartDatasets = [
@@ -70,5 +70,14 @@ export class MapsPieChartComponent implements OnInit {
       }
       return 0;
     });
+  }
+
+  showLegend() {
+    return this.innerWidth > 768 ? true : false;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = event.target.innerWidth;
   }
 }

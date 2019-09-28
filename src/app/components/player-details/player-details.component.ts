@@ -10,6 +10,7 @@ import {MatchDetails} from '../../model/match-details/match-details.model';
 import {Title} from '@angular/platform-browser';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
 import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
+import {isNotNullOrUndefined} from 'codelyzer/util/isNotNullOrUndefined';
 
 @Component({
   selector: 'app-player-details',
@@ -60,9 +61,9 @@ export class PlayerDetailsComponent implements OnInit {
   private getPlayerDetails() {
     this.tuscanService.getPlayerDetails(this.nickname)
       .subscribe(data => {
+        this.isLoading = false;
         this.player = data;
         this.hasData = true;
-        this.isLoading = false;
         this.getPlayerHistory(this.player.playerId);
         this.getPlayerMatches(this.player.playerId);
         this.getPlayerOverallStats(this.player.playerId);
@@ -139,16 +140,6 @@ export class PlayerDetailsComponent implements OnInit {
 
   private getWinsCount(): number {
     return this.matchesMap.filter(m => m.result === 'WIN').length * 100;
-  }
-
-  private getEloGained(): number {
-    const historySize = this.playerHistory.matchHistory.length;
-    const oldestMatchElo = this.playerHistory.matchHistory[historySize - 1].elo;
-    if (oldestMatchElo !== 0) {
-      return (this.player.gameDetails.faceitElo - oldestMatchElo);
-    } else {
-      return -9999; // TODO: Implement better mechanism...
-    }
   }
 
   openErrorDialog() {

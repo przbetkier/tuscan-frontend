@@ -15,11 +15,15 @@
 }
 
 .date {
+  text-align: center;
+}
+
+.kd {
   text-align: right;
 }
 
 .map {
-  margin-left: 8px;
+  text-align: center;
 }
 
 .cell-with-padding {
@@ -61,4 +65,9 @@
 
 .details-match {
   padding: 15px 15px;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
 }

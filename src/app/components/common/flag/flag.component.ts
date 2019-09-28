@@ -10,9 +10,12 @@ export class FlagComponent implements OnInit {
   @Input() size: number;
 
   public url: string;
+  private OCEANIA_DEFAULT = 'AU';
 
   ngOnInit() {
+    if (this.country === 'Oceania') {
+      this.country = this.OCEANIA_DEFAULT;
+    }
     this.url = `https://www.countryflags.io/${this.country}/flat/${this.size}.png`;
   }
-
 }

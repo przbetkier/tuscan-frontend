@@ -11,6 +11,9 @@ export class EloHistoryChartComponent implements OnInit {
   @Input() playerHistory: PlayerHistory;
   @Output() whenLabelChanged = new EventEmitter<any>();
 
+  public eloHistory: PlayerHistory;
+  public kdHistory: PlayerHistory;
+  public hsHistory: PlayerHistory;
   public chartType = 'line';
   public chartDatasets: Array<any>;
   public chartLabels: Array<any>;
@@ -56,12 +59,15 @@ export class EloHistoryChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.kdHistory = new PlayerHistory((this.playerHistory.matchHistory.slice(0, 20)));
+    this.hsHistory = this.kdHistory;
+    this.eloHistory = new PlayerHistory(this.playerHistory.matchHistory.filter(m => m.eloDiff !== 0).slice(0, 20));
     this.setEloAsDataset();
-    this.chartLabels = this.getLabels();
   }
 
-  getLabels() {
-    const historySize = this.playerHistory.matchHistory.length;
+  getLabels(datasetLength: number) {
+    // FIXME: Move it to the configuration
+    const historySize = datasetLength;
     const labels = [];
     for (let i = 0; i < historySize; i++) {
       const label = `${i + 1}`;
@@ -71,27 +77,30 @@ export class EloHistoryChartComponent implements OnInit {
   }
 
   setKdRatioAsDataset() {
-    const data = this.playerHistory.matchHistory.map(m => m.kdRatio).reverse();
+    const data = this.kdHistory.matchHistory.map(m => m.kdRatio).reverse();
     this.chartDatasets = [
       {data: data}
     ];
     this.whenLabelChanged.emit('K/D');
+    this.chartLabels = this.getLabels(data.length);
   }
 
   setEloAsDataset() {
-    const data = this.playerHistory.matchHistory.map(m => m.elo).reverse();
+    const data = this.eloHistory.matchHistory.map(m => m.elo).reverse();
     this.chartDatasets = [
       {data: data}
     ];
     this.whenLabelChanged.emit('ELO');
+    this.chartLabels = this.getLabels(data.length);
   }
 
   setHsAsDataset() {
-    const data = this.playerHistory.matchHistory.map(m => m.hsPercentage).reverse();
+    const data = this.hsHistory.matchHistory.map(m => m.hsPercentage).reverse();
     this.chartDatasets = [
       {data: data}
     ];
     this.whenLabelChanged.emit('HS%');
+    this.chartLabels = this.getLabels(data.length);
   }
 }
 
