@@ -5,7 +5,7 @@
           [labels]="chartLabels"
           [colors]="chartColors"
           [options]="chartOptions"
-          [legend]="true"
+          [legend]="showLegend()"
           (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
   </canvas>

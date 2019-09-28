@@ -20,5 +20,4 @@ export class OverallStatsComponent implements OnInit {
   public hasData(): boolean {
     return !isNullOrUndefined(this.overallStats);
   }
-
 }

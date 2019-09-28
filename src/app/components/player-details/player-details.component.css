@@ -8,18 +8,11 @@ mat-card {
   margin: auto !important;
 }
 
-.main-loader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .section-header {
-    background: rgba(254, 82, 23, 0.55);
-    margin-top: 8px;
-    margin-bottom: 8px;
-    padding: auto;
+  background: rgba(254, 82, 23, 0.55);
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: auto;
 }
 
 #matches {
@@ -61,14 +54,34 @@ mat-card {
   padding: 10px;
 }
 
+.recent-performance {
+  padding: 10px;
+}
+
+.cell-with-padding {
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .player-details {
+    text-align: center;
+  }
+
+  .player-details > div {
+    margin-top: 20px;
+  }
+}
+
 .player {
   text-align: center;
   margin-top: 16px;
 }
 
-.avatar {
-  height: 180px;
-  width: 180px;
+@media (min-width: 769px) {
+  .avatar {
+    height: 180px;
+    width: 180px;
+  }
 }
 
 app-membership {
@@ -84,4 +97,14 @@ mat-expansion-panel {
     height: 140px;
     width: 140px;
   }
+}
+
+.center {
+  text-align: center;
+}
+
+mat-spinner.main-spinner {
+  position: fixed;
+  left: 50%;
+  top: 50%;
 }

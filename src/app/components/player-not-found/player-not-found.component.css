@@ -1,8 +1,7 @@
 .not-found-section {
-  border-radius: 6px;
+  color: white;
 }
 
-.btn {
-  background-color: rgba(173, 91, 9, 1);
-  margin-top: 20px;
+button {
+  width: 80%;
 }

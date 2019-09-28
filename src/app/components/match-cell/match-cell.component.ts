@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, HostListener, Input, OnChanges, OnInit} from '@angular/core';
 import {SimpleMatch} from '../../model/simple-match.model';
 import {MatchDetails} from '../../model/match-details/match-details.model';
 import {isNullOrUndefined} from 'util';
@@ -13,7 +13,7 @@ import {SlideInOutAnimation} from '../../animations/animations';
     SlideInOutAnimation
   ]
 })
-export class MatchCellComponent implements OnChanges {
+export class MatchCellComponent implements OnChanges, OnInit {
 
   @Input() match: SimpleMatch;
   @Input() details: MatchDetails;
@@ -23,6 +23,11 @@ export class MatchCellComponent implements OnChanges {
   public expanded = false;
   animationState = 'out';
   public loading = false;
+  public innerWidth: any;
+
+  ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+  }
 
   ngOnChanges() {
     if (!isNullOrUndefined(this.details)) {
@@ -37,8 +42,16 @@ export class MatchCellComponent implements OnChanges {
     }
   }
 
-  public isPositive(): boolean {
-    return this.matchHistory.eloGain > 0;
+  public gainedElo(): boolean {
+    return this.matchHistory.eloDiff > 0;
+  }
+
+  public hasPositiveKd(): boolean {
+    return this.matchHistory.kdRatio > 1.0;
+  }
+
+  public hasNegativeKd(): boolean {
+    return this.matchHistory.kdRatio < 1.0;
   }
 
   toggleShowDiv(divName: string) {
@@ -53,5 +66,26 @@ export class MatchCellComponent implements OnChanges {
         this.loading = false;
       }, 800);
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = event.target.innerWidth;
+  }
+
+  dateFormat(): string {
+    return this.isDesktopUser() ? 'dd/MM/yy, hh:mm a' : 'dd/MM/yy';
+  }
+
+  score(): string {
+    return this.isDesktopUser()? this.details.score : this.details.score.replace('/', ':').replace(/\s/g, '');
+  }
+
+  hasHistory(): boolean {
+    return !isNullOrUndefined(this.matchHistory) && this.matchHistory !== undefined;
+  }
+
+  isDesktopUser(): boolean {
+    return this.innerWidth > 768;
   }
 }
