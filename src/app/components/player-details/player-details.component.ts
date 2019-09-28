@@ -63,17 +63,19 @@ export class PlayerDetailsComponent implements OnInit {
       .subscribe(data => {
         this.isLoading = false;
         this.player = data;
-        this.hasData = true;
-        this.getPlayerHistory(this.player.playerId);
-        this.getPlayerMatches(this.player.playerId);
-        this.getPlayerOverallStats(this.player.playerId);
-        this.tuscanService.postPlayerSearched(this.nickname).subscribe();
+        if (isNotNullOrUndefined(this.player.gameDetails)) {
+          this.hasData = true;
+          this.getPlayerHistory(this.player.playerId);
+          this.getPlayerMatches(this.player.playerId);
+          this.getPlayerOverallStats(this.player.playerId);
+          this.tuscanService.postPlayerSearched(this.nickname).subscribe();
+        } else {
+          this.hasData = false;
+        }
       }, error => {
         this.hasData = false;
         this.isLoading = false;
-        if (error.status === 500) {
-          this.openErrorDialog();
-        }
+        this.openErrorDialog();
       });
   }
 
@@ -93,7 +95,6 @@ export class PlayerDetailsComponent implements OnInit {
                 t.players.forEach(p => {
                   if (p.nickname === this.nickname) {
                     this.detailedPlayers.push(p);
-
                   }
                 });
               });
@@ -102,10 +103,8 @@ export class PlayerDetailsComponent implements OnInit {
               this.matchesFetched = this.matchesFetched + 1;
             }));
 
-      }, error => {
-        if (error.status === 500) {
-          this.openErrorDialog();
-        }
+      }, () => {
+        this.openErrorDialog();
       }
     );
   }
@@ -113,10 +112,8 @@ export class PlayerDetailsComponent implements OnInit {
   private getPlayerOverallStats(playerId: string) {
     this.tuscanService.getPlayerOverallStats(playerId).subscribe(data => {
       this.playerStats = data;
-    }, error => {
-      if (error.status === 500) {
-        this.openErrorDialog();
-      }
+    }, () => {
+      this.openErrorDialog();
     });
   }
 
