@@ -78,7 +78,7 @@ export class MatchCellComponent implements OnChanges, OnInit {
   }
 
   score(): string {
-    return this.isDesktopUser()? this.details.score : this.details.score.replace('/', ':').replace(/\s/g, '');
+    return this.isDesktopUser() ? this.details.score : this.details.score.replace('/', ':').replace(/\s/g, '');
   }
 
   hasHistory(): boolean {
