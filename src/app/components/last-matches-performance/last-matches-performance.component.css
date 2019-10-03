@@ -10,3 +10,7 @@ tr:hover {
   background-color: #e64a19;
   transition: 0.8s;
 }
+
+.star {
+  color: gold;
+}
