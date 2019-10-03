@@ -2,7 +2,7 @@
   <tbody>
   <tr>
     <td>Headshots</td>
-    <td>{{hsPercentageAvg / playerModels.length | number: '1.2-2'}} %</td>
+    <td>{{hsPercentageAvg / playerModels.length | number: '1.0-2'}} % </td>
   </tr>
   <tr>
     <td>K/D</td>
@@ -14,7 +14,11 @@
   </tr>
   <tr>
     <td>Win rate</td>
-    <td>{{wins / playerModels.length | number: '1.2-2'}} %</td>
+    <td>{{wins / playerModels.length | number: '1.0-2'}} %</td>
+  </tr>
+  <tr>
+    <td>MVPs per match</td>
+    <td>{{mvps / playerModels.length | number: '1.2-2'}} <i class="fas fa-star star"></i></td>
   </tr>
   <tr>
     <td>Assists per match</td>
