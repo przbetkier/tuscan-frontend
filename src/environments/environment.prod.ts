@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  APIEndpoint: 'https://tuscan-service.herokuapp.com'
+  APIEndpoint: 'http://46.101.211.206:8080'
 };
