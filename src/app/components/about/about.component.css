@@ -31,3 +31,9 @@ p {
 .label {
   margin-top: 16px;
 }
+
+.icon  {
+  filter: brightness(0) invert(1);
+  width: 30%;
+  margin: 0 auto;
+}

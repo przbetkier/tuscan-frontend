@@ -51,6 +51,7 @@ import {MapsOverallPerformanceComponent} from './components/maps-overall-perform
 import {SkullComponent} from './components/common/skull/skull.component';
 import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
 import {AboutComponent} from './components/about/about.component';
+import {InlineSVGModule} from 'ng-inline-svg';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import {AboutComponent} from './components/about/about.component';
     FormsModule,
     MDBBootstrapModule,
     ChartsModule,
+    InlineSVGModule,
     WavesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
