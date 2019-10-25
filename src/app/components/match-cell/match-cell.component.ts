@@ -4,6 +4,7 @@ import {MatchDetails} from '../../model/match-details/match-details.model';
 import {isNullOrUndefined} from 'util';
 import {MatchHistory} from '../../model/match-history.model';
 import {SlideInOutAnimation} from '../../animations/animations';
+import {AppSettings} from '../../config/app-settings';
 
 @Component({
   selector: 'app-match-cell',
@@ -24,9 +25,13 @@ export class MatchCellComponent implements OnChanges, OnInit {
   animationState = 'out';
   public loading = false;
   public innerWidth: any;
+  public daysSinceFinished: number;
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
+    const today = new Date();
+    const diff = Math.abs(today.getTime() - new Date(this.match.startedAt).getTime());
+    this.daysSinceFinished = Math.ceil(diff / (1000 * 3600 * 24));
   }
 
   ngOnChanges() {
@@ -87,5 +92,17 @@ export class MatchCellComponent implements OnChanges, OnInit {
 
   isDesktopUser(): boolean {
     return this.innerWidth > 768;
+  }
+
+  downloadDemo() {
+    window.open(this.details.demoUrl, '_blank');
+  }
+
+  canDownloadDemo(): boolean {
+    return this.daysSinceFinished < AppSettings.DEMO_URL_DAYS_TO_EXPIRE;
+  }
+
+  navigateToMatchRoom() {
+    window.open(`${AppSettings.MATCH_ROOM_BASE_URL}/${this.match.matchId}`, '+blank');
   }
 }
