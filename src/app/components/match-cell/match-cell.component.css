@@ -37,7 +37,7 @@
 .match-cell {
   border-top: 1px ridge rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  transition: 0.65s;
+  transition: 0.35s;
 }
 
 @media screen and (max-width: 992px) {
@@ -70,4 +70,18 @@
 .no-padding {
   padding-left: 0;
   padding-right: 0;
+}
+
+.icon  {
+  padding-left: 0.6rem;
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
+
+.demo-button {
+  width: 100%;
+}
+
+.buttons-section {
+  margin-bottom: 1rem;
 }

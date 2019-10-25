@@ -7,4 +7,11 @@ $tuscan-theme-accent:  mat-palette($mat-blue-grey, 900);
 $tuscan-theme-warn:    mat-palette($mat-red);
 $tuscan-theme-theme:   mat-light-theme($tuscan-theme-primary, $tuscan-theme-accent, $tuscan-theme-warn);
 
+$custom-typography: mat-typography-config(
+  $font-family: 'Quantico, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
 @include angular-material-theme($tuscan-theme-theme);
+@include angular-material-typography($custom-typography);

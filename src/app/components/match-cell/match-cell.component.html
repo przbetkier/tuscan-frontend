@@ -35,6 +35,24 @@
           <app-team-in-match [team]="details.teams[1]"></app-team-in-match>
         </div>
       </div>
+      <section class="buttons-section">
+        <div class="row justify-content-end">
+          <div class="col-12 col-md-6 col-lg-3">
+            <button mat-raised-button color="primary" class="demo-button" (click)="navigateToMatchRoom()">
+              <span>{{'Show match room' | uppercase}}</span>
+            </button>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div [matTooltipDisabled]="canDownloadDemo()" matTooltip="Demo is available to download only for 60 days"
+                 [matTooltipPosition]="'above'">
+              <button mat-raised-button color="primary" class="demo-button" (click)="downloadDemo()"
+                      [disabled]="!canDownloadDemo()"><span>{{'Download demo' | uppercase}}</span>
+                <div [inlineSVG]="'../../assets/common/download.svg'" class="icon"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </div>

@@ -13,12 +13,7 @@
   margin-right: 8px;
 }
 
-mat-toolbar {
-  font-family: 'Quantico', sans-serif!important;
-}
-
 .mat-menu-item {
-  font-family: 'Quantico', sans-serif;
   color: white!important;
 }
 
