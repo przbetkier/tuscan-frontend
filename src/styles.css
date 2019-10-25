@@ -1,20 +1,17 @@
 html {
   height: 100%;
   width: 100%;
-}
-
-body {
-  background-image: url("assets/background/infbg.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: url("assets/background/infbg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: #464646;
-  z-index: -1;
+}
+
+body {
   font-family: 'Lato', sans-serif;
+  /*Full transparent background*/
+  background: rgba(255, 234, 234, 0);
   color: white;
 }
 
