@@ -12,42 +12,42 @@
     <span *ngIf=hasHistory()
           [ngClass]="{'positive': hasPositiveKd(), 'negative': hasNegativeKd() }">{{matchHistory.kdRatio | number:'1.2-2'}}</span>
     <span class="no-data" matTooltip="Player probably was a leaver" *ngIf="!hasHistory()">
-      <i class="far fa-question-circle"></i></span>
+      <div [inlineSVG]="'../../assets/common/information.svg'" class="icon icon-information"></div></span>
   </div>
   <div class="col-2 elo cell-with-padding">
     <span *ngIf="hasHistory() && matchHistory.eloDiff !== 0"
           [ngClass]="{'positive': gainedElo(), 'negative': !gainedElo() }"><span
       *ngIf="gainedElo()">+</span>{{(matchHistory.eloDiff)}}</span>
     <span class="no-data" matTooltip="This match did not affected ELO or stats have not been updated yet"
-          *ngIf="hasHistory() && matchHistory.eloDiff === 0"><i class="far fa-question-circle"></i></span>
+          *ngIf="hasHistory() && matchHistory.eloDiff === 0"><div [inlineSVG]="'../../assets/common/information.svg'" class="icon icon-information"></div></span>
     <span class="no-data" matTooltip="Player probably was a leaver"
-          *ngIf="!hasHistory()"><i class="far fa-question-circle"></i></span>
+          *ngIf="!hasHistory()"><div [inlineSVG]="'../../assets/common/information.svg'" class="icon icon-information"></div></span>
   </div>
 </div>
 <div *ngIf="details" [@slideInOut]="animationState" [hidden]="!expanded">
   <div class="row">
     <div class="col-12">
       <div class="row details-match">
-        <div class="col-12">
+        <div class="col-12 team-match-col">
           <app-team-in-match [team]="details.teams[0]"></app-team-in-match>
         </div>
-        <div class="col-12">
+        <div class="col-12 team-match-col">
           <app-team-in-match [team]="details.teams[1]"></app-team-in-match>
         </div>
       </div>
       <section class="buttons-section">
         <div class="row justify-content-end">
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-6 col-lg-3 match-button-col">
             <button mat-raised-button color="primary" class="demo-button" (click)="navigateToMatchRoom()">
               <span>{{'Show match room' | uppercase}}</span>
             </button>
           </div>
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-6 col-lg-3 match-button-col">
             <div [matTooltipDisabled]="canDownloadDemo()" matTooltip="Demo is available to download only for 60 days"
                  [matTooltipPosition]="'above'">
               <button mat-raised-button color="primary" class="demo-button" (click)="downloadDemo()"
                       [disabled]="!canDownloadDemo()"><span>{{'Download demo' | uppercase}}</span>
-                <div [inlineSVG]="'../../assets/common/download.svg'" class="icon"></div>
+                <div [inlineSVG]="'../../assets/common/download.svg'" class="icon icon-download"></div>
               </button>
             </div>
           </div>

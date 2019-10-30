@@ -11,6 +11,8 @@ tr:hover {
   transition: 0.8s;
 }
 
-.star {
-  color: gold;
+.icon-star {
+  display: inline-block;
+  width: 16px;
+  margin-left: 8px;
 }
