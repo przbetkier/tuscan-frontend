@@ -63,8 +63,10 @@
   height: 0;
 }
 
-.details-match {
-  padding: 15px 15px;
+@media(min-width: 720px) {
+  .details-match {
+    padding: 15px 15px;
+  }
 }
 
 .no-padding {
@@ -72,10 +74,28 @@
   padding-right: 0;
 }
 
-.icon  {
-  padding-left: 0.6rem;
+.icon {
   display: inline-block;
   filter: brightness(0) invert(1);
+}
+
+.icon-download {
+  padding-left: 0.6rem;
+}
+
+.icon-information {
+  width: 20px;
+}
+
+@media (max-width: 768px) {
+  .match-button-col {
+    margin-top: 8px;
+  }
+
+  .team-match-col {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 .demo-button {

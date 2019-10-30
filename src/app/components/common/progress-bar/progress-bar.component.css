@@ -8,8 +8,9 @@
 }
 
 #level-1 {
-  width: 0%;
+  width: 0;
 }
+
 #myBar {
   width: 1%;
   height: 30px;
@@ -21,4 +22,10 @@
 
 .nextlvl-tooltip {
   margin-left: 9.2%;
+}
+
+@media(max-width: 410px) {
+  #tooltips {
+    font-size: 12px;
+  }
 }
