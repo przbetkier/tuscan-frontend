@@ -22,3 +22,7 @@
 span {
   cursor: pointer;
 }
+
+.legend {
+  padding: 4px 4px 4px 8px;
+}

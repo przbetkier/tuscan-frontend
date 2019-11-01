@@ -103,6 +103,6 @@ export class MatchCellComponent implements OnChanges, OnInit {
   }
 
   navigateToMatchRoom() {
-    window.open(`${AppSettings.MATCH_ROOM_BASE_URL}/${this.match.matchId}`, '+blank');
+    window.open(`${AppSettings.MATCH_ROOM_BASE_URL}/${this.match.matchId}`, '_blank');
   }
 }

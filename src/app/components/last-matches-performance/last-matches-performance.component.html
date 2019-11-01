@@ -1,7 +1,7 @@
 <table class="table">
   <tbody>
   <tr>
-    <td>Headshots</td>
+    <td>Headshot %</td>
     <td>{{hsPercentageAvg / playerModels.length | number: '1.0-2'}} % </td>
   </tr>
   <tr>
@@ -13,8 +13,8 @@
     <td>{{killsPerMatchAvg / playerModels.length | number: '1.2-2'}}</td>
   </tr>
   <tr>
-    <td>Win rate</td>
-    <td>{{wins / playerModels.length | number: '1.0-2'}} %</td>
+    <td>Win %</td>
+    <td>{{(wins / playerModels.length) * 100 | number: '1.0-2'}} %</td>
   </tr>
   <tr>
     <td>MVPs per match</td>

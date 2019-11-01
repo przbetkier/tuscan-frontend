@@ -43,3 +43,23 @@ mat-card {
 mat-spinner {
   margin: 0 auto;
 }
+
+.primary-color {
+  color: #e64a19;
+}
+
+.green-color {
+  color: #9ccc65;
+}
+
+.green-bg-color {
+  background-color: #1c7221;
+}
+
+.red-color {
+  color: #ef9a9a;
+}
+
+.red-bg-color {
+  background-color: #d51a17;
+}

@@ -1,16 +1,16 @@
 <section class="player-performance" [ngClass]="{'checkedPlayer': isCheckedPlayer}">
   <div class="row">
     <div class="col-3 col-md-4">
-      <a [ngClass]="{'playerLinkChecked': isCheckedPlayer, 'playerLinkNormal': !isCheckedPlayer}" href="/player/{{player.nickname}}">{{player.nickname}}</a>
+      <a [ngClass]="{'primary-color playerLinkChecked': isCheckedPlayer, 'playerLinkNormal': !isCheckedPlayer}" href="/player/{{player.nickname}}">{{player.nickname}}</a>
     </div>
     <div class="col-3 col-md-2">
       {{player.playerStats.kills}}/{{player.playerStats.assists}}/{{player.playerStats.deaths}}
     </div>
-    <div class="col-2 col-md-1" [ngClass]="{'kdNegative': player.playerStats.kdRatio < 1, 'kdPositive': player.playerStats.kdRatio >= 1}">
-      {{player.playerStats.kdRatio}}
+    <div class="col-2 col-md-1" [ngClass]="{'red-color': player.playerStats.kdRatio < 1, 'green-color': player.playerStats.kdRatio >= 1}">
+      {{player.playerStats.kdRatio | number: '1.2-2'}}
     </div>
     <div class="col-2">
-      {{player.playerStats.krRatio}}
+      {{player.playerStats.krRatio | number: '1.2-2'}}
     </div>
     <div class="col-1 col-md-2">
       {{player.playerStats.headshotPercentage}}

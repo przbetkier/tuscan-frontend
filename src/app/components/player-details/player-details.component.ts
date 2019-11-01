@@ -8,7 +8,7 @@ import {PlayerHistory} from '../../model/player-history.model';
 import {MatchHistory} from '../../model/match-history.model';
 import {MatchDetails} from '../../model/match-details/match-details.model';
 import {Title} from '@angular/platform-browser';
-import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 import {isNotNullOrUndefined} from 'codelyzer/util/isNotNullOrUndefined';
 
@@ -72,7 +72,7 @@ export class PlayerDetailsComponent implements OnInit {
         } else {
           this.hasData = false;
         }
-      }, error => {
+      }, () => {
         this.hasData = false;
         this.isLoading = false;
         this.openErrorDialog();
@@ -86,21 +86,21 @@ export class PlayerDetailsComponent implements OnInit {
           m => this.tuscanService.getMatchDetails(this.player.playerId, m.matchId)
             .subscribe(response => {
               this.matchesMap.push(response);
-              this.matchesFetched = this.matchesFetched + 1;
+              this.matchesFetched++;
               if (this.matches.length === this.matchesFetched) {
                 this.allMatchesLoaded = true;
               }
 
               response.teams.forEach(t => {
                 t.players.forEach(p => {
-                  if (p.nickname === this.nickname) {
+                  if (p.playerId === this.player.playerId) {
                     this.detailedPlayers.push(p);
                   }
                 });
               });
 
             }, () => {
-              this.matchesFetched = this.matchesFetched + 1;
+              this.matchesFetched++;
             }));
 
       }, () => {
@@ -136,7 +136,7 @@ export class PlayerDetailsComponent implements OnInit {
   }
 
   private getWinsCount(): number {
-    return this.matchesMap.filter(m => m.result === 'WIN').length * 100;
+    return this.matchesMap.filter(m => m.result === 'WIN').length;
   }
 
   openErrorDialog() {
