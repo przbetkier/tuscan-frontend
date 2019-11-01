@@ -11,6 +11,7 @@ export class EloHistoryChartComponent implements OnInit {
   @Input() playerHistory: PlayerHistory;
   @Output() whenLabelChanged = new EventEmitter<any>();
 
+  public primaryColor = '#e64a19';
   public eloHistory: PlayerHistory;
   public kdHistory: PlayerHistory;
   public hsHistory: PlayerHistory;
@@ -20,12 +21,12 @@ export class EloHistoryChartComponent implements OnInit {
   public chartColors: Array<any> = [
     {
       backgroundColor: 'rgba(220,220,220,0.11)',
-      borderColor: '#e64a19',
+      borderColor: this.primaryColor,
       borderWidth: 1,
-      pointBackgroundColor: '#e64a19',
-      pointBorderColor: '#e64a19',
-      pointHoverBackgroundColor: '#e64a19',
-      pointHoverBorderColor: '#e64a19'
+      pointBackgroundColor: this.primaryColor,
+      pointBorderColor: this.primaryColor,
+      pointHoverBackgroundColor: this.primaryColor,
+      pointHoverBorderColor: this.primaryColor
     }
   ];
 

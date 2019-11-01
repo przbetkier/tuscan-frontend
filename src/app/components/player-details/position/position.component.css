@@ -5,3 +5,11 @@
 .position-value {
   margin-left: 8px;
 }
+
+.flags {
+  display: inline-block;
+}
+
+.section-flag {
+  display: inline-block;
+}

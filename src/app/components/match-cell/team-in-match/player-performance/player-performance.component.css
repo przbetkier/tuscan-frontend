@@ -4,9 +4,8 @@ a {
 
 .player-performance {
   background-color: rgba(255, 253, 253, 0.05);
-  padding: 4px;
-  border-radius: 4px;
-  transition: 1.5s;
+  border-left: 6px solid transparent;
+  padding: 4px 4px 4px 8px;
 }
 
 @media screen and (max-width: 992px) {
@@ -16,20 +15,11 @@ a {
 }
 
 .player-performance:hover {
-  border-left: 8px solid #e64a19;
-  transition: 0.4s;
+  border-left: 6px solid #e64a19;
 }
 
-.kdNegative {
-  background-color: red;
-}
-
-.kdPositive {
-  background-color: green;
-}
-
-.playerLinkChecked {
-  color: rgb(72, 203, 243);
+.playerLinkChecked:hover {
+  color: #e64a19;
 }
 
 .playerLinkNormal {
@@ -37,6 +27,5 @@ a {
 }
 
 .checkedPlayer {
-  color: rgb(72, 203, 243);
-  text-shadow: 2px 2px rgba(17, 17, 17, 0.37);
+  text-shadow: 2px 2px rgba(52, 52, 52, 0.37);
 }

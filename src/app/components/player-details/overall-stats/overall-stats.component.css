@@ -12,3 +12,7 @@ ul {
     padding: 0;
   }
 }
+
+.value {
+  margin-left: 0.35em;
+}

@@ -1,11 +1,11 @@
 <div *ngIf="hasData()" id="overallStats">
   <ul>
-    <li>Matches: {{overallStats.matches}}</li>
-    <li>Win rate: {{overallStats.winPercentage}} %</li>
-    <li>Avg K/D: {{overallStats.kdRatio}}</li>
-    <li>Headshots: {{overallStats.headshotPercentage}} %</li>
-    <li>Current win streak: {{overallStats.currentWinStreak}}</li>
-    <li>Longest win streak: {{overallStats.longestWinStreak}}</li>
+    <li>Matches: <span class="primary-color value">{{overallStats.matches}}</span></li>
+    <li>Wins: <span class="primary-color value">{{overallStats.winPercentage}} %</span></li>
+    <li>K/D ratio: <span class="primary-color value">{{overallStats.kdRatio | number: '1.2-2'}}</span></li>
+    <li>Headshots: <span class="primary-color value">{{overallStats.headshotPercentage}} %</span></li>
+    <li>Current win streak: <span class="primary-color value">{{overallStats.currentWinStreak}}</span></li>
+    <li>Longest win streak: <span class="primary-color value">{{overallStats.longestWinStreak}}</span></li>
   </ul>
 </div>
 

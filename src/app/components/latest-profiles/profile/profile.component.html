@@ -1,17 +1,13 @@
-<a routerLink="player/{{profile.nickname}}">
-  <div class="row profile">
-    <div class="col-2">
+<a class="profile" routerLink="player/{{profile.nickname}}">
       <img *ngIf="profile.avatarUrl" src="{{profile.avatarUrl}}" (error)="removeInvalidUrl()" class="avatar"
            alt="avatar">
       <img *ngIf="!profile.avatarUrl" src="assets/common/empty-avatar.jpeg" class="avatar" alt="avatar">
-    </div>
-    <div class="col-10">
+    <div>
       <ul>
-        <li><h4>{{profile.nickname}} </h4></li>
-        <li>Level: {{profile.level}}</li>
-        <li>Elo: <span>{{profile.elo}}</span></li>
-        <li>KD: <span>{{profile.kdRatio}}</span></li>
+        <li><h5>{{profile.nickname}} </h5></li>
+        <li>Level: <span class="primary-color">{{profile.level}}</span></li>
+        <li>Elo: <span class="primary-color">{{profile.elo}}</span></li>
+        <li>KD: <span class="primary-color">{{profile.kdRatio | number: '1.2-2'}}</span></li>
       </ul>
     </div>
-  </div>
 </a>
