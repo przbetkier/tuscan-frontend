@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TuscanService} from '../../services/tuscan.service';
 import {Player} from '../../model/player.model';
 import {ActivatedRoute, ParamMap} from '@angular/router';
@@ -112,7 +112,7 @@ export class PlayerDetailsComponent implements OnInit {
   private getPlayerOverallStats(playerId: string) {
     this.tuscanService.getPlayerOverallStats(playerId).subscribe(data => {
       this.playerStats = data;
-      let latestProfileRequest = this.createRequest();
+      const latestProfileRequest = this.createRequest();
       this.tuscanService.postPlayerSearched(latestProfileRequest).subscribe();
     }, () => {
       this.openErrorDialog();
@@ -144,8 +144,8 @@ export class PlayerDetailsComponent implements OnInit {
   openErrorDialog() {
     this.hasErrors = true;
     this.dialog.open(ErrorDialogComponent, {
-      width: '1000px',
-      data: {name: 'xd', animal: 's'},
+      width: '80vw',
+      data: {},
       panelClass: 'custom-modalbox'
     });
   }
