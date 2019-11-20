@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TuscanService} from '../../services/tuscan.service';
 import {Player} from '../../model/player.model';
 import {ActivatedRoute, ParamMap} from '@angular/router';
@@ -11,6 +11,7 @@ import {Title} from '@angular/platform-browser';
 import {MatDialog} from '@angular/material';
 import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 import {isNotNullOrUndefined} from 'codelyzer/util/isNotNullOrUndefined';
+import {LatestProfileRequest} from '../../model/latest-profile.request.model';
 
 @Component({
   selector: 'app-player-details',
@@ -68,7 +69,6 @@ export class PlayerDetailsComponent implements OnInit {
           this.getPlayerHistory(this.player.playerId);
           this.getPlayerMatches(this.player.playerId);
           this.getPlayerOverallStats(this.player.playerId);
-          this.tuscanService.postPlayerSearched(this.nickname).subscribe();
         } else {
           this.hasData = false;
         }
@@ -112,6 +112,8 @@ export class PlayerDetailsComponent implements OnInit {
   private getPlayerOverallStats(playerId: string) {
     this.tuscanService.getPlayerOverallStats(playerId).subscribe(data => {
       this.playerStats = data;
+      const latestProfileRequest = this.createRequest();
+      this.tuscanService.postPlayerSearched(latestProfileRequest).subscribe();
     }, () => {
       this.openErrorDialog();
     });
@@ -142,9 +144,19 @@ export class PlayerDetailsComponent implements OnInit {
   openErrorDialog() {
     this.hasErrors = true;
     this.dialog.open(ErrorDialogComponent, {
-      width: '1000px',
-      data: {name: 'xd', animal: 's'},
+      width: '80vw',
+      data: {},
       panelClass: 'custom-modalbox'
     });
+  }
+
+  private createRequest(): LatestProfileRequest {
+    return new LatestProfileRequest(
+      this.player.nickname,
+      this.player.avatarUrl,
+      this.player.gameDetails.level,
+      this.player.gameDetails.faceitElo,
+      this.playerStats.overallStats.kdRatio
+    );
   }
 }

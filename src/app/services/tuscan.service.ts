@@ -10,6 +10,7 @@ import {PlayerHistory} from '../model/player-history.model';
 import {PlayerPosition} from '../model/player-position.model';
 import {PlayersSearched} from '../model/players-searched.model';
 import {LatestProfile} from '../model/latest-profile.model';
+import {LatestProfileRequest} from '../model/latest-profile.request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -47,8 +48,8 @@ export class TuscanService {
     return this.http.get<PlayerPosition>(`${AppSettings.API_ENDPOINT}/faceit/player/position?playerId=${playerId}&region=${region}&country=${country}`);
   }
 
-  public postPlayerSearched(nickname: string) {
-    return this.http.post(`${AppSettings.API_ENDPOINT}/tuscan-api/latest-profiles`, nickname);
+  public postPlayerSearched(request: LatestProfileRequest) {
+    return this.http.post(`${AppSettings.API_ENDPOINT}/tuscan-api/latest-profiles`, request);
   }
 
   public getPlayersSearchedPrompt(nicknameQuery: string): Observable<PlayersSearched> {
