@@ -15,9 +15,4 @@ export class ProfileComponent implements OnInit {
       this.profile.avatarUrl = null;
     }
   }
-
-  removeInvalidUrl() {
-    this.profile.avatarUrl = null;
-  }
-
 }

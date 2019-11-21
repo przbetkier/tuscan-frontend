@@ -1,27 +1,7 @@
-ul {
-  list-style-type: none;
-  padding-left: 1rem;
-}
-
-img {
-  width: 80px;
-  height: 80px;
-  float: left;
-}
-
-div {
-  display: inline-block;
-}
-
 .profile {
   font-size: 13px;
   cursor: pointer;
   overflow: auto;
-}
-
-.badge {
-  width: 16px;
-  height: 16px;
 }
 
 a {
@@ -31,4 +11,24 @@ a {
 
 .profile:hover {
   cursor: pointer;
+}
+
+.col-3 {
+  display:flex;
+}
+
+.player-name {
+  width: 100%;
+  background-color: #f3f3f30f;
+  text-align: center;
+}
+
+.player-name:hover {
+  background-color: rgba(223, 223, 223, 0.26);
+  transition: 0.5s;
+}
+
+h5 {
+  padding-top: 4px;
+  letter-spacing: 2px;
 }

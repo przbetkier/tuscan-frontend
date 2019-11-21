@@ -1,7 +1,7 @@
 <section class="latest-players-section">
   <mat-spinner *ngIf="!loaded" color="primary" diameter="60"></mat-spinner>
   <div *ngIf="loaded" class="row justify-content-around">
-    <div @items *ngFor="let profile of latestProfiles | slice:0:4;" class="col-12 col-sm-6 col-lg-3 profile">
+    <div @items *ngFor="let profile of latestProfiles | slice:0:6;" class="col-6 col-sm-4 col-lg-2 profile">
       <app-profile [profile]="profile"></app-profile>
     </div>
     <div class="col-12" *ngIf="latestProfiles.length === 0">

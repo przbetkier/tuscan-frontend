@@ -1,7 +1,3 @@
-.section-flag {
-  margin-left: 16px;
-}
-
 .position-value {
   margin-left: 8px;
 }
@@ -12,4 +8,9 @@
 
 .section-flag {
   display: inline-block;
+  padding-right: 2rem;
+}
+
+mat-progress-bar {
+  width: 50%;
 }

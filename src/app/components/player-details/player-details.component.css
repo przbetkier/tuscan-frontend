@@ -1,6 +1,5 @@
 mat-card {
   margin-top: 32px;
-  background-color: #263238;
   color: white;
 }
 
@@ -32,6 +31,10 @@ mat-card {
 
 #map-performance {
   margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+#recent-teammates {
   margin-bottom: 24px;
 }
 
@@ -77,26 +80,22 @@ mat-card {
   margin-top: 16px;
 }
 
-@media (min-width: 769px) {
-  .avatar {
-    height: 180px;
-    width: 180px;
-  }
-}
-
 app-membership {
   margin-bottom: 12px;
 }
 
-mat-expansion-panel {
-  width: 100%;
+app-avatar {
+  width: 40%;
 }
 
-@media screen and (max-width: 992px) {
-  .avatar {
-    height: 140px;
-    width: 140px;
+@media (max-width: 992px) {
+  .flag-and-elo {
+    margin-top: 12px;
   }
+}
+
+mat-expansion-panel {
+  width: 100%;
 }
 
 .center {

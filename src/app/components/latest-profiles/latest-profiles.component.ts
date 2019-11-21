@@ -40,7 +40,7 @@ export class LatestProfilesComponent implements OnInit {
       const profile: LatestProfile = JSON.parse((<any>message).data);
       this.latestProfiles = Array.of(profile).concat(
         this.latestProfiles.filter(p => p.nickname !== profile.nickname)
-          .slice(0, 3));
+          .slice(0, 5));
     });
   }
 }

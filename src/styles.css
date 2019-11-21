@@ -63,3 +63,13 @@ mat-spinner {
 .red-bg-color {
   background-color: #d51a17;
 }
+
+a {
+  text-decoration: none;
+  color: rgb(255, 253, 253);
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(255, 253, 253);
+}

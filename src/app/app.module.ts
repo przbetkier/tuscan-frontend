@@ -26,7 +26,6 @@ import {ProfileComponent} from './components/latest-profiles/profile/profile.com
 import {MapsPieChartComponent} from './components/maps-pie-chart/maps-pie-chart.component';
 import {KdBlockChartComponent} from './components/kd-block-chart/kd-block-chart.component';
 import {PositionComponent} from './components/player-details/position/position.component';
-import {RollerComponent} from './components/roller/roller.component';
 import {PlayerNotFoundComponent} from './components/player-not-found/player-not-found.component';
 import {PlayerProfilesComponent} from './components/player-profiles/player-profiles.component';
 import {MembershipComponent} from './components/membership/membership.component';
@@ -40,7 +39,9 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatMenuModule, MatProgressSpinnerModule,
+  MatMenuModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
   MatSelectModule,
   MatStepperModule,
   MatTabsModule,
@@ -52,6 +53,8 @@ import {SkullComponent} from './components/common/skull/skull.component';
 import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
 import {AboutComponent} from './components/about/about.component';
 import {InlineSVGModule} from 'ng-inline-svg';
+import {RecentTeammatesComponent} from './components/recent-teammates/recent-teammates.component';
+import {AvatarComponent} from './components/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -75,14 +78,15 @@ import {InlineSVGModule} from 'ng-inline-svg';
     MapsPieChartComponent,
     KdBlockChartComponent,
     PositionComponent,
-    RollerComponent,
     PlayerNotFoundComponent,
     PlayerProfilesComponent,
     MembershipComponent,
     MapsOverallPerformanceComponent,
     SkullComponent,
     ErrorDialogComponent,
-    AboutComponent],
+    AboutComponent,
+    RecentTeammatesComponent,
+    AvatarComponent],
   imports: [
     BrowserModule,
     OrderModule,
@@ -107,6 +111,7 @@ import {InlineSVGModule} from 'ng-inline-svg';
     MatMenuModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatStepperModule,
     MatDialogModule,
     MatChipsModule,

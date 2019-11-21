@@ -17,18 +17,16 @@
     <mat-card>
       <h2 class="header2">Player details</h2>
       <div class="row player-details justify-content-around">
-        <div class="col-12 col-md-6 col-lg-2">
-          <img *ngIf="player.avatarUrl !== ''" src="{{player.avatarUrl}}" class="avatar" alt="player avatar">
-          <img *ngIf="player.avatarUrl === ''" src="assets/common/empty-avatar.jpeg" class="avatar" alt="player avatar">
+        <div class="col-6 col-md-4 col-lg-2">
+          <app-avatar [level]="player.gameDetails.level" [avatarUrl]="player.avatarUrl"></app-avatar>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <app-overall-stats *ngIf="playerStats" [overallStats]="playerStats.overallStats"></app-overall-stats>
           <mat-spinner *ngIf="!playerStats" color="primary" [diameter]="40"></mat-spinner>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 flag-and-elo">
           <section *ngIf="player.gameDetails">
-            <p> Level:
-              <app-badge [level]="player.gameDetails.level"></app-badge>
+            <p>
               <app-position [playerId]="player.playerId" [country]="player.country"
                             [region]="player.gameDetails.region"></app-position>
             </p>
@@ -122,6 +120,13 @@
             </app-match-cell>
           </div>
         </div>
+      </mat-card>
+    </section>
+
+    <section id="recent-teammates" *ngIf="matchesMap && allMatchesLoaded">
+      <mat-card>
+        <app-recent-teammates [matches]="matchesMap"
+                              [nickname]="nickname"></app-recent-teammates>
       </mat-card>
     </section>
 
