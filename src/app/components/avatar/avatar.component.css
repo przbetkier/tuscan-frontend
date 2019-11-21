@@ -1,0 +1,12 @@
+app-badge {
+  position: absolute;
+  top: -16px;
+  right: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.avatar-container {
+}

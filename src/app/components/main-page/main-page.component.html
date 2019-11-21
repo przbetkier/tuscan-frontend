@@ -1,8 +1,8 @@
 <div class="container hello-page">
   <section class="main-sec">
-    <img src="assets/logos/banner.png" class="entry-logo">
+    <img src="assets/logos/banner.png" class="entry-logo" alt="tuscan-logo">
     <h1>Tuscan</h1>
-    <h3>Faceit CS:GO Player Stats Analyzer</h3>
+    <h4>Faceit CS:GO Player Stats Analyzer</h4>
   </section>
 
   <mat-card>
@@ -16,15 +16,15 @@
           </mat-form-field>
 
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngIf="isSearching" class="searching">
-              <app-roller></app-roller>
-            </mat-option>
             <mat-option *ngFor="let user of (filteredUsers | async)?.players" [value]="user.nickname">
               <img *ngIf="user.avatarUrl" src="{{user.avatarUrl}}" class="small-avatar" onError="this.src = 'assets/common/empty-avatar.jpeg'" alt="avatar">
               <img *ngIf="!user.avatarUrl" src="assets/common/empty-avatar.jpeg" class="small-avatar" alt="avatar">
               <span>{{ user.nickname }}</span>
               <app-flag [country]="user.country | lowercase" [size]="16"></app-flag>
               <app-badge [level]="user.lvl"></app-badge>
+            </mat-option>
+            <mat-option *ngIf="isSearching" class="searching">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
             </mat-option>
           </mat-autocomplete>
         </form>

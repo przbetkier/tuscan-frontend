@@ -1,0 +1,27 @@
+app-avatar {
+  width: 100%;
+}
+
+.details-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.single-player {
+  margin-top: 24px;
+  background-clip: content-box;
+  background-color: #f3f3f30f;
+}
+
+.single-player:hover {
+  background-color: rgba(223, 223, 223, 0.26);
+  transition: 0.5s;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.teammates-container {
+  margin-bottom: 1rem;
+}
