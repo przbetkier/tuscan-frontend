@@ -43,9 +43,11 @@ export class RecentTeammatesComponent implements OnInit {
         );
       }
     );
+    this.sortRecentTeammates();
+  }
 
-    // @ts-ignore
-    let playerSortedArray = [...this.playersMap].sort((a, b) => {
+  sortRecentTeammates() {
+    [...this.playersMap].sort((a, b) => {
       if (a[1] > b[1]) {
         return -1;
       }
@@ -55,12 +57,8 @@ export class RecentTeammatesComponent implements OnInit {
       return 0;
     }).filter(a => a[0] !== this.nickname)
       .map(pm => pm[0]).slice(0, 6).forEach(
-        nickname => this.tuscanService.getPlayerDetails(nickname).subscribe(
-          player => this.mostFrequentTeammates.push(new Teammate(player, this.playersMap.get(nickname))))
-      );
-  }
-
-  getNumberOfMatches(nickname: string): number {
-    return this.playersMap.get(nickname);
+      nickname => this.tuscanService.getPlayerDetails(nickname).subscribe(
+        player => this.mostFrequentTeammates.push(new Teammate(player, this.playersMap.get(nickname))))
+    );
   }
 }
