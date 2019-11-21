@@ -1,3 +1,9 @@
 .latest-players-section {
   margin-top: 1.5rem;
 }
+
+@media (max-width: 992px) {
+  .profile {
+    margin-bottom: 2rem;
+  }
+}
