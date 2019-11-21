@@ -28,7 +28,7 @@ export class RecentTeammatesComponent implements OnInit {
       match => {
         match.teams.forEach(
           team => {
-            if (team.players.filter(p => p.nickname == this.nickname).length > 0) {
+            if (team.players.filter(p => p.nickname === this.nickname).length > 0) {
               team.players.forEach(
                 player => {
                   if (this.playersMap.has(player.nickname)) {
