@@ -15,7 +15,7 @@ export interface DemoDetailsDialogData {
 })
 export class DemoDetailsDialogComponent implements OnInit {
 
-  section: string = 'weapons';
+  section = 'weapons';
 
   loading = true;
   hasError = false;

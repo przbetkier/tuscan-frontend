@@ -56,9 +56,9 @@ import {InlineSVGModule} from 'ng-inline-svg';
 import {RecentTeammatesComponent} from './components/recent-teammates/recent-teammates.component';
 import {AvatarComponent} from './components/avatar/avatar.component';
 import {DemoDetailsDialogComponent} from './components/match-cell/demo-details-dialog/demo-details-dialog.component';
-import { WeaponsComponent } from './components/match-cell/demo-details-dialog/weapons/weapons.component';
-import { ActionsComponent } from './components/match-cell/demo-details-dialog/actions/actions.component';
-import { HeatmapsComponent } from './components/match-cell/demo-details-dialog/heatmaps/heatmaps.component';
+import {WeaponsComponent} from './components/match-cell/demo-details-dialog/weapons/weapons.component';
+import {ActionsComponent} from './components/match-cell/demo-details-dialog/actions/actions.component';
+import {HeatmapsComponent} from './components/match-cell/demo-details-dialog/heatmaps/heatmaps.component';
 
 @NgModule({
   declarations: [

@@ -38,8 +38,6 @@ export class HeatmapsComponent implements OnInit {
 
   changePlayer() {
     this.playerControl.setValue(this.selectedPlayer);
-    this.currentDemoData = this.demoDetails.data.filter(d => d.nickname === this.selectedPlayer)[0]
+    this.currentDemoData = this.demoDetails.data.filter(d => d.nickname === this.selectedPlayer)[0];
   }
-
-
 }

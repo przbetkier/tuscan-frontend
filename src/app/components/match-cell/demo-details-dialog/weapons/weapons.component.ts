@@ -3,7 +3,6 @@ import {MatSelectChange} from '@angular/material';
 import {DemoDetails, DemoKill} from '../../../../model/demo-details/demo-details.model';
 import {FormControl} from '@angular/forms';
 
-
 export interface GroupedKill {
   weapon: string;
   kills: number;
@@ -58,7 +57,7 @@ export class WeaponsComponent implements OnInit {
 
   changePlayer() {
     this.currentMap = this.getDataByNickname();
-    let myMap: Map<string, DemoKill[]> = this.currentMap[0];
+    const myMap: Map<string, DemoKill[]> = this.currentMap[0];
 
     this.groupedKills = Object.keys(myMap).map(d => {
       const grouped: GroupedKill = {
@@ -68,7 +67,7 @@ export class WeaponsComponent implements OnInit {
         headshots: myMap[d].filter(k => k.entry).length,
         wallbangs: myMap[d].filter(k => k.wallbang).length
       };
-      return grouped
+      return grouped;
     });
 
     this.groupedKills.sort((n1, n2) => {
