@@ -1,5 +1,6 @@
 <div *ngIf="details" class="row match-cell" (click)="expand('divA')">
-  <div class="col-2 col-lg-1" [ngClass]="{'green-bg-color': win, 'red-bg-color': !win, 'no-padding': !isDesktopUser()}" id="score">
+  <div class="col-2 col-lg-1" [ngClass]="{'green-bg-color': win, 'red-bg-color': !win, 'no-padding': !isDesktopUser()}"
+       id="score">
     {{score()}}
   </div>
   <div class="col-3 col-lg-4 cell-with-padding map">
@@ -19,9 +20,11 @@
           [ngClass]="{'green-color': gainedElo(), 'red-color': !gainedElo() }"><span
       *ngIf="gainedElo()">+</span>{{(matchHistory.eloDiff)}}</span>
     <span class="no-data" matTooltip="This match did not affected ELO or stats have not been updated yet"
-          *ngIf="hasHistory() && matchHistory.eloDiff === 0"><div [inlineSVG]="'../../assets/common/information.svg'" class="icon icon-information"></div></span>
+          *ngIf="hasHistory() && matchHistory.eloDiff === 0"><div [inlineSVG]="'../../assets/common/information.svg'"
+                                                                  class="icon icon-information"></div></span>
     <span class="no-data" matTooltip="Player probably was a leaver"
-          *ngIf="!hasHistory()"><div [inlineSVG]="'../../assets/common/information.svg'" class="icon icon-information"></div></span>
+          *ngIf="!hasHistory()"><div [inlineSVG]="'../../assets/common/information.svg'"
+                                     class="icon icon-information"></div></span>
   </div>
 </div>
 <div *ngIf="details" [@slideInOut]="animationState" [hidden]="!expanded">
@@ -35,24 +38,43 @@
           <app-team-in-match [team]="details.teams[1]"></app-team-in-match>
         </div>
       </div>
-      <section class="buttons-section">
-        <div class="row justify-content-end">
-          <div class="col-12 col-md-6 col-lg-3 match-button-col">
-            <button mat-raised-button color="primary" class="demo-button" (click)="navigateToMatchRoom()">
-              <span>{{'Show match room' | uppercase}}</span>
+
+      <div class="row justify-content-end buttons-section">
+        <div class="col-12 col-md-6 col-lg-3 match-button-col">
+          <button mat-raised-button color="primary" class="demo-button" (click)="navigateToMatchRoom()">
+            <span>{{'Show match room' | uppercase}}</span>
+          </button>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 match-button-col">
+          <div [matTooltipDisabled]="canDownloadDemo()" matTooltip="Demo is available to download only for 60 days"
+               [matTooltipPosition]="'above'">
+            <button mat-raised-button color="primary" class="demo-button" (click)="downloadDemo()"
+                    [disabled]="!canDownloadDemo()"><span>{{'Download demo' | uppercase}}</span>
+              <div [inlineSVG]="'../../assets/common/download.svg'" class="icon icon-download"></div>
             </button>
           </div>
-          <div class="col-12 col-md-6 col-lg-3 match-button-col">
-            <div [matTooltipDisabled]="canDownloadDemo()" matTooltip="Demo is available to download only for 60 days"
-                 [matTooltipPosition]="'above'">
-              <button mat-raised-button color="primary" class="demo-button" (click)="downloadDemo()"
-                      [disabled]="!canDownloadDemo()"><span>{{'Download demo' | uppercase}}</span>
-                <div [inlineSVG]="'../../assets/common/download.svg'" class="icon icon-download"></div>
-              </button>
-            </div>
-          </div>
         </div>
-      </section>
+        <div class="col-12 col-md-6 col-lg-6 match-button-col" *ngIf="details.demoStatus === 'PARSED'">
+          <button mat-raised-button color="primary" class="demo-button" (click)="openDemoDetailsDialog()">
+            <span>{{'Show more stats' | uppercase}}</span>
+          </button>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 match-button-col" *ngIf="details.demoStatus === 'COMPUTING'"
+             matTooltip="We are computing demo details already. Try to refresh page.">
+          <button mat-raised-button color="primary" class="demo-button"
+                  [disabled]="true">
+            <span>{{'Show more stats' | uppercase}}</span>
+          </button>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 match-button-col" *ngIf="details.demoStatus === 'NO_ACTION'">
+          <button mat-raised-button color="primary" class="demo-button" (click)="requestDemoStats()"
+                  [disabled]="loadingStats">
+            <span>{{'Show more stats' | uppercase}}</span>
+            <mat-spinner color="primary" *ngIf="loadingStats" [diameter]="30"></mat-spinner>
+
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

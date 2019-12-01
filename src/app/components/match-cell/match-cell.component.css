@@ -90,3 +90,14 @@
 .buttons-section {
   margin-bottom: 1rem;
 }
+
+@media (min-width: 720px) {
+  .buttons-section {
+    padding: 5px 15px;
+  }
+}
+
+mat-spinner {
+  display: inline-block;
+  margin-left: 1rem;
+}

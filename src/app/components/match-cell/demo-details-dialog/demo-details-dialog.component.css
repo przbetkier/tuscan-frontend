@@ -1,0 +1,27 @@
+#icon-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+mat-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+button {
+  width: 100%;
+}
+
+.details-section {
+  margin-top: 2rem;
+  padding: 15px;
+}
+
+app-weapons {
+  width: 100%;
+}
+
+app-actions {
+  width: 100%;
+}

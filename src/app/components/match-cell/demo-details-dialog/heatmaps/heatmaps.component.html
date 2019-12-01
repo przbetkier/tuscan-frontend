@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-12">
+    <mat-form-field class="primary-color">
+      <mat-label>Select a player</mat-label>
+      <mat-select [formControl]="playerControl" required (selectionChange)="showCurrentDemoDetails($event)">
+        <mat-option *ngFor="let player of demoDetails.data" [value]="player.nickname">
+          {{player.nickname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-checkbox
+      color="primary"
+      class="example-margin"
+      [(ngModel)]="kills">
+      Kills
+    </mat-checkbox>
+
+    <mat-checkbox
+      color="primary"
+      class="example-margin"
+      [(ngModel)]="deaths">
+      Deaths
+    </mat-checkbox>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h2>{{currentDemoData.nickname}}'s heatmap</h2>
+
+    <div class="mycont">
+      <img src="../../../../../assets/maps/radar/{{map | lowercase}}.jpg" alt="map radar">
+      <div *ngIf="kills">
+        <div class="dot killdot" *ngFor="let kill of currentDemoData.kills"
+             [ngStyle]="{ 'left': kill.kpos.x + 'px', 'top': kill.kpos.y + 'px' }"
+             matTooltip="Killed {{kill.victim}} with {{kill.weapon}}" [matTooltipPosition]="'above'">
+        </div>
+      </div>
+      <div *ngIf="deaths">
+        <div class="dot deathdot" *ngFor="let death of currentDemoData.deaths"
+             [ngStyle]="{ 'left': death.vpos.x + 'px', 'top': death.vpos.y + 'px' }"
+             matTooltip="Killed by {{death.killer}} with {{death.weapon}}" [matTooltipPosition]="'above'">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

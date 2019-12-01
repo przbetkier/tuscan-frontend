@@ -11,6 +11,7 @@ import {PlayerPosition} from '../model/player-position.model';
 import {PlayersSearched} from '../model/players-searched.model';
 import {LatestProfile} from '../model/latest-profile.model';
 import {LatestProfileRequest} from '../model/latest-profile.request.model';
+import {DemoDetails, DemoDetailsRequest} from '../model/demo-details/demo-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +55,13 @@ export class TuscanService {
 
   public getPlayersSearchedPrompt(nicknameQuery: string): Observable<PlayersSearched> {
     return this.http.get<PlayersSearched>(`${AppSettings.API_ENDPOINT}/faceit/search/players?nickname=${nicknameQuery}`);
+  }
+
+  public getDemoDetails(matchId: string): Observable<DemoDetails> {
+    return this.http.get<DemoDetails>(`${AppSettings.API_ENDPOINT}/tuscan-api/demo-stats/${matchId}`);
+  }
+
+  public requestDemoDetails(demoDetailsRequest: DemoDetailsRequest): Observable<any> {
+    return this.http.post<DemoDetails>(`${AppSettings.API_ENDPOINT}/tuscan-api/demo-stats/invoke`, demoDetailsRequest);
   }
 }
