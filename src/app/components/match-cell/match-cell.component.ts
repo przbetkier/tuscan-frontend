@@ -127,10 +127,11 @@ export class MatchCellComponent implements OnChanges, OnInit {
   requestDemoStats() {
     this.loadingStats = true;
     this.tuscanService.requestDemoDetails(new DemoDetailsRequest(this.details.matchId)).subscribe(
-      data => {
+      () => {
         this.details.demoStatus = 'PARSED';
         this.loadingStats = false;
-      }, error => {
+        this.openDemoDetailsDialog();
+      }, () => {
         this.loadingStats = false;
         // FIXME: Error dialog on error!
       }

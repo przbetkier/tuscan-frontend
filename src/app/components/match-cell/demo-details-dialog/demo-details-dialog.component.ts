@@ -32,7 +32,7 @@ export class DemoDetailsDialogComponent implements OnInit {
         this.demoDetails = data;
         this.loading = false;
       },
-      error => {
+      () => {
         this.loading = false;
         this.hasError = true;
       });
