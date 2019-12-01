@@ -6,5 +6,6 @@ export class MatchDetails {
               public score: string,
               public result: string,
               public teams: Team[],
-              public demoUrl: string) {}
+              public demoUrl: string,
+              public demoStatus: string) {}
 }

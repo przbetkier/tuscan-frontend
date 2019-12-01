@@ -1,0 +1,43 @@
+<div id="icon-wrapper" (click)="dialogRef.close()">
+  <mat-icon>close</mat-icon>
+</div>
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+<p *ngIf="hasError">Error occurred during fetching demo stats for this. Please try again later. If problem continues let
+  us know on contact@tuscan.pro</p>
+
+<div *ngIf="!loading && !hasError">
+  <h3>Select type of details:</h3>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+      <button mat-raised-button color="primary" class="demo-button" (click)="selectSection('weapons')">
+        <span>{{'Weapons' | uppercase}}</span>
+      </button>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <button mat-raised-button color="primary" class="demo-button" (click)="selectSection('actions')">
+        <span>{{'Actions' | uppercase}}</span>
+      </button>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <button mat-raised-button color="primary" class="demo-button" (click)="selectSection('heatmap')">
+        <span>{{'Heatmap' | uppercase}}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row details-section" *ngIf="section === 'weapons'">
+    <app-weapons [demoDetails]="demoDetails"></app-weapons>
+  </div>
+
+  <div class="row details-section" *ngIf="section === 'actions'">
+    <app-actions [demoDetails]="demoDetails"></app-actions>
+  </div>
+
+  <div class="row details-section" *ngIf="section === 'heatmap'">
+    <app-heatmaps [demoDetails]="demoDetails" [map]="data.map"></app-heatmaps>
+  </div>
+</div>
+
+
+

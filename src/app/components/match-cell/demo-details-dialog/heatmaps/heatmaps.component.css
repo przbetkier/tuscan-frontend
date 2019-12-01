@@ -1,0 +1,36 @@
+.mycont {
+  position: relative;
+}
+
+.killdot {
+  border:1px solid #a1ff9f;
+  background: rgba(28, 114, 33, 0.58);
+}
+
+.deathdot {
+  border:1px solid #ffcfc2;
+  background: rgba(213, 26, 23, 0.58);
+}
+
+mat-checkbox {
+  margin-left: 3rem;
+}
+
+.dot {
+  color:white;
+  position:absolute;
+  padding:10px;
+  border-radius:50%;
+}
+
+.dot:hover {
+  cursor: pointer;
+}
+
+mat-label {
+  color: white;
+}
+
+mat-form-field {
+  width: 50%;
+}

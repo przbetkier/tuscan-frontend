@@ -32,7 +32,7 @@ import {MembershipComponent} from './components/membership/membership.component'
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatCheckboxModule,
   MatChipsModule,
   MatDialogModule,
   MatExpansionModule,
@@ -42,8 +42,8 @@ import {
   MatMenuModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
-  MatSelectModule,
-  MatStepperModule,
+  MatSelectModule, MatSortModule,
+  MatStepperModule, MatTableModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule
@@ -55,6 +55,10 @@ import {AboutComponent} from './components/about/about.component';
 import {InlineSVGModule} from 'ng-inline-svg';
 import {RecentTeammatesComponent} from './components/recent-teammates/recent-teammates.component';
 import {AvatarComponent} from './components/avatar/avatar.component';
+import {DemoDetailsDialogComponent} from './components/match-cell/demo-details-dialog/demo-details-dialog.component';
+import {WeaponsComponent} from './components/match-cell/demo-details-dialog/weapons/weapons.component';
+import {ActionsComponent} from './components/match-cell/demo-details-dialog/actions/actions.component';
+import {HeatmapsComponent} from './components/match-cell/demo-details-dialog/heatmaps/heatmaps.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +90,11 @@ import {AvatarComponent} from './components/avatar/avatar.component';
     ErrorDialogComponent,
     AboutComponent,
     RecentTeammatesComponent,
-    AvatarComponent],
+    AvatarComponent,
+    DemoDetailsDialogComponent,
+    WeaponsComponent,
+    ActionsComponent,
+    HeatmapsComponent],
   imports: [
     BrowserModule,
     OrderModule,
@@ -109,11 +117,14 @@ import {AvatarComponent} from './components/avatar/avatar.component';
     MatIconModule,
     MatToolbarModule,
     MatMenuModule,
+    MatCheckboxModule,
+    MatSortModule,
     MatSelectModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatStepperModule,
     MatDialogModule,
+    MatTableModule,
     MatChipsModule,
     RouterModule.forRoot(
       [
@@ -125,7 +136,7 @@ import {AvatarComponent} from './components/avatar/avatar.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ErrorDialogComponent]
+  entryComponents: [ErrorDialogComponent, DemoDetailsDialogComponent]
 })
 export class AppModule {
 }

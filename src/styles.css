@@ -73,3 +73,26 @@ a:hover {
   text-decoration: none;
   color: rgb(255, 253, 253);
 }
+
+.mat-dialog-container {
+  color: rgb(255, 253, 253);
+  background-color: rgb(38, 50, 56);
+}
+
+.mat-select-value {
+  color: white;
+}
+
+.mat-table {
+  width: 100%;
+  background-color: rgba(46, 58, 64, 0.96);
+}
+
+.mat-cell {
+  color: rgb(255, 253, 253);
+}
+
+.mat-header-cell {
+  color: rgb(255, 253, 253);
+}
+

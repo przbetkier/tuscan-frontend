@@ -5,6 +5,10 @@ import {isNullOrUndefined} from 'util';
 import {MatchHistory} from '../../model/match-history.model';
 import {SlideInOutAnimation} from '../../animations/animations';
 import {AppSettings} from '../../config/app-settings';
+import {MatDialog} from '@angular/material';
+import {DemoDetailsDialogComponent} from './demo-details-dialog/demo-details-dialog.component';
+import {TuscanService} from '../../services/tuscan.service';
+import {DemoDetailsRequest} from '../../model/demo-details/demo-details.model';
 
 @Component({
   selector: 'app-match-cell',
@@ -26,6 +30,10 @@ export class MatchCellComponent implements OnChanges, OnInit {
   public loading = false;
   public innerWidth: any;
   public daysSinceFinished: number;
+  public loadingStats = false;
+
+  constructor(public dialog: MatDialog, private tuscanService: TuscanService) {
+  }
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
@@ -104,5 +112,28 @@ export class MatchCellComponent implements OnChanges, OnInit {
 
   navigateToMatchRoom() {
     window.open(`${AppSettings.MATCH_ROOM_BASE_URL}/${this.match.matchId}`, '_blank');
+  }
+
+  openDemoDetailsDialog() {
+    this.dialog.open(DemoDetailsDialogComponent, {
+      width: '100vw',
+      height: '100vh',
+      data: {matchId: this.match.matchId, map: this.details.map},
+      backdropClass: 'demo-details-background',
+      panelClass: 'custom-modalbox'
+    });
+  }
+
+  requestDemoStats() {
+    this.loadingStats = true;
+    this.tuscanService.requestDemoDetails(new DemoDetailsRequest(this.details.matchId)).subscribe(
+      data => {
+        this.details.demoStatus = 'PARSED';
+        this.loadingStats = false;
+      }, error => {
+        this.loadingStats = false;
+        // FIXME: Error dialog on error!
+      }
+    );
   }
 }
