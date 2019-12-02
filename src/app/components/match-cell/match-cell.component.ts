@@ -133,7 +133,6 @@ export class MatchCellComponent implements OnChanges, OnInit {
         this.openDemoDetailsDialog();
       }, () => {
         this.loadingStats = false;
-        // FIXME: Error dialog on error!
       }
     );
   }
