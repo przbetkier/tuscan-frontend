@@ -101,6 +101,9 @@ export class PlayerDetailsComponent implements OnInit {
 
             }, () => {
               this.matchesFetched++;
+              if (this.matches.length === this.matchesFetched) {
+                this.allMatchesLoaded = true;
+              }
             }));
 
       }, () => {
