@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
       <a *ngFor="let teammate of mostFrequentTeammates | orderBy:'matchesPlayed' : true"
          class="col-6 col-md-4 col-lg-2 single-player"
-         href="/player/{{teammate.player.nickname}}" target="_blank">
+         href="/player/{{teammate.player.nickname}}">
         <app-avatar [level]="teammate.player.gameDetails.level"
                     [avatarUrl]="teammate.player.avatarUrl"></app-avatar>
         <div class="details-container">

@@ -1,14 +1,10 @@
 <a class="profile" routerLink="player/{{profile.nickname}}">
-  <div class="row">
-    <div class="col-12">
-      <div class="player-name">
-        <app-avatar [avatarUrl]="profile.avatarUrl"
-                    [level]="profile.level"></app-avatar>
-        <h6>{{profile.nickname | uppercase}}</h6>
-        <span>Elo: <span class="primary-color">{{profile.elo}}</span> | KD: <span
-          class="primary-color">{{profile.kdRatio | number: '1.2-2'}}</span></span>
-      </div>
-    </div>
+  <div class="player-name">
+    <app-avatar [avatarUrl]="profile.avatarUrl"
+                [level]="profile.level"></app-avatar>
+    <h6>{{profile.nickname | uppercase}}</h6>
+    <span>Elo: <span class="primary-color">{{profile.elo}}</span> | KD: <span
+      class="primary-color">{{profile.kdRatio | number: '1.2-2'}}</span></span>
   </div>
 </a>
 

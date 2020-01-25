@@ -70,10 +70,12 @@ export class PlayerProfileComponent implements OnInit {
         } else {
           this.hasData = false;
         }
-      }, () => {
+      }, error => {
         this.hasData = false;
         this.isLoading = false;
-        this.openErrorDialog();
+        if (error.status !== 404) {
+          this.openErrorDialog();
+        }
       });
   }
 
