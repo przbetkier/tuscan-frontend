@@ -1,0 +1,63 @@
+<div *ngIf="innerWidth >= 992" class="row">
+
+  <div class="col-12 table-head">
+    <div class="row">
+      <div class="col-2">
+        MAP
+      </div>
+      <div class="col-1">MATCHES</div>
+      <div class="col-1" matTooltip="Kills to deaths ratio" [matTooltipPosition]="'above'">K/D</div>
+      <div class="col-2">AVG KILLS</div>
+      <div class="col-1" matTooltip="Headshot kills percentage" [matTooltipPosition]="'above'">HS %</div>
+      <div class="col-2">WIN %</div>
+      <div class="col-1" matTooltip="Triple kills" [matTooltipPosition]="'above'">
+        3 x
+        <app-skull></app-skull>
+      </div>
+      <div class="col-1" matTooltip="Quadro kills" [matTooltipPosition]="'above'">
+        4 x
+        <app-skull></app-skull>
+      </div>
+      <div class="col-1" matTooltip="Penta kills" [matTooltipPosition]="'above'">
+        5 x
+        <app-skull></app-skull>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let mapStat of mapStats | orderBy: 'matches': true" class="col-12 table-body">
+    <div class="row map-stat">
+      <div class="col-2">
+
+        <img src="../../../assets/maps/rect/{{mapStat.csgoMap | lowercase}}.jpg"
+             matTooltip="{{mapStat.csgoMap | lowercase}}" [matTooltipPosition]="'left'"
+             alt="{{mapStat.csgoMap | lowercase}}">
+      </div>
+      <div class="col-1">
+        {{mapStat.matches}}
+      </div>
+      <div class="col-1">
+        {{mapStat.kdRatio | number: '1.2-2'}}
+      </div>
+      <div class="col-2">
+        {{mapStat.averageKills}}
+      </div>
+      <div class="col-1">
+        {{mapStat.hsPercentage}} %
+      </div>
+      <div class="col-2">
+        {{mapStat.winPercentage}} %
+      </div>
+      <div class="col-1">
+        {{mapStat.tripleKills}}
+      </div>
+      <div class="col-1">
+        {{mapStat.quadroKills}}
+      </div>
+      <div class="col-1">
+        {{mapStat.pentaKills}}
+      </div>
+    </div>
+  </div>
+</div>
+

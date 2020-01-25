@@ -1,0 +1,57 @@
+
+.ban-badge {
+  margin: auto !important;
+}
+
+.section-header {
+  background: rgba(254, 82, 23, 0.55);
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: auto;
+}
+
+#error {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.map-chart {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.map-performance-section {
+  background-color: rgba(175, 175, 175, 0.39);
+  border-radius: 6px;
+}
+
+.recent-performance {
+  padding: 10px;
+}
+
+.player {
+  text-align: center;
+  margin-top: 16px;
+}
+
+app-membership {
+  margin-bottom: 12px;
+}
+
+app-avatar {
+  width: 40%;
+}
+
+@media (max-width: 992px) {
+  .flag-and-elo {
+    margin-top: 12px;
+  }
+}
+
+mat-expansion-panel {
+  width: 100%;
+}
+
+mat-spinner.main-spinner {
+  margin-top: 50%;
+}

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TuscanService} from '../../services/tuscan.service';
-import {LatestProfile} from '../../model/latest-profile.model';
+import {LatestProfile} from '@models/latest-profile.model';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {AppSettings} from '../../config/app-settings';
 

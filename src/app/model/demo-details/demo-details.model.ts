@@ -42,5 +42,6 @@ export class DemoPosition {
 }
 
 export class DemoDetailsRequest {
-  constructor(public matchId: string) {}
+  constructor(public matchId: string) {
+  }
 }

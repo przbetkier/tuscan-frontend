@@ -1,0 +1,7 @@
+.thumbnails {
+  margin-bottom: 1rem;
+}
+
+.thumbnails > div {
+  text-align: center;
+}

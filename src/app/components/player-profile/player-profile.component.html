@@ -1,0 +1,40 @@
+<div class="container">
+  <mat-spinner class="main-spinner" *ngIf="isLoading && !hasData && !hasPlayerDetails" color="primary"
+               diameter="60"></mat-spinner>
+
+  <div *ngIf="hasData && !isLoading">
+    <div class="row player">
+      <div class="col-12">
+        <h1>{{nickname}}
+          <app-flag [country]="player.country" [size]="64"></app-flag>
+          <app-membership [membership]="player.membership"></app-membership>
+        </h1>
+        <mat-chip-list *ngIf="player.ban.active">
+          <mat-chip class="ban-badge" selected color="warn">Banned for cheating</mat-chip>
+        </mat-chip-list>
+        <app-player-links [nickname]="player.nickname" [steamId]="player.gameDetails.steamId"></app-player-links>
+      </div>
+    </div>
+
+    <app-overall-stats [player]="player" [playerStats]="playerStats"></app-overall-stats>
+    <app-map-performance [playerStats]="playerStats"></app-map-performance>
+    <app-recent-performance [allMatchesLoaded]="allMatchesLoaded"
+                            [detailedPlayers]="detailedPlayers"
+                            [matchesMap]="matchesMap"
+                            [playerHistory]="playerHistory"></app-recent-performance>
+    <app-recent-matches [matchesMap]="matchesMap"
+                        [playerHistory]="playerHistory"
+                        [matches]="matches"></app-recent-matches>
+    <app-recent-teammates *ngIf="matchesMap && allMatchesLoaded"
+                          [matches]="matchesMap"
+                          [nickname]="nickname"></app-recent-teammates>
+
+    <section *ngIf="!player.gameDetails">
+      This player has not any CS:GO matches.
+    </section>
+  </div>
+
+  <div *ngIf="!hasData && !isLoading && !hasPlayerDetails" id="error">
+    <app-player-not-found></app-player-not-found>
+  </div>
+</div>
