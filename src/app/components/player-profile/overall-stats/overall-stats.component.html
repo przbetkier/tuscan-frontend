@@ -1,4 +1,4 @@
-<mat-card *ngIf="hasData()">
+<mat-card>
   <h2>Player details</h2>
   <div class="row player-details justify-content-around">
     <div class="col-6 col-md-4 col-lg-2">
@@ -15,7 +15,7 @@
           <li>Longest win streak: <span class="primary-color value">{{overall.longestWinStreak}}</span></li>
         </ul>
       </div>
-      <mat-spinner *ngIf="!playerStats" color="primary" [diameter]="40"></mat-spinner>
+      <mat-spinner *ngIf="!hasData()" color="primary" [diameter]="40"></mat-spinner>
     </div>
     <div class="col-12 col-lg-6 flag-and-elo">
       <section *ngIf="player.gameDetails">
@@ -31,3 +31,4 @@
     </div>
   </div>
 </mat-card>
+

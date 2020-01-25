@@ -62,6 +62,7 @@ export class PlayerProfileComponent implements OnInit {
       .subscribe(data => {
         this.player = data;
         this.isLoading = false;
+        this.hasData = true;
         if (isNotNullOrUndefined(this.player.gameDetails)) {
           this.hasPlayerDetails = true;
           this.getPlayerOverallStats(this.player.playerId);
@@ -118,7 +119,6 @@ export class PlayerProfileComponent implements OnInit {
   private getPlayerOverallStats(playerId: string) {
     this.tuscanService.getPlayerOverallStats(playerId).subscribe(data => {
       this.playerStats = data;
-      this.hasData = true;
       this.hasPlayerStats = true;
       const latestProfileRequest = this.createRequest();
       this.tuscanService.postPlayerSearched(latestProfileRequest).subscribe();
