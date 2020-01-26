@@ -1,0 +1,18 @@
+<mat-card *ngIf="playerHistory">
+  <h2>Recent matches</h2>
+  <div class="row matches-section">
+
+    <div class="col-2 col-lg-1 cell-with-padding align-center">SCORE</div>
+    <div class="col-3 col-lg-4 cell-with-padding align-center">MAP</div>
+    <div class="col-3 cell-with-padding align-center">DATE</div>
+    <div class="col-2 cell-with-padding align-right">K/D</div>
+    <div class="col-2 cell-with-padding align-right">ELO</div>
+
+    <div *ngFor="let match of matches" class="col-12">
+      <app-match-cell [match]="match"
+                      [details]="getMatchResult(match.matchId)"
+                      [matchHistory]="getMatchHistory(match.matchId)">
+      </app-match-cell>
+    </div>
+  </div>
+</mat-card>

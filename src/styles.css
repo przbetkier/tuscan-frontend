@@ -38,6 +38,12 @@ span {
 
 mat-card {
   background-color: rgba(38, 50, 56, 0.91) !important;
+  margin-top: 32px !important;
+  color: white !important;
+}
+
+mat-card > h2 {
+  margin-bottom: 0.6em;
 }
 
 mat-spinner {
@@ -95,4 +101,3 @@ a:hover {
 .mat-header-cell {
   color: rgb(255, 253, 253);
 }
-

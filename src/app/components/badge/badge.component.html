@@ -1,10 +1,1 @@
-<img *ngIf="level === 1" src="assets/badges/level1.svg">
-<img *ngIf="level === 2" src="assets/badges/level2.svg">
-<img *ngIf="level === 3" src="assets/badges/level3.svg">
-<img *ngIf="level === 4" src="assets/badges/level4.svg">
-<img *ngIf="level === 5" src="assets/badges/level5.svg">
-<img *ngIf="level === 6" src="assets/badges/level6.svg">
-<img *ngIf="level === 7" src="assets/badges/level7.svg">
-<img *ngIf="level === 8" src="assets/badges/level8.svg">
-<img *ngIf="level === 9" src="assets/badges/level9.svg">
-<img *ngIf="level === 10" src="assets/badges/level10.svg">
+<img *ngIf="level >= 1 && level <= 10" [src]="'assets/badges/level' + level + '.svg'" alt="{{level}}lvl">

@@ -1,0 +1,28 @@
+#overallStats {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@media (max-width: 768px) {
+  ul {
+    padding: 0;
+  }
+}
+
+.value {
+  margin-left: 0.35em;
+}
+
+@media (max-width: 768px) {
+  .player-details {
+    text-align: center;
+  }
+
+  .player-details > div {
+    margin-top: 20px;
+  }
+}

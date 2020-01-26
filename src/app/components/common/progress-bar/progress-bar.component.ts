@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LevelInterval} from '../../../model/level-interval.model';
+import {LevelInterval} from '@models/level-interval.model';
 
 @Component({
   selector: 'app-progress-bar',

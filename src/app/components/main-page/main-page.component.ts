@@ -1,6 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {PlayersSearched} from '../../model/players-searched.model';
+import {PlayersSearched} from '@models/players-searched.model';
 import {TuscanService} from '../../services/tuscan.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';

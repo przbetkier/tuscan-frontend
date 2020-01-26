@@ -1,5 +1,5 @@
 import {Component, HostListener, ViewChild, ViewEncapsulation} from '@angular/core';
-import {PlayerDetailsComponent} from './components/player-details/player-details.component';
+import {PlayerProfileComponent} from './components/player-profile/player-profile.component';
 import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import {NavigationEnd, Router} from '@angular/router';
 })
 export class AppComponent {
 
-  @ViewChild(PlayerDetailsComponent, {static: false}) private playerDetailsComponent: PlayerDetailsComponent;
+  @ViewChild(PlayerProfileComponent, {static: false}) private playerDetailsComponent: PlayerProfileComponent;
 
   nickname: string;
   public innerWidth: any;

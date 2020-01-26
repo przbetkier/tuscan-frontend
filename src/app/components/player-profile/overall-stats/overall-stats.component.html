@@ -1,0 +1,34 @@
+<mat-card>
+  <h2>Player details</h2>
+  <div class="row player-details justify-content-around">
+    <div class="col-6 col-md-4 col-lg-2">
+      <app-avatar [level]="player.gameDetails.level" [avatarUrl]="player.avatarUrl"></app-avatar>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div *ngIf="hasData()" id="overallStats">
+        <ul>
+          <li>Matches: <span class="primary-color value">{{overall.matches}}</span></li>
+          <li>Wins: <span class="primary-color value">{{overall.winPercentage}} %</span></li>
+          <li>K/D ratio: <span class="primary-color value">{{overall.kdRatio | number: '1.2-2'}}</span></li>
+          <li>Headshots: <span class="primary-color value">{{overall.headshotPercentage}} %</span></li>
+          <li>Current win streak: <span class="primary-color value">{{overall.currentWinStreak}}</span></li>
+          <li>Longest win streak: <span class="primary-color value">{{overall.longestWinStreak}}</span></li>
+        </ul>
+      </div>
+      <mat-spinner *ngIf="!hasData()" color="primary" [diameter]="40"></mat-spinner>
+    </div>
+    <div class="col-12 col-lg-6 flag-and-elo">
+      <section *ngIf="player.gameDetails">
+        <p>
+          <app-position [playerId]="player.playerId" [country]="player.country"
+                        [region]="player.gameDetails.region"></app-position>
+        </p>
+        <p> Faceit ELO: <span class="primary-color">{{ player.gameDetails.faceitElo }}</span></p>
+        <app-progress-bar [elo]="player.gameDetails.faceitElo"
+                          [level]="player.gameDetails.level"></app-progress-bar>
+        <app-level-hint [level]="player.gameDetails.level" [elo]="player.gameDetails.faceitElo"></app-level-hint>
+      </section>
+    </div>
+  </div>
+</mat-card>
+

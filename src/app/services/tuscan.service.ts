@@ -1,17 +1,17 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Player} from '../model/player.model';
-import {Matches} from '../model/matches.model';
+import {Player} from '@models/player.model';
+import {Matches} from '@models/matches.model';
 import {HttpClient} from '@angular/common/http';
-import {MatchDetails} from '../model/match-details/match-details.model';
-import {PlayerStats} from '../model/player-stats.model';
+import {MatchDetails} from '@models/match-details/match-details.model';
+import {PlayerStats} from '@models/player-stats.model';
 import {AppSettings} from '../config/app-settings';
-import {PlayerHistory} from '../model/player-history.model';
-import {PlayerPosition} from '../model/player-position.model';
-import {PlayersSearched} from '../model/players-searched.model';
-import {LatestProfile} from '../model/latest-profile.model';
-import {LatestProfileRequest} from '../model/latest-profile.request.model';
-import {DemoDetails, DemoDetailsRequest} from '../model/demo-details/demo-details.model';
+import {PlayerHistory} from '@models/player-history.model';
+import {PlayerPosition} from '@models/player-position.model';
+import {PlayersSearched} from '@models/players-searched.model';
+import {LatestProfile} from '@models/latest-profile.model';
+import {LatestProfileRequest} from '@models/latest-profile.request.model';
+import {DemoDetails, DemoDetailsRequest} from '@models/demo-details/demo-details.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,0 +1,17 @@
+.row {
+  margin-bottom: 12px;
+}
+
+span {
+  margin-left: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+span:hover {
+  color: #e64a19;
+}
+
+img {
+  width: 35px;
+}

@@ -2,6 +2,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@models/*": ["src/app/model/*"]
+    },
     "importHelpers": true,
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
