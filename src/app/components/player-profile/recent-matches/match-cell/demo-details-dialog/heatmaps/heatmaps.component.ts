@@ -18,6 +18,7 @@ export class HeatmapsComponent implements OnInit {
   kills = true;
   deaths = false;
 
+  @Input() player: string;
   playerControl = new FormControl('', []);
   selectedPlayer: string;
 
@@ -26,7 +27,7 @@ export class HeatmapsComponent implements OnInit {
 
   ngOnInit() {
     this.mode = 'kills';
-    this.selectedPlayer = this.demoDetails.data[0].nickname;
+    this.selectedPlayer = this.player;
     this.changePlayer();
   }
 
