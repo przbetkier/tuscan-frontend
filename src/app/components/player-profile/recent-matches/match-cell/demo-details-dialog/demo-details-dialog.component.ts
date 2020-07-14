@@ -6,6 +6,7 @@ import {DemoDetails} from '@models/demo-details/demo-details.model';
 export interface DemoDetailsDialogData {
   matchId: string;
   map: string;
+  player: string;
 }
 
 @Component({
@@ -16,7 +17,7 @@ export interface DemoDetailsDialogData {
 export class DemoDetailsDialogComponent implements OnInit {
 
   section = 'weapons';
-
+  player: string;
   loading = true;
   hasError = false;
   demoDetails: DemoDetails;
@@ -27,6 +28,7 @@ export class DemoDetailsDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.player = this.data.player;
     this.tuscanService.getDemoDetails(this.data.matchId).subscribe(
       data => {
         this.demoDetails = data;

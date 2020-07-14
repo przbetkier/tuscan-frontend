@@ -1,14 +1,15 @@
-import {Component, HostListener, Input, OnChanges, OnInit} from '@angular/core';
-import {SimpleMatch} from '@models/simple-match.model';
-import {MatchDetails} from '@models/match-details/match-details.model';
-import {isNullOrUndefined} from 'util';
-import {MatchHistory} from '@models/match-history.model';
-import {SlideInOutAnimation} from '../../../../animations/animations';
-import {AppSettings} from '../../../../config/app-settings';
-import {MatDialog} from '@angular/material';
-import {DemoDetailsDialogComponent} from './demo-details-dialog/demo-details-dialog.component';
-import {TuscanService} from '../../../../services/tuscan.service';
-import {DemoDetailsRequest} from '@models/demo-details/demo-details.model';
+import { Component, HostListener, Input, OnChanges, OnInit } from '@angular/core';
+import { SimpleMatch } from '@models/simple-match.model';
+import { MatchDetails } from '@models/match-details/match-details.model';
+import { isNullOrUndefined } from 'util';
+import { MatchHistory } from '@models/match-history.model';
+import { SlideInOutAnimation } from '../../../../animations/animations';
+import { AppSettings } from '../../../../config/app-settings';
+import { MatDialog } from '@angular/material';
+import { DemoDetailsDialogComponent } from './demo-details-dialog/demo-details-dialog.component';
+import { TuscanService } from '../../../../services/tuscan.service';
+import { DemoDetailsRequest } from '@models/demo-details/demo-details.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-match-cell',
@@ -31,7 +32,7 @@ export class MatchCellComponent implements OnChanges, OnInit {
   public minutesSinceFinished: number;
   public loadingStats = false;
 
-  constructor(public dialog: MatDialog, private tuscanService: TuscanService) {
+  constructor(public dialog: MatDialog, private tuscanService: TuscanService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -126,23 +127,27 @@ export class MatchCellComponent implements OnChanges, OnInit {
     this.dialog.open(DemoDetailsDialogComponent, {
       width: '100vw',
       height: '100vh',
-      data: {matchId: this.match.matchId, map: this.details.map},
+      data: { matchId: this.match.matchId, map: this.details.map, player: this.route.snapshot.paramMap.get('nickname') },
       backdropClass: 'demo-details-background',
       panelClass: 'custom-modalbox'
     });
   }
 
   requestDemoStats() {
-    this.loadingStats = true;
-    this.tuscanService.requestDemoDetails(new DemoDetailsRequest(this.details.matchId)).subscribe(
-      () => {
-        this.details.demoStatus = 'PARSED';
-        this.loadingStats = false;
-        this.openDemoDetailsDialog();
-      }, () => {
-        this.loadingStats = false;
-      }
-    );
+    if (this.details.demoStatus === 'PARSED') {
+      this.openDemoDetailsDialog();
+    } else {
+      this.loadingStats = true;
+      this.tuscanService.requestDemoDetails(new DemoDetailsRequest(this.details.matchId)).subscribe(
+        () => {
+          this.details.demoStatus = 'PARSED';
+          this.loadingStats = false;
+          this.openDemoDetailsDialog();
+        }, () => {
+          this.loadingStats = false;
+        }
+      );
+    }
   }
 
   canShowMoreStats(): boolean {

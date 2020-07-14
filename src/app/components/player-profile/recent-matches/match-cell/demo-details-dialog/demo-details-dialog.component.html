@@ -3,8 +3,8 @@
 </div>
 
 <mat-spinner *ngIf="loading"></mat-spinner>
-<p *ngIf="hasError">Error occurred during fetching demo stats for this match. Please try again later. If problem continues let
-  us know on contact@tuscan.pro</p>
+<p *ngIf="hasError">Error occurred during fetching demo stats for this match. Please try again later. If problem
+  continues let us know on contact@tuscan.pro</p>
 
 <div *ngIf="!loading && !hasError">
   <h3>Select type of details:</h3>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="row details-section" *ngIf="section === 'weapons'">
-    <app-weapons [demoDetails]="demoDetails"></app-weapons>
+    <app-weapons [demoDetails]="demoDetails" [player]="player"></app-weapons>
   </div>
 
   <div class="row details-section" *ngIf="section === 'actions'">
@@ -35,7 +35,7 @@
   </div>
 
   <div class="row details-section" *ngIf="section === 'heatmap'">
-    <app-heatmaps [demoDetails]="demoDetails" [map]="data.map"></app-heatmaps>
+    <app-heatmaps [demoDetails]="demoDetails" [map]="data.map" [player]="player"></app-heatmaps>
   </div>
 </div>
 

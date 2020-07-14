@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatSelectChange} from '@angular/material';
 import {DemoDetails, DemoKill} from '@models/demo-details/demo-details.model';
 import {FormControl} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 export interface GroupedKill {
   weapon: string;
@@ -30,9 +31,10 @@ export class WeaponsComponent implements OnInit {
   playerControl = new FormControl('', []);
 
   @Input() demoDetails: DemoDetails;
+  @Input() player: string;
 
   ngOnInit() {
-    this.selectedPlayer = this.demoDetails.data[0].nickname;
+    this.selectedPlayer = this.player;
     this.playerControl.setValue(this.selectedPlayer);
     this.changePlayer();
   }

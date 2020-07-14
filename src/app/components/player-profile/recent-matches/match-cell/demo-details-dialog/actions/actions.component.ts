@@ -1,7 +1,7 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {DemoDetails} from '@models/demo-details/demo-details.model';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { DemoDetails } from '@models/demo-details/demo-details.model';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface PlayerDemoStats {
   nickname: string;
@@ -23,10 +23,7 @@ export class ActionsComponent implements OnInit {
   displayedColumns: string[] = ['nickname', 'plants', 'defusals', 'enemiesFlashed'];
   dataSource;
 
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-
-  constructor() {
-  }
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   ngOnInit() {
     this.demoDetails.data.forEach(
