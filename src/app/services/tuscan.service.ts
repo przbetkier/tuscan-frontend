@@ -1,17 +1,17 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Player} from '@models/player.model';
-import {Matches} from '@models/matches.model';
-import {HttpClient} from '@angular/common/http';
-import {MatchDetails} from '@models/match-details/match-details.model';
-import {PlayerStats} from '@models/player-stats.model';
-import {AppSettings} from '../config/app-settings';
-import {PlayerHistory} from '@models/player-history.model';
-import {PlayerPosition} from '@models/player-position.model';
-import {PlayersSearched} from '@models/players-searched.model';
-import {LatestProfile} from '@models/latest-profile.model';
-import {LatestProfileRequest} from '@models/latest-profile.request.model';
-import {DemoDetails, DemoDetailsRequest} from '@models/demo-details/demo-details.model';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Player } from '@models/player.model';
+import { Matches } from '@models/matches.model';
+import { HttpClient } from '@angular/common/http';
+import { MatchDetails } from '@models/match-details/match-details.model';
+import { PlayerStats } from '@models/player-stats.model';
+import { AppSettings } from '../config/app-settings';
+import { PlayerHistory } from '@models/player-history.model';
+import { PlayerPosition } from '@models/player-position.model';
+import { PlayersSearched } from '@models/players-searched.model';
+import { LatestProfile } from '@models/latest-profile.model';
+import { LatestProfileRequest } from '@models/latest-profile.request.model';
+import { DemoDetails, DemoDetailsRequest, PlayerBansResponse } from '@models/demo-details/demo-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +63,9 @@ export class TuscanService {
 
   public requestDemoDetails(demoDetailsRequest: DemoDetailsRequest): Observable<any> {
     return this.http.post<DemoDetails>(`${AppSettings.API_ENDPOINT}/tuscan-api/demo-stats/invoke`, demoDetailsRequest);
+  }
+
+  public getPlayerBans(playerId: string): Observable<PlayerBansResponse> {
+    return this.http.get<PlayerBansResponse>(`${AppSettings.API_ENDPOINT}/faceit/player/${playerId}/bans`);
   }
 }
