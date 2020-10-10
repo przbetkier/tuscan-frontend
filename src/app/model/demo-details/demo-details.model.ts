@@ -47,7 +47,7 @@ export class DemoDetailsRequest {
 }
 
 export interface PlayerBansResponse {
-  bans: PlayerBan[]
+  bans: PlayerBan[];
 }
 
 export interface PlayerBan {
