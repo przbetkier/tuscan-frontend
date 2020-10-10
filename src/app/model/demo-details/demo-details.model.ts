@@ -45,3 +45,13 @@ export class DemoDetailsRequest {
   constructor(public matchId: string) {
   }
 }
+
+export interface PlayerBansResponse {
+  bans: PlayerBan[];
+}
+
+export interface PlayerBan {
+  reason: string;
+  startsAt: Date;
+  endsAt: Date;
+}

@@ -1,16 +1,17 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {TuscanService} from '../../services/tuscan.service';
-import {Player} from '@models/player.model';
-import {ActivatedRoute, ParamMap} from '@angular/router';
-import {SimpleMatch} from '@models/simple-match.model';
-import {PlayerStats} from '@models/player-stats.model';
-import {PlayerHistory} from '@models/player-history.model';
-import {MatchDetails} from '@models/match-details/match-details.model';
-import {Title} from '@angular/platform-browser';
-import {MatDialog} from '@angular/material';
-import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
-import {isNotNullOrUndefined} from 'codelyzer/util/isNotNullOrUndefined';
-import {LatestProfileRequest} from '@models/latest-profile.request.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { TuscanService } from '../../services/tuscan.service';
+import { Player } from '@models/player.model';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { SimpleMatch } from '@models/simple-match.model';
+import { PlayerStats } from '@models/player-stats.model';
+import { PlayerHistory } from '@models/player-history.model';
+import { MatchDetails } from '@models/match-details/match-details.model';
+import { Title } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
+import { isNotNullOrUndefined } from 'codelyzer/util/isNotNullOrUndefined';
+import { LatestProfileRequest } from '@models/latest-profile.request.model';
+import { PlayerBan } from '@models/demo-details/demo-details.model';
 
 @Component({
   selector: 'app-player-profile',
@@ -39,6 +40,9 @@ export class PlayerProfileComponent implements OnInit {
   public hasPlayerStats = false;
   public hasMatches = false;
 
+  public banned = false;
+  public banInfo: PlayerBan = null;
+
   hasErrors = false;
 
   private offset = 0;
@@ -65,6 +69,7 @@ export class PlayerProfileComponent implements OnInit {
         this.hasData = true;
         if (isNotNullOrUndefined(this.player.gameDetails)) {
           this.hasPlayerDetails = true;
+          this.getPlayerBans(this.player.playerId);
           this.getPlayerOverallStats(this.player.playerId);
           this.getPlayerHistory(this.player.playerId);
           this.getPlayerMatches(this.player.playerId);
@@ -135,6 +140,21 @@ export class PlayerProfileComponent implements OnInit {
         this.openErrorDialog();
       }
     });
+  }
+
+  private getPlayerBans(playerId: string) {
+    this.tuscanService.getPlayerBans(playerId)
+      .subscribe(data => {
+          if (this.hasPermanentOrOngoingBan(data.bans)) {
+            this.banned = true;
+            this.banInfo = data.bans[0];
+          }
+        }
+      );
+  }
+
+  private hasPermanentOrOngoingBan(bans: PlayerBan[]) {
+    return bans.filter(it => it.endsAt === null || new Date(it.endsAt) > new Date()).length > 0;
   }
 
   openErrorDialog() {
