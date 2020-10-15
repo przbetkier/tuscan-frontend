@@ -28,4 +28,8 @@ export class PositionComponent implements OnInit {
       }
     );
   }
+
+  public formatPlayerRankingPosition(position: number) {
+    return position === 0 ? 'unranked' : position;
+  }
 }
