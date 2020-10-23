@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TuscanService} from '../../../../services/tuscan.service';
+import {DecimalPipe} from '@angular/common';
 
 @Component({
   selector: 'app-position',
@@ -16,6 +17,8 @@ export class PositionComponent implements OnInit {
   positionInRegion: number;
   loaded = false;
 
+  private decimalPipe = new DecimalPipe('en_US');
+
   constructor(private tuscanService: TuscanService) { }
 
   ngOnInit() {
@@ -29,7 +32,7 @@ export class PositionComponent implements OnInit {
     );
   }
 
-  public formatPlayerRankingPosition(position: number) {
-    return position === 0 ? 'unranked' : position;
+  public formatPlayerRankingPosition(position: number): string {
+    return position === 0 ? 'unranked' : this.decimalPipe.transform(position, '1.');
   }
 }
