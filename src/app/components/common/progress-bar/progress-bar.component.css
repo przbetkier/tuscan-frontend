@@ -7,25 +7,23 @@
   width: 100%;
 }
 
+@media(max-width: 410px) {
+  #tooltips {
+    font-size: 12px;
+  }
+}
+
 #level-1 {
   width: 0;
 }
 
 #myBar {
   width: 1%;
-  height: 30px;
+  height: 8px;
   background-color: #e64a19;
+  border-radius: 2px;
 }
 
-.baselvl-tooltip {
-}
-
-.nextlvl-tooltip {
-  margin-left: 9.2%;
-}
-
-@media(max-width: 410px) {
-  #tooltips {
-    font-size: 12px;
-  }
+.lvl-segment {
+  display: inline-block;
 }

@@ -4,16 +4,13 @@
 </div>
 <div id="tooltips">
   <div style="width: 100%; overflow: hidden;">
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">1</span></div>
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">2</span></div>
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">3</span></div>
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">4</span></div>
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">5</span></div>
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">6</span></div>
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">7</span></div>
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">8</span></div>
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">9</span></div>
-    <div style="width: 10%; float: left; text-align: center"> <span style="float: left">|</span><span style="display: inline-block">10</span><span style="float: right">|</span></div>
+    <div *ngFor="let l of intervals; index as i">
+      <div style="width: 10%; float: left; text-align: center">
+        <span style="float: left">|</span>
+        <span class="lvl-segment">{{l.lvl}}</span>
+        <span *ngIf="i === intervals.length -1" style="float: right">|</span>
+      </div>
+    </div>
   </div>
 </div>
 

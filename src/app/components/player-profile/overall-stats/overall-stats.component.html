@@ -23,7 +23,7 @@
           <app-position [playerId]="player.playerId" [country]="player.country"
                         [region]="player.gameDetails.region"></app-position>
         </p>
-        <p> Faceit ELO: <span class="primary-color">{{ player.gameDetails.faceitElo }}</span></p>
+        <p>ELO: <span class="primary-color">{{ player.gameDetails.faceitElo }}</span></p>
         <app-progress-bar [elo]="player.gameDetails.faceitElo"
                           [level]="player.gameDetails.level"></app-progress-bar>
         <app-level-hint [level]="player.gameDetails.level" [elo]="player.gameDetails.faceitElo"></app-level-hint>
