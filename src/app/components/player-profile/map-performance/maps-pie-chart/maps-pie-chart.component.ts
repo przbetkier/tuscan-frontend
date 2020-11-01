@@ -34,7 +34,8 @@ export class MapsPieChartComponent implements OnInit {
 
       labels: {
         fontColor: 'white',
-        fontSize: 12
+        fontSize: 11,
+        fontFamily: 'Quantico, sans-serif'
       }
     },
     responsive: true
@@ -73,7 +74,7 @@ export class MapsPieChartComponent implements OnInit {
   }
 
   showLegend() {
-    return this.innerWidth > 768 ? true : false;
+    return this.innerWidth > 768;
   }
 
   @HostListener('window:resize', ['$event'])

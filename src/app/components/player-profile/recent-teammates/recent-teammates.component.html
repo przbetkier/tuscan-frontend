@@ -1,6 +1,6 @@
 <mat-card>
   <div class="teammates-container">
-    <h3>The most frequent teammates in last {{matches.length}} matches</h3>
+    <h3>Recent teammates</h3>
 
     <div class="row justify-content-center">
       <a *ngFor="let teammate of mostFrequentTeammates | orderBy:'matchesPlayed' : true"

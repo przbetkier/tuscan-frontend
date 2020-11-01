@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
@@ -10,7 +10,9 @@ export class AvatarComponent {
   @Input() avatarUrl: string;
   @Input() level: number;
 
-  constructor() {
-  }
+  defaultAvatar = 'assets/common/empty-avatar.jpeg';
 
+  handleImageError() {
+    this.avatarUrl = this.defaultAvatar;
+  }
 }
