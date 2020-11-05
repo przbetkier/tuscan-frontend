@@ -34,6 +34,7 @@ export class KdBlockChartComponent implements OnInit {
         },
         ticks: {
           fontColor: '#fcfffa',
+          fontFamily: 'Quantico, sans-serif'
         },
       }],
       yAxes: [{
@@ -43,14 +44,9 @@ export class KdBlockChartComponent implements OnInit {
         },
         ticks: {
           fontColor: '#fcfffa',
+          fontFamily: 'Quantico, sans-serif'
         },
       }],
-    },
-    legend: {
-      labels: {
-        fontColor: 'white',
-        fontSize: 11
-      }
     },
     responsive: true
   };

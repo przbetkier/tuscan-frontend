@@ -38,6 +38,7 @@ export class EloHistoryChartComponent implements OnInit {
         },
         ticks: {
           fontColor: '#fcfffa',
+          fontFamily: 'Quantico, sans-serif'
         },
       }],
       yAxes: [{
@@ -47,6 +48,7 @@ export class EloHistoryChartComponent implements OnInit {
         },
         ticks: {
           fontColor: '#fcfffa',
+          fontFamily: 'Quantico, sans-serif'
         },
       }],
     },

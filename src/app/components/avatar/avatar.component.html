@@ -1,6 +1,6 @@
 <div>
   <img src="{{avatarUrl}}"
-       onError="this.src = 'assets/common/empty-avatar.jpeg'"
+       (error)="handleImageError()"
        alt="avatar"/>
   <app-badge [level]="level"></app-badge>
 </div>

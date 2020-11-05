@@ -12,4 +12,5 @@ before_script:
 script:
   - npm install
   - ng build --prod --aot
+  - ng test
   - ng lint
