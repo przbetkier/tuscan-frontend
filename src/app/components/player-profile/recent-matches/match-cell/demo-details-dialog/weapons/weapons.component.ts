@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {MatSelectChange} from '@angular/material';
-import {DemoDetails, DemoKill} from '@models/demo-details/demo-details.model';
-import {FormControl} from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatSelectChange } from '@angular/material';
+import { DemoDetails, DemoKill } from '@models/demo-details/demo-details.model';
+import { FormControl } from '@angular/forms';
 
 export interface GroupedKill {
   weapon: string;
@@ -66,7 +65,7 @@ export class WeaponsComponent implements OnInit {
         weapon: d,
         kills: myMap[d].length,
         entries: myMap[d].filter(k => k.entry).length,
-        headshots: myMap[d].filter(k => k.entry).length,
+        headshots: myMap[d].filter(k => k.hs).length,
         wallbangs: myMap[d].filter(k => k.wallbang).length
       };
       return grouped;
