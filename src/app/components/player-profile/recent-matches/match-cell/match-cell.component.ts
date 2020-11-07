@@ -31,6 +31,7 @@ export class MatchCellComponent implements OnChanges, OnInit {
   public daysSinceFinished: number;
   public minutesSinceFinished: number;
   public loadingStats = false;
+  public readonly MAP_POOL: string[] = ['de_cache', 'de_dust2', 'de_mirage', 'de_nuke', 'de_overpass', 'de_train', 'de_vertigo', 'de_inferno'];
 
   constructor(public dialog: MatDialog, private tuscanService: TuscanService, private route: ActivatedRoute) {
   }
@@ -111,6 +112,10 @@ export class MatchCellComponent implements OnChanges, OnInit {
     return (!this.isTooLateToDownloadDemo() && !this.isTooEarlyToDownloadDemo()) && !isNullOrUndefined(this.details.demoUrl);
   }
 
+  isDefaultMapPool(): boolean {
+    return this.MAP_POOL.some(i => i === this.details.map);
+  }
+
   private isTooLateToDownloadDemo(): boolean {
     return this.daysSinceFinished > AppSettings.DEMO_URL_DAYS_TO_EXPIRE;
   }
@@ -138,15 +143,15 @@ export class MatchCellComponent implements OnChanges, OnInit {
       this.openDemoDetailsDialog();
     } else {
       this.loadingStats = true;
-      this.tuscanService.requestDemoDetails(new DemoDetailsRequest(this.details.matchId)).subscribe(
-        () => {
-          this.details.demoStatus = 'PARSED';
-          this.loadingStats = false;
-          this.openDemoDetailsDialog();
-        }, () => {
-          this.loadingStats = false;
-        }
-      );
+      this.tuscanService.requestDemoDetails(new DemoDetailsRequest(this.details.matchId))
+        .subscribe(() => {
+            this.details.demoStatus = 'PARSED';
+            this.loadingStats = false;
+            this.openDemoDetailsDialog();
+          }, () => {
+            this.loadingStats = false;
+          }
+        );
     }
   }
 
@@ -160,7 +165,7 @@ export class MatchCellComponent implements OnChanges, OnInit {
     } else if (this.details.demoStatus === 'COMPUTING' || this.loadingStats) {
       return 'We are computing demo details already.';
     } else {
-      return 'You can\'t see more stats right now';
+      return `You can't see more stats right now`;
     }
   }
 
