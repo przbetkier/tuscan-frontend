@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatSelectChange } from '@angular/material';
+import { MatSelectChange } from '@angular/material/select';
 import { DemoDetails, DemoKill } from '@models/demo-details/demo-details.model';
 import { FormControl } from '@angular/forms';
 

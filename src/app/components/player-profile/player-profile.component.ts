@@ -7,7 +7,7 @@ import { PlayerStats } from '@models/player-stats.model';
 import { PlayerHistory } from '@models/player-history.model';
 import { MatchDetails } from '@models/match-details/match-details.model';
 import { Title } from '@angular/platform-browser';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { isNotNullOrUndefined } from 'codelyzer/util/isNotNullOrUndefined';
 import { LatestProfileRequest } from '@models/latest-profile.request.model';
