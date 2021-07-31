@@ -3,3 +3,9 @@
   color: white;
   padding: 15px;
 }
+
+#pie-chart-parent {
+  margin-top: 1rem;
+  display: grid;
+  height: 400px;
+}

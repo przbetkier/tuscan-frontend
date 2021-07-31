@@ -1,13 +1,14 @@
 Matches played:
-<div style="display: block" class="maps-chart">
-  <canvas mdbChart
-          [chartType]="chartType"
-          [datasets]="chartDatasets"
-          [labels]="chartLabels"
-          [colors]="chartColors"
-          [options]="chartOptions"
-          [legend]="showLegend()"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)">
-  </canvas>
+<div id="pie-chart-parent">
+  <ngx-charts-pie-chart
+    [maxLabelLength]="15"
+    [scheme]="colorScheme"
+    [results]="single"
+    [gradient]="false"
+    [doughnut]="true"
+    [labels]="true"
+    [animations]="false"
+    style="fill: white; height: 300px;"
+  >
+  </ngx-charts-pie-chart>
 </div>

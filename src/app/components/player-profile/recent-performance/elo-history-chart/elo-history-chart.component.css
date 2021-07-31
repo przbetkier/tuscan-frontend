@@ -1,13 +1,16 @@
-.chart-elo {
-  background-color: rgba(255, 253, 253, 0);
-  color: white;
+mat-label {
+  color: white!important;
 }
 
-button {
-  width: 100%;
-  margin: 4px;
+::ng-deep .ngx-charts .gridline-path {
+  stroke: rgba(255, 255, 255, 0.09) !important;
 }
 
-.button-group {
-  margin-top: 12px;
+::ng-deep .ngx-charts .tooltip-anchor {
+  fill: white !important;
+}
+
+#line-chart-parent {
+  display: grid;
+  height: 300px;
 }

@@ -1,24 +1,29 @@
-<div style="display: block" class="chart-elo">
-  <canvas mdbChart
-          [chartType]="chartType"
-          [datasets]="chartDatasets"
-          [labels]="chartLabels"
-          [colors]="chartColors"
-          [options]="chartOptions"
-          [legend]="false"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)">
-  </canvas>
-  <div class="row button-group">
-    <div class="col-12 col-lg-4">
-      <button mat-raised-button color="primary" (click)="setEloAsDataset()">Show ELO</button>
-    </div>
-    <div class="col-12 col-lg-4">
-      <button mat-raised-button color="primary" (click)="setKdRatioAsDataset()">Show K/D
-      </button>
-    </div>
-    <div class="col-12 col-lg-4">
-      <button mat-raised-button color="primary" mdbWavesEffect (click)="setHsAsDataset()">Show HS%</button>
-    </div>
+<div class="chart-elo">
+  <div class="row">
+  <mat-form-field appearance="fill" style="float: right">
+    <mat-label>Choose stat</mat-label>
+    <mat-select [value]="'ELO'" (selectionChange)="changeData($event)">
+      <mat-option [value]="'ELO'">ELO</mat-option>
+      <mat-option [value]="'KD'">KD</mat-option>
+      <mat-option [value]="'HS%'">HS%</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <div class="row" id="line-chart-parent">
+    <ngx-charts-line-chart
+      [curve]="curve"
+      [autoScale]="true"
+      [scheme]="colorScheme"
+      [legend]="false"
+      [showXAxisLabel]="false"
+      [showYAxisLabel]="false"
+      [xAxis]="true"
+      [yAxis]="true"
+      [results]="simple"
+      [showGridLines]="true"
+      [animations]="true"
+      style="fill: white;"
+    >
+    </ngx-charts-line-chart>
   </div>
 </div>

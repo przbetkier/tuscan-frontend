@@ -17,7 +17,6 @@ import {OrderModule} from 'ngx-order-pipe';
 import {LevelHintComponent} from './components/player-profile/overall-stats/level-hint/level-hint.component';
 import {LastMatchesPerformanceComponent} from './components/player-profile/recent-performance/last-matches-performance/last-matches-performance.component';
 import {EloHistoryChartComponent} from './components/player-profile/recent-performance/elo-history-chart/elo-history-chart.component';
-import {ChartsModule, MDBBootstrapModule, WavesModule} from 'angular-bootstrap-md';
 import {MapPerformanceComponent} from './components/player-profile/map-performance/map-performance.component';
 import {ThumbnailComponent} from './components/player-profile/map-performance/thumbnail/thumbnail.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -64,6 +63,7 @@ import {
 } from '@angular/material';
 import {RecentPerformanceComponent} from './components/player-profile/recent-performance/recent-performance.component';
 import {RecentMatchesComponent} from './components/player-profile/recent-matches/recent-matches.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -107,10 +107,7 @@ import {RecentMatchesComponent} from './components/player-profile/recent-matches
     OrderModule,
     HttpClientModule,
     FormsModule,
-    MDBBootstrapModule,
-    ChartsModule,
     InlineSVGModule,
-    WavesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -133,6 +130,7 @@ import {RecentMatchesComponent} from './components/player-profile/recent-matches
     MatDialogModule,
     MatTableModule,
     MatChipsModule,
+    NgxChartsModule,
     RouterModule.forRoot(
       [
         {path: '', component: MainPageComponent},

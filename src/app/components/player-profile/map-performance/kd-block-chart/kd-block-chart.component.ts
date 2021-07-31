@@ -10,58 +10,31 @@ export class KdBlockChartComponent implements OnInit {
 
   @Input() mapStats: MapStats[];
 
-  public chartType = 'bar';
-  public dataset: Array<any>;
-  public chartDatasets: Array<any>;
-  public chartLabels: Array<any>;
-  public chartColors: Array<any> = [
-    {
-      backgroundColor: ['#e64a19', '#9C27B0', '#3F51B5', '#03A9F4', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#602147'],
-      borderColor: 'rgba(220,220,220,1)',
-      borderWidth: 1,
-      pointBackgroundColor: 'rgba(220,220,220,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(220,220,220,1)'
-    }
-  ];
+  single = [];
 
-  public chartOptions: any = {
-    scales: {
-      xAxes: [{
-        gridLines: {
-          display: false,
-        },
-        ticks: {
-          fontColor: '#fcfffa',
-          fontFamily: 'Quantico, sans-serif'
-        },
-      }],
-      yAxes: [{
-        display: true,
-        gridLines: {
-          display: true,
-        },
-        ticks: {
-          fontColor: '#fcfffa',
-          fontFamily: 'Quantico, sans-serif'
-        },
-      }],
-    },
-    responsive: true
+  colorScheme = {
+    domain: ['#e64a19', '#9C27B0', '#3F51B5', '#03A9F4', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#602147']
   };
 
-  public chartClicked(e: any): void {
-  }
-
-  public chartHovered(e: any): void {
-  }
+  max = 0;
+  min = 0;
 
   ngOnInit() {
     this.mapStats = this.sortMapStats();
-    this.dataset = this.mapStats.map(m => m.kdRatio);
-    this.chartDatasets = [{data: this.dataset, label: 'K/D'}];
-    this.chartLabels = this.mapStats.map(m => m.csgoMap.toLowerCase());
+
+    this.single = this.mapStats.map((m) => {
+      return {
+        name: m.csgoMap.toLowerCase(),
+        value: m.kdRatio
+      };
+    });
+
+    this.max = this.mapStats.reduce((p, c) => p.kdRatio > c.kdRatio ? p : c).kdRatio * 1.05;
+    this.min = this.getMin();
+  }
+
+  private getMin(): number {
+    return this.mapStats.reduce((p, c) => p.kdRatio < c.kdRatio ? p : c).kdRatio * 0.95;
   }
 
   private sortMapStats() {
