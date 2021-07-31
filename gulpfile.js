@@ -2,5 +2,5 @@ const gulp = require('gulp');
 
 gulp.task('copy-cname', function () {
   return gulp.src('./CNAME')
-    .pipe(gulp.dest('./docs'));
+    .pipe(gulp.dest('./dist/tuscan-frontend'));
 });
