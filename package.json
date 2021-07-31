@@ -7,7 +7,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod && gulp copy-cname"
+    "postinstall": "ng build --aot --prod --output-path docs --base-href /tuscan-frontend/ && gulp copy-cname"
   },
   "private": false,
   "dependencies": {
