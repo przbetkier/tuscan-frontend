@@ -1,13 +1,18 @@
 K/D ratio:
-<div style="display: block" class="kd-chart">
-  <canvas mdbChart
-          [chartType]="chartType"
-          [datasets]="chartDatasets"
-          [labels]="chartLabels"
-          [colors]="chartColors"
-          [options]="chartOptions"
-          [legend]="false"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)">
-  </canvas>
+<div id="bar-chart-parent">
+  <ngx-charts-bar-vertical
+    [scheme]="colorScheme"
+    [results]="single"
+    [gradient]="false"
+    [xAxis]="true"
+    [yScaleMax]="max"
+    [yScaleMin]="min"
+    [yAxis]="true"
+    [legend]="false"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="false"
+    [animations]="false"
+    style="fill: white; height: 350px"
+  >
+  </ngx-charts-bar-vertical>
 </div>

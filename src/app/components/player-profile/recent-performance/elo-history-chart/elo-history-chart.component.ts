@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PlayerHistory} from '@models/player-history.model';
+import {curveCardinal} from 'd3-shape';
 
 @Component({
   selector: 'app-elo-history-chart',
@@ -11,55 +12,18 @@ export class EloHistoryChartComponent implements OnInit {
   @Input() playerHistory: PlayerHistory;
   @Output() whenLabelChanged = new EventEmitter<any>();
 
-  public primaryColor = '#e64a19';
+  public curve: any = curveCardinal;
+  public simple = [];
+
+  colorScheme = {
+    domain: ['#e64a19']
+  };
+
+  view: any[] = [];
+
   public eloHistory: PlayerHistory;
   public kdHistory: PlayerHistory;
   public hsHistory: PlayerHistory;
-  public chartType = 'line';
-  public chartDatasets: Array<any>;
-  public chartLabels: Array<any>;
-  public chartColors: Array<any> = [
-    {
-      backgroundColor: 'rgba(220,220,220,0.11)',
-      borderColor: this.primaryColor,
-      borderWidth: 1,
-      pointBackgroundColor: this.primaryColor,
-      pointBorderColor: this.primaryColor,
-      pointHoverBackgroundColor: this.primaryColor,
-      pointHoverBorderColor: this.primaryColor
-    }
-  ];
-
-  public chartOptions: any = {
-    scales: {
-      xAxes: [{
-        gridLines: {
-          display: false,
-        },
-        ticks: {
-          fontColor: '#fcfffa',
-          fontFamily: 'Quantico, sans-serif'
-        },
-      }],
-      yAxes: [{
-        display: true,
-        gridLines: {
-          display: true,
-        },
-        ticks: {
-          fontColor: '#fcfffa',
-          fontFamily: 'Quantico, sans-serif'
-        },
-      }],
-    },
-    responsive: true
-  };
-
-  public chartClicked(e: any): void {
-  }
-
-  public chartHovered(e: any): void {
-  }
 
   ngOnInit() {
     this.kdHistory = new PlayerHistory((this.playerHistory.matchHistory.slice(0, 20)));
@@ -68,42 +32,58 @@ export class EloHistoryChartComponent implements OnInit {
     this.setEloAsDataset();
   }
 
-  getLabels(datasetLength: number) {
-    // FIXME: Move it to the configuration
-    const historySize = datasetLength;
-    const labels = [];
-    for (let i = 0; i < historySize; i++) {
-      const label = `${i + 1}`;
-      labels.push(label);
-    }
-    return labels.reverse();
-  }
-
   setKdRatioAsDataset() {
-    const data = this.kdHistory.matchHistory.map(m => m.kdRatio).reverse();
-    this.chartDatasets = [
-      {data: data}
-    ];
+    const series = this.eloHistory.matchHistory.map((m, idx) => {
+      return {
+        name: `${idx + 1}`, value: m.kdRatio
+      };
+    }).reverse();
+    this.simple = [{
+      name: 'KD',
+      series: series
+    }];
     this.whenLabelChanged.emit('K/D');
-    this.chartLabels = this.getLabels(data.length);
   }
 
   setEloAsDataset() {
-    const data = this.eloHistory.matchHistory.map(m => m.elo).reverse();
-    this.chartDatasets = [
-      {data: data}
-    ];
+    const series = this.eloHistory.matchHistory.map((m, idx) => {
+      return {
+        name: `${idx + 1}`, value: m.elo
+      };
+    }).reverse();
+    this.simple = [{
+      name: 'Elo',
+      series: series
+    }];
     this.whenLabelChanged.emit('ELO');
-    this.chartLabels = this.getLabels(data.length);
   }
 
   setHsAsDataset() {
-    const data = this.hsHistory.matchHistory.map(m => m.hsPercentage).reverse();
-    this.chartDatasets = [
-      {data: data}
-    ];
+    const series = this.eloHistory.matchHistory.map((m, idx) => {
+      return {
+        name: `${idx + 1}`, value: m.hsPercentage
+      };
+    }).reverse();
+    this.simple = [{
+      name: 'HS%',
+      series: series
+    }];
+
     this.whenLabelChanged.emit('HS%');
-    this.chartLabels = this.getLabels(data.length);
+  }
+
+  changeData(val: any) {
+    switch (val.value) {
+      case 'KD':
+        this.setKdRatioAsDataset();
+        break;
+      case 'HS%':
+        this.setHsAsDataset();
+        break;
+      default:
+        this.setEloAsDataset();
+        break;
+    }
   }
 }
 

@@ -26,7 +26,7 @@ export class RecentPerformanceComponent implements OnInit {
     this.performanceLabel = event;
   }
 
-  private getWinsCount(): number {
+  getWinsCount(): number {
     return this.matchesMap.filter(m => m.result === 'WIN').length;
   }
 
