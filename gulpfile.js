@@ -9,7 +9,7 @@ gulp.task('copy-cname', function () {
 });
 
 gulp.task('default-404', function () {
-  return gulp.src('./src/index.html')
+  return gulp.src(`${DIST_TARGET}/index.html`)
     .pipe(rename('404.html'))
     .pipe(gulp.dest(DIST_TARGET));
 });
