@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/tuscan-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -32,6 +33,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -126,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "tuscan-frontend"
+  "defaultProject": "tuscan-frontend",
+  "cli": {
+    "analytics": false
+  }
 }

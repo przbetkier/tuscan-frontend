@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatSelectChange } from '@angular/material';
 import { DemoDetails, DemoKill } from '@models/demo-details/demo-details.model';
 import { FormControl } from '@angular/forms';
+import {MatSelectChange} from '@angular/material/select';
 
 export interface GroupedKill {
   weapon: string;
