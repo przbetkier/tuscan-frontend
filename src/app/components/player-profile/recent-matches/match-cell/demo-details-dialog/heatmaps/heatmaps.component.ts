@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DemoDetails, PlayerDemoData} from '@models/demo-details/demo-details.model';
 import {FormControl} from '@angular/forms';
-import {MatSelectChange} from '@angular/material';
+import {MatSelectChange} from '@angular/material/select';
 
 @Component({
   selector: 'app-heatmaps',

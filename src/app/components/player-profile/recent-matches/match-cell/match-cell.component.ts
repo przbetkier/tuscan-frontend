@@ -5,11 +5,11 @@ import { isNullOrUndefined } from 'util';
 import { MatchHistory } from '@models/match-history.model';
 import { SlideInOutAnimation } from '../../../../animations/animations';
 import { AppSettings } from '../../../../config/app-settings';
-import { MatDialog } from '@angular/material';
 import { DemoDetailsDialogComponent } from './demo-details-dialog/demo-details-dialog.component';
 import { TuscanService } from '../../../../services/tuscan.service';
 import { DemoDetailsRequest } from '@models/demo-details/demo-details.model';
 import { ActivatedRoute } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-match-cell',

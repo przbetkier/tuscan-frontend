@@ -17,7 +17,7 @@ describe('AvatarComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create a avatar component', async () => {
+  it('should create avatar component', async () => {
     expect(component).toBeTruthy();
   });
 

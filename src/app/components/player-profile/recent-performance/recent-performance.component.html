@@ -8,7 +8,7 @@
           <mat-spinner [diameter]="60" *ngIf="!allMatchesLoaded"></mat-spinner>
           <app-last-matches-performance *ngIf="playerHistory && allMatchesLoaded"
                                         [playerModels]="detailedPlayers"
-                                        [wins]="getWinsCount">
+                                        [wins]="getWinsCount()">
           </app-last-matches-performance>
         </div>
       </div>

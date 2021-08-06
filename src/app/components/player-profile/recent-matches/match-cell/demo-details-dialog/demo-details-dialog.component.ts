@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {TuscanService} from '../../../../../services/tuscan.service';
 import {DemoDetails} from '@models/demo-details/demo-details.model';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 export interface DemoDetailsDialogData {
   matchId: string;
