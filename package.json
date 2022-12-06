@@ -24,7 +24,7 @@
     "@angular/platform-browser": "9.1.13",
     "@angular/platform-browser-dynamic": "9.1.13",
     "@angular/router": "9.1.13",
-    "@swimlane/ngx-charts": "14.0.0",
+    "@swimlane/ngx-charts": "20.1.2",
     "@types/d3-shape": "3.0.2",
     "core-js": "2.5.4",
     "hammerjs": "2.0.8",
